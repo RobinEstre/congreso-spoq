@@ -1,0 +1,246 @@
+<div class="row justify-content-center">
+    <div class="col-12 col-md-11 col-lg-10 col-xl-7 col-xxl-6">
+        <div class="card bg-blur">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col-auto">
+                        <img src="assets/img/favicon32.png" alt="" />
+                    </div>
+                    <div class="col align-self-center text-center">
+                        <h5 class="fw-normal">User Onboarding</h5>
+                    </div>
+                    <div class="col-auto">
+                        <a routerLink="/pages/dashboard/home">Skip <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <!-- content swiper -->
+                <swiper #swiper [slidesPerView]="1" [spaceBetween]="0" [pagination]="pagination" [navigation]="navigation" [autoplay]="false" (reachEnd)="reachEnd()" (slideChange)="slideChange()" class=" onboarding-swiper swiper-no-swiping h-100 w-100">
+                    <ng-template swiperSlide>
+                        <div class="row">
+                            <div class="col-12 col-md-6 text-center position-relative py-4">
+                                <img src="assets/img/onboarding1.png" alt="" class="mw-100 mb-4" />
+
+                                <div class="avatar avatar-120 coverimg rounded-circle ms-4 absoluteuploaduser-4">
+                                    <i class="bi bi-upload bg-theme avatar avatar-40 rounded-circle"></i>
+                                    <input type="file" accept="image/*" id="userphotoonboarding" (change)="handleFileInput($event)">
+                                    <img src="assets/img/user-1.jpg" alt="" id="userimage" name="userimage" />
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 align-self-center py-5">
+                                <p class="h4 fw-light mb-3">Who is going to use this app?</p>
+                                <p class="text-secondary small mb-4">
+                                    Please share your <b>Name</b> and <b>Photo</b> to display in application. This will be logged in user name wherever mentioned. This is just to make more intuitive communication with interface.
+                                </p>
+                                <form class="">
+                                    <!-- Form elements -->
+                                    <div class="form-group mb-2 position-relative check-valid is-valid">
+                                        <div class="input-group input-group-lg">
+                                            <span class="input-group-text text-theme bg-white border-end-0"><i class="bi bi-person-circle"></i></span>
+                                            <div class="form-floating">
+                                                <input type="text" [(ngModel)]="userName" (change)="userNameUpdated()" placeholder="Username" value="Maxartkiller" required class="form-control border-start-0" autofocus id="usernamevalue" name="userName">
+                                                <label for="floatingInput">Your good name</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </ng-template>
+                    <ng-template swiperSlide>
+                        <div class="row">
+                            <div class="col-12 col-md-6 text-center position-relative py-2">
+                                <img src="assets/img/onboarding-2.png" alt="" class="mw-100" />
+                            </div>
+                            <div class="col-12 col-md-6 align-self-center">
+                                <p class="h4 fw-light mb-3">What's your<br>Industries or Business Domain?</p>
+                                <p class="text-secondary small mb-4">
+                                    Selection of Industry or Business domain helps us to choose demo layout or formatting you would like as most of the preferences and based on market standard practices.
+                                </p>
+                                <div class="row gx-3" id="domain-select">
+                                    <!-- <div class="col-auto">
+                                        <div class="select-box text-center mb-3">
+                                            <div class="avatar avatar-60">
+                                                <i class="bi bi-coin"></i>
+                                            </div>
+                                            <p class="small">Finance</p>
+                                        </div>
+                                    </div> -->
+                                    <div class="col-auto">
+                                        <div class="select-box text-center mb-3" [ngClass]="{'active': domain === 'finance'}" data-title="finance" (click)="selectDomain('finance')">
+                                            <div class="avatar avatar-60">
+                                                <i class="bi bi-coin"></i>
+                                            </div>
+                                            <p class="small">Finance</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="select-box text-center mb-3" [ngClass]="{'active': domain === 'network'}" data-title="network" (click)="selectDomain('network')">
+                                            <div class="avatar avatar-60">
+                                                <i class="bi bi-wifi"></i>
+                                            </div>
+                                            <p class="small">Network</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="select-box text-center mb-3" [ngClass]="{'active': domain === 'social'}" data-title="social" (click)="selectDomain('social')">
+                                            <div class="avatar avatar-60">
+                                                <i class="bi bi-people"></i>
+                                            </div>
+                                            <p class="small">Social</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="select-box text-center mb-3" [ngClass]="{'active': domain === 'inventory'}" data-title="inventory" (click)="selectDomain('inventory')">
+                                            <div class="avatar avatar-60">
+                                                <i class="bi bi-basket"></i>
+                                            </div>
+                                            <p class="small">Inventory</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="select-box text-center mb-3" [ngClass]="{'active': domain === 'learning'}" data-title="learning" (click)="selectDomain('learning')">
+                                            <div class="avatar avatar-60">
+                                                <i class="bi bi-coin"></i>
+                                            </div>
+                                            <p class="small">Learing</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                    <ng-template swiperSlide>
+                        <div class="row h-100">
+                            <div class="col-12 col-md-6 text-center align-self-center position-relative py-3">
+                                <img src="assets/img/onboarding-3.png" alt="" class="mw-100" />
+                            </div>
+                            <div class="col-12 col-md-6 align-self-center pt-4">
+                                <p class="h4 fw-light mb-3">Best brand color<br>It create identity as well as trust.</p>
+                                <p class="text-secondary small mb-4">
+                                    Our template comes with Unlimited customized color scheme possibility. Here some color set are predefined to choose from.
+                                </p>
+                                <div class="row gx-3" id="theme-select">
+                                    <div class="col-auto">
+                                        <div class="select-box text-center mb-2" [ngClass]="{'selected': themeColor === 'theme-blue'}" data-title="theme-blue" (click)="selectThemeColor('theme-blue')">
+                                            <div class="avatar avatar-50">
+                                                <span class="avatar avatar-40 bg-blue"></span>
+                                            </div>
+                                            <p class="small">Blue</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="select-box text-center mb-2" [ngClass]="{'selected': themeColor === 'theme-indigo'}" data-title="theme-indigo" (click)="selectThemeColor('theme-indigo')">
+                                            <div class="avatar avatar-50">
+                                                <span class="avatar avatar-40 bg-indigo"></span>
+                                            </div>
+                                            <p class="small">Indigo</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="select-box text-center mb-2" [ngClass]="{'selected': themeColor === 'theme-purple'}" data-title="theme-purple" (click)="selectThemeColor('theme-purple')">
+                                            <div class="avatar avatar-50">
+                                                <span class="avatar avatar-40 bg-purple"></span>
+                                            </div>
+                                            <p class="small">Purple</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="select-box text-center mb-2" [ngClass]="{'selected': themeColor === 'theme-pink'}" data-title="theme-pink" (click)="selectThemeColor('theme-pink')">
+                                            <div class="avatar avatar-50">
+                                                <span class="avatar avatar-40 bg-pink"></span>
+                                            </div>
+                                            <p class="small">Pink</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="select-box text-center mb-2" [ngClass]="{'selected': themeColor === 'theme-red'}" data-title="theme-red" (click)="selectThemeColor('theme-red')">
+                                            <div class="avatar avatar-50">
+                                                <span class="avatar avatar-40 bg-red"></span>
+                                            </div>
+                                            <p class="small">Red</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="select-box text-center mb-2" [ngClass]="{'selected': themeColor === 'theme-orange'}" data-title="theme-orange" (click)="selectThemeColor('theme-orange')">
+                                            <div class="avatar avatar-50">
+                                                <span class="avatar avatar-40 bg-orange"></span>
+                                            </div>
+                                            <p class="small">Orange</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="select-box text-center mb-2" [ngClass]="{'selected': themeColor === 'theme-yellow'}" data-title="theme-yellow" (click)="selectThemeColor('theme-yellow')">
+                                            <div class="avatar avatar-50">
+                                                <span class="avatar avatar-40 bg-yellow"></span>
+                                            </div>
+                                            <p class="small">Yellow</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="select-box text-center mb-2" [ngClass]="{'selected': themeColor === 'theme-green'}" data-title="theme-green" (click)="selectThemeColor('theme-green')">
+                                            <div class="avatar avatar-50">
+                                                <span class="avatar avatar-40 bg-green"></span>
+                                            </div>
+                                            <p class="small">Green</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="select-box text-center mb-2" [ngClass]="{'selected': themeColor === 'theme-teal'}" data-title="theme-teal" (click)="selectThemeColor('theme-teal')">
+                                            <div class="avatar avatar-50">
+                                                <span class="avatar avatar-40 bg-teal"></span>
+                                            </div>
+                                            <p class="small">Teal</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="select-box text-center mb-2" [ngClass]="{'selected': themeColor === 'theme-cyan'}" data-title="theme-cyan" (click)="selectThemeColor('theme-cyan')">
+                                            <div class="avatar avatar-50">
+                                                <span class="avatar avatar-40 bg-cyan"></span>
+                                            </div>
+                                            <p class="small">Cyan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row align-items-center mb-4">
+                                    <div class="col-auto">
+                                        <div class="avatar avatar-70 my-3 text-center rounded">
+                                            <img src="assets/img/logo.png" alt="" class="mw-100" id="companylogolight" />
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div>
+                                            <label for="companylogolightinput" class="form-label">Upload company logo </label><br>
+                                            <input class="form-control d-none" accept="image/*" type="file" id="companylogolightinput" (change)="handleFileInputLogo($event)">
+                                            <button class="btn btn-theme" onclick="$(this).prev().click()"><i class="bi bi-camera"></i> Upload</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                </swiper>
+                <!-- content ends -->
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-auto">
+                        <button class="btn btn-theme btn-square btn-prev"><i class="bi bi-arrow-left"></i></button>
+                    </div>
+                    <div class="col align-self-center">
+                        <div class="pagination-wrap swiper-pagination pagination-smallline position-relative bottom-0"></div>
+                    </div>
+                    <div class="col-auto">
+                        <button class="btn btn-theme btn-square btn-next"><i class="bi bi-arrow-right"></i></button>
+                        <button class="btn btn-theme btn-square ms-1 btn-summary d-none" (click)="summaryNavigate()">
+                            <i class="bi bi-arrow-right iconnext mx-0"></i>
+                            <span class="spinner-border text-white spinner-border-sm d-none iconloader" role="status"><span class="visually-hidden"> Loading...</span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
