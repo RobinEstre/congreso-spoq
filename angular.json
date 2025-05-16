@@ -46,7 +46,6 @@
               "src/assets/js/popper.min.js",
               "./node_modules/jquery/dist/jquery.min.js",
               "./node_modules/footable-v3/compiled/footable.min.js",
-              "./node_modules/footable-v3/compiled/footable.min.js",
               "./node_modules/footable-v3/compiled/footable.paging.min.js",
               "./node_modules/footable-v3/compiled/footable.filtering.min.js",
               "src/assets/vendor/chosen_v1.8.7/chosen.jquery.min.js",
@@ -60,7 +59,7 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
+                  "maximumWarning": "4500kb",
                   "maximumError": "4mb"
                 },
                 {

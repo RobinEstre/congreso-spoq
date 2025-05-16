@@ -1,4 +1,4 @@
-# Windoors
+# RLS IGV
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.4.
 
@@ -25,3 +25,17 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## deploy to angular virtual s3
+
+<!-- Para configurar  -->
+aws configure --profile rlsigv
+<!-- Para ver carpetas  -->
+aws s3 ls --profile rlsigv
+<!-- Ver credenciales profiles -->
+cat ~/.aws/credentials 
+<!-- Ejecutar -->
+ng build --configuration production
+rm -r dist/windoors/assets/
+aws s3 rm s3://web-rlsigv --recursive --profile rlsigv
+aws s3 sync dist/windoors s3://web-rlsigv --acl public-read --cache-control max-age=5 --profile rlsigv

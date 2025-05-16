@@ -7,7 +7,7 @@ import { DefaultOnboardingComponent } from './default-onboarding/default-onboard
 import { SecondaryOnboardingComponent } from './secondary-onboarding/secondary-onboarding.component';
 import { AuthenticationModule } from '../shared/auth/authentication.module';
 import { SwiperModule } from 'swiper/angular';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     OnboardingRoutingModule,
     AuthenticationModule,
     SwiperModule,

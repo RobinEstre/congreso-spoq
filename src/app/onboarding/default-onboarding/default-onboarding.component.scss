@@ -1,0 +1,169 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bacasime+Antique&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    overflow-y: auto;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    color: #fff;
+
+    background-image: url("https://all-files-rlsigv.s3.us-east-1.amazonaws.com/fondo-proximamente.jpg");
+    background-color: rgba(129, 127, 127, 0.392);
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.container {
+    color: #fff;
+    height: auto;
+    max-width: 800px;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    backdrop-filter: blur(7px) brightness(70%);
+    border-radius: 10px;
+}
+
+.content {
+    color: #fff;
+    margin: 30px 0px;
+}
+
+.avatar img {
+    max-width: 100px;
+    height: auto;
+}
+
+.company {
+    color: #fff;
+    font-size: 0.9em;
+    font-weight: bolder;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    margin-bottom: 30px;
+    margin-top: -15px;
+}
+
+.title2 {
+    color: #fff;
+    font-size: 2em;
+    font-family: 'Bacasime Antique', serif;
+    margin-bottom: 15px;
+    padding: 0 10px;
+}
+
+.discription {
+    color: #fff;
+    font-size: 1em;
+    line-height: 1.5em;
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto 30px;
+    padding: 0 15px;
+}
+
+form {
+    width: 100%;
+    padding: 0 10px;
+}
+
+.form-floating {
+    color: black !important;
+}
+
+.button {
+    margin-top: 20px;
+}
+
+.button button {
+    width: 250px;
+    height: 40px;
+    border-radius: 20px;
+    background: transparent;
+    border: 2px solid #fff;
+    font-weight: bolder;
+    color: #fff;
+}
+
+.button button:hover {
+    background: #fff;
+    color: #000;
+    transition: 0.5s;
+}
+
+.icons {
+    margin-top: 50px;
+}
+
+.icons button {
+    background: transparent;
+    border: none;
+    width: 50px;
+    font-size: 1.5em;
+    border-radius: 50%;
+}
+
+.icons button ion-icon {
+    padding: 10px;
+}
+
+.icons button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transition: 0.5s;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .title2 {
+        font-size: 1.6em;
+    }
+
+    .company {
+        font-size: 0.75em;
+    }
+
+    .discription {
+        font-size: 0.95em;
+    }
+
+    .row .col-lg-5,
+    .row .col-md-5 {
+        width: 100% !important;
+        margin: 10px 0;
+    }
+
+    .button {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+
+    .title2 {
+        font-size: 1.4em;
+    }
+
+    .discription {
+        font-size: 0.9em;
+    }
+}

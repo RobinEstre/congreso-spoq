@@ -9,13 +9,14 @@ import { ChartsModule } from 'ng2-charts';
 import { Daterangepicker } from 'ng2-daterangepicker';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { JustLightboxModule } from 'just-lightbox';
-import { LightboxModule } from 'ngx-lightbox';
+// import { LightboxModule } from 'ngx-lightbox';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { TagifyModule } from 'ngx-tagify';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { NgWizardModule, NgWizardConfig, THEME } from 'ng-wizard';
 import { PersonalizationService } from './shared/services/personalization.service';
 import { AuthenticationService } from './shared/services/authentication.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 const ngWizardConfig: NgWizardConfig = {
@@ -34,9 +35,10 @@ const ngWizardConfig: NgWizardConfig = {
     ReactiveFormsModule,
     ChartsModule,
     Daterangepicker,
+    HttpClientModule,
     NgCircleProgressModule.forRoot(),
     JustLightboxModule.forRoot(),
-    LightboxModule,
+    // LightboxModule,
     CKEditorModule,
     TagifyModule.forRoot(),
     NgxDropzoneModule,

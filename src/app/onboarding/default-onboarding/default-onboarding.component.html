@@ -1,4 +1,128 @@
-<div class="row justify-content-center">
+<section>
+    <div class="container">
+        <div class="content">
+            <div class="company">
+                <img src="https://all-files-rlsigv.s3.us-east-1.amazonaws.com/logo+igv-sin-fondo.png" alt=""
+                    style="width: 15%;">
+                <h5>Respetable Logia Simbólica</h5>
+                <p>Inca Garcilaso de la Vega Nro. 177</p>
+            </div>
+
+            <h1 class="title2">RESPUESTA DEL CORONEL FRANCISCO BOLOGNESI Y EL HONOR NACIONAL</h1>
+
+            <div class="discription">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-12 text-center">
+                        <i class="bi bi-camera-video-fill"></i> Conferencia Virtual
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 text-center">
+                        <i class="bi bi-person-circle"></i> Iván Torres La Torre
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 text-center">
+                        <i class="bi bi-calendar"></i> 06-06-2025 | 08:00 p.m.
+                    </div>
+                </div>
+            </div>
+
+            <form [formGroup]="formRegistro" style="margin: 2% 2% 2% 2%;">
+                <div class="row was-validated mb-3 justify-content-center">
+                    <div class="col-lg-5 col-md-5 col-sm-12 mx-1">
+                        <div class="form-group mb-2 position-relative">
+                            <div class="input-group input-group-lg">
+                                <div class="form-floating">
+                                    <select class="form-select border-start-0" formControlName="tipo_doc" required>
+                                        <option value="" disabled selected>Seleccionar Tipo</option>
+                                        <option *ngFor="let tipoMat of tipo_doc" value="{{tipoMat.name}}">
+                                            {{tipoMat.name}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-sm-12 mx-1">
+                        <div class="form-group mb-2 position-relative">
+                            <div class="input-group input-group-lg">
+                                <div class="form-floating">
+                                    <input placeholder="" formControlName="num_doc" class="form-control border-start-0"
+                                        (keyup)="getInfoByDni($event)"
+                                        onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')"
+                                        maxlength="8" required>
+                                    <label for="floatingInput">Nro. Documento</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-sm-12 mx-1">
+                        <div class="form-group mb-2 position-relative">
+                            <div class="input-group input-group-lg">
+                                <div class="form-floating">
+                                    <input placeholder="Nombres" formControlName="nombres"
+                                        class="form-control border-start-0" autocomplete="off" required>
+                                    <label for="floatingInput">Nombres</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-sm-12 mx-1">
+                        <div class="form-group mb-2 position-relative">
+                            <div class="input-group input-group-lg">
+                                <div class="form-floating">
+                                    <input placeholder="Apellidos" formControlName="apellidos"
+                                        class="form-control border-start-0" autocomplete="off" required>
+                                    <label for="floatingInput">Apellidos</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-sm-12 mx-1">
+                        <div class="form-group mb-2 position-relative">
+                            <div class="input-group input-group-lg">
+                                <div class="form-floating">
+                                    <input placeholder="Correo electrónico" formControlName="email" type="email"
+                                        class="form-control border-start-0" autocomplete="off" required>
+                                    <label for="floatingInput">Correo electrónico</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-sm-12 mx-1">
+                        <div class="form-group mb-2 position-relative">
+                            <div class="input-group input-group-lg">
+                                <div class="form-floating">
+                                    <input placeholder="Celular" formControlName="telefono"
+                                        onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')"
+                                        maxlength="9" class="form-control border-start-0" autocomplete="off" required>
+                                    <label for="floatingInput">Celular</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <p class="text-secondary text-uppercase text-end">
+                        <span class="badge badge-sm bg-yellow" style="font-size: 13px;">
+                            <i class="bi bi-info-circle"></i> No se puede repetir correo ni celular de otro alumno
+                        </span>
+                    </p> -->
+                </div>
+            </form>
+
+            <div class="button">
+                <button class="text-uppercase" type="button">Registrarme al evento</button>
+            </div>
+
+            <!-- <div class="icons">
+                <button><ion-icon name="logo-facebook"></ion-icon></button>
+                <button><ion-icon name="logo-instagram"></ion-icon></button>
+                <button><ion-icon name="logo-twitter"></ion-icon></button>
+            </div> -->
+        </div>
+    </div>
+</section>
+
+<!-- JS for icons:Start -->
+<!-- JS for icons:End -->
+
+<!-- <div class="row justify-content-center">
     <div class="col-12 col-md-11 col-lg-10 col-xl-7 col-xxl-6">
         <div class="card bg-blur">
             <div class="card-header">
@@ -15,7 +139,6 @@
                 </div>
             </div>
             <div class="card-body">
-                <!-- content swiper -->
                 <swiper #swiper [slidesPerView]="1" [spaceBetween]="0" [pagination]="pagination" [navigation]="navigation" [autoplay]="false" (reachEnd)="reachEnd()" (slideChange)="slideChange()" class=" onboarding-swiper swiper-no-swiping h-100 w-100">
                     <ng-template swiperSlide>
                         <div class="row">
@@ -34,7 +157,6 @@
                                     Please share your <b>Name</b> and <b>Photo</b> to display in application. This will be logged in user name wherever mentioned. This is just to make more intuitive communication with interface.
                                 </p>
                                 <form class="">
-                                    <!-- Form elements -->
                                     <div class="form-group mb-2 position-relative check-valid is-valid">
                                         <div class="input-group input-group-lg">
                                             <span class="input-group-text text-theme bg-white border-end-0"><i class="bi bi-person-circle"></i></span>
@@ -59,14 +181,6 @@
                                     Selection of Industry or Business domain helps us to choose demo layout or formatting you would like as most of the preferences and based on market standard practices.
                                 </p>
                                 <div class="row gx-3" id="domain-select">
-                                    <!-- <div class="col-auto">
-                                        <div class="select-box text-center mb-3">
-                                            <div class="avatar avatar-60">
-                                                <i class="bi bi-coin"></i>
-                                            </div>
-                                            <p class="small">Finance</p>
-                                        </div>
-                                    </div> -->
                                     <div class="col-auto">
                                         <div class="select-box text-center mb-3" [ngClass]="{'active': domain === 'finance'}" data-title="finance" (click)="selectDomain('finance')">
                                             <div class="avatar avatar-60">
@@ -221,7 +335,6 @@
                         </div>
                     </ng-template>
                 </swiper>
-                <!-- content ends -->
             </div>
             <div class="card-footer">
                 <div class="row">
@@ -243,4 +356,4 @@
         </div>
 
     </div>
-</div>
+</div> -->

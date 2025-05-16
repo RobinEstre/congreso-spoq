@@ -1,26 +1,24 @@
 <!-- Begin page content -->
-<main class="main h-100 container-fluid bg-blur">
+<main class="main h-100 container-fluid bg-blur" style="padding-right: 0px !important;padding-left: 0px !important;">
+    <router-outlet></router-outlet>
     <!-- background -->
-    <div class="coverimg h-100 w-100 top-0 start-0 position-absolute" style="background-image: url('assets/img/bg-5.jpg');">
+    <!-- <div class="coverimg h-100 w-100 top-0 start-0 position-absolute" style="background-image: url('assets/img/bg-5.jpg');">
         <img src="assets/img/bg-5.jpg" alt="" class="w-100" style="display: none;" />
-    </div>
+    </div> -->
     <!-- background ends  -->
 
-    <div class="row h-100 z-index-1 position-relative">
-        <div class="col-12 mb-auto">
-            <!-- header -->
-            <app-auth-header class="text-white header d-block"></app-auth-header>
-            <!-- header ends -->
-        </div>
-        <div class="col-12 align-self-center py-4">
-            <router-outlet></router-outlet>
-        </div>
-        <div class="col-12 mt-auto">
-            <!-- footer -->
-            <app-auth-footer class="footer row text-white"></app-auth-footer>
-            <!-- footer ends -->
-        </div>
+</main>
 
+<!-- <div class="row h-100 z-index-1 position-relative">
+    <div class="col-12 mb-auto">
+        <app-auth-header class="text-white header d-block"></app-auth-header>
+        
+    </div>
+    <div class="col-12 align-self-center py-4">
+        <router-outlet></router-outlet>
+    </div>
+    <div class="col-12 mt-auto">
+        <app-auth-footer class="footer row text-white"></app-auth-footer>
     </div>
 
-</main>
+</div> -->
