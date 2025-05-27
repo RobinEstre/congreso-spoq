@@ -30,7 +30,7 @@
                         <div class="form-group mb-2 position-relative">
                             <div class="input-group input-group-lg">
                                 <div class="form-floating">
-                                    <select class="form-select border-start-0" formControlName="tipo_doc" required>
+                                    <select class="form-control border-start-0" formControlName="tipo_doc" required style="padding-top: 0.9rem !important;">
                                         <option value="" disabled selected>Seleccionar Tipo</option>
                                         <option *ngFor="let tipoMat of tipo_doc" value="{{tipoMat.name}}">
                                             {{tipoMat.name}}
@@ -105,11 +105,9 @@
                     </p> -->
                 </div>
             </form>
-
             <div class="button">
                 <button class="text-uppercase" type="button">Registrarme al evento</button>
             </div>
-
             <!-- <div class="icons">
                 <button><ion-icon name="logo-facebook"></ion-icon></button>
                 <button><ion-icon name="logo-instagram"></ion-icon></button>
