@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   { path: '', redirectTo: '/soporte/proximamente', pathMatch: 'full' },
   { path: 'soporte', loadChildren: () => import('./supportive/supportive.module').then(m => m.SupportiveModule) },
-  { path: 'onboarding', loadChildren: () => import('./onboarding/onboarding.module').then(m => m.OnboardingModule) }];
+  { path: 'evento', loadChildren: () => import('./onboarding/onboarding.module').then(m => m.OnboardingModule) }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

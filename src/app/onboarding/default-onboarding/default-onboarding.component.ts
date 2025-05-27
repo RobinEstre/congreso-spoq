@@ -30,6 +30,15 @@ export class DefaultOnboardingComponent implements OnInit {
   tipo_doc: any = [{ name: 'Peruano' }, { name: 'Extranjero' }]; spinner: boolean = false
 
   ngOnInit(): void {
+    // this.spinner=true
+    this.formRegistro.controls.num_doc.disable();
+  }
+
+  selectTipoDoc(event: any) {
+    this.formRegistro.controls.num_doc.enable();
+    this.formRegistro.controls.num_doc.setValue('');
+    this.formRegistro.controls.nombres.setValue('');
+    this.formRegistro.controls.apellidos.setValue('');
   }
 
   getInfoByDni(event: any) {
@@ -43,7 +52,7 @@ export class DefaultOnboardingComponent implements OnInit {
       this.spinner = true
       this.formRegistro.controls.num_doc.disable();
       this.service.getInfoDNI(dni_consulta.tipo, dni_consulta.documento).subscribe(dni_val => {
-        this.spinner=false;
+        this.spinner = false;
         this.formRegistro.controls.num_doc.enable();
         if (dni_val.data.estado === false) {
           this.formRegistro.controls.num_doc.setValue('');
@@ -79,7 +88,7 @@ export class DefaultOnboardingComponent implements OnInit {
       }, error => {
         this.formRegistro.controls.num_doc.setValue('');
         this.formRegistro.controls.num_doc.enable();
-        this.spinner=false;
+        this.spinner = false;
         Swal.fire({
           position: "center",
           icon: "error",
@@ -98,5 +107,46 @@ export class DefaultOnboardingComponent implements OnInit {
       this.formRegistro.controls['email'].setValue('');
       this.formRegistro.controls['telefono'].setValue('');
     }
+  }
+
+  sendData() {
+    if (this.formRegistro.invalid) {
+      Swal.fire('Completa todos los campos correctamente', '', 'warning');
+      return;
+    }
+    this.spinner = true;
+    // Asegúrate de habilitar los campos antes de enviar
+    Object.keys(this.formRegistro.controls).forEach(c => this.formRegistro.get(c)?.enable());
+    const payload = this.formRegistro.value;
+
+    this.service.postRegistro(payload).subscribe({
+      next: (resp: any) => {
+        this.spinner = false;
+        let data = resp;
+        if (typeof resp === 'string') {
+          data = JSON.parse(resp); // Por si viene como string
+        }
+        if (data && data.certificado) {
+          Swal.fire({
+            title: '¡Registrado con éxito!',
+            text: 'Entra al zoom para recibir tu certificado',
+            showCancelButton: false,
+            confirmButtonColor: '#dc3446',
+            html: `<a href="${data.certificado}" target="_blank" class="btn btn-primary"><i class="bi bi-camera-video-fill"></i> Ingresar a la reunión</a>`,
+            icon: 'success',
+            confirmButtonText: 'Cerrar'
+          });
+          this.formRegistro.reset();
+          this.formRegistro.controls.num_doc.disable();
+          this.formRegistro.controls.tipo_doc.setValue('');
+        } else {
+          Swal.fire('Error en el registro', '', 'error');
+        }
+      },
+      error: err => {
+        this.spinner = false;
+        Swal.fire('Hubo un error, intenta nuevamente', '', 'error');
+      }
+    });
   }
 }

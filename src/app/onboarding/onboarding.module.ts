@@ -8,6 +8,7 @@ import { SecondaryOnboardingComponent } from './secondary-onboarding/secondary-o
 import { AuthenticationModule } from '../shared/auth/authentication.module';
 import { SwiperModule } from 'swiper/angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from "../shared/shared.module";
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     OnboardingRoutingModule,
     AuthenticationModule,
     SwiperModule,
-    FormsModule
-  ]
+    FormsModule,
+    SharedModule
+]
 })
 export class OnboardingModule { }

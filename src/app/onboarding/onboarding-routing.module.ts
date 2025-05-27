@@ -6,9 +6,9 @@ import { SecondaryOnboardingComponent } from './secondary-onboarding/secondary-o
 
 const routes: Routes = [{ 
   path: '',
-  component: OnboardingComponent,
+  component: DefaultOnboardingComponent,
   children: [{
-    path: 'default',
+    path: 'conferencia',
     component: DefaultOnboardingComponent
   }, {
     path: 'secondary',
