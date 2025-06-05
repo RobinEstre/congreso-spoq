@@ -123,6 +123,7 @@ export class DefaultOnboardingComponent implements OnInit {
       next: (resp: any) => {
         this.spinner = false;
         let data = resp;
+        let link_zoom='https://us02web.zoom.us/j/88333152240?pwd=GQb1jlnaLcapeIh1eGMJKVmhPrpPMA.1';
         if (typeof resp === 'string') {
           data = JSON.parse(resp); // Por si viene como string
         }
@@ -132,7 +133,7 @@ export class DefaultOnboardingComponent implements OnInit {
             text: 'Entra al zoom para recibir tu certificado',
             showCancelButton: false,
             confirmButtonColor: '#dc3446',
-            html: `<a href="${data.certificado}" target="_blank" class="btn btn-primary"><i class="bi bi-camera-video-fill"></i> Ingresar a la reunión</a>`,
+            html: `<a href="${link_zoom}" target="_blank" class="btn btn-primary"><i class="bi bi-camera-video-fill"></i> Ingresar a la reunión</a>`,
             icon: 'success',
             confirmButtonText: 'Cerrar'
           });
