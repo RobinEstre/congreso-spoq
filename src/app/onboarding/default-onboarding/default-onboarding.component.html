@@ -25,14 +25,14 @@
             </div>
 
             <form [formGroup]="formRegistro" style="margin: 2% 2% 2% 2%;">
-                <div class="row was-validated mb-3 justify-content-center">
+                <div class="row was-validated mb-3">
                     <div class="col-lg-5 col-md-5 col-sm-12 mx-1">
                         <div class="form-group mb-2 position-relative">
                             <div class="input-group input-group-lg">
                                 <div class="form-floating">
                                     <select class="form-control border-start-0" formControlName="tipo_doc" required (change)="selectTipoDoc($event)"
                                         style="padding-top: 0.9rem !important;">
-                                        <option value="" disabled selected>Seleccionar Tipo</option>
+                                        <option value="" disabled selected>Seleccionar Nacionalidad</option>
                                         <option *ngFor="let tipoMat of tipo_doc" value="{{tipoMat.name}}">
                                             {{tipoMat.name}}
                                         </option>
@@ -97,6 +97,14 @@
                                     <label for="floatingInput">Celular</label>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-sm-12 mx-1">
+                        <div class="form-check d-flex align-items-center" style="font-size: 18px; margin-left: 30px; color: black;">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" formControlName="is_logia">
+                            <label class="form-check-label mx-2" for="flexCheckChecked">
+                                Pertenece a una logia
+                            </label>
                         </div>
                     </div>
                     <!-- <p class="text-secondary text-uppercase text-end">

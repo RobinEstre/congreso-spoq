@@ -24,6 +24,7 @@ export class DefaultOnboardingComponent implements OnInit {
     nombres: ['', Validators.required],
     apellidos: ['', Validators.required],
     telefono: ['', Validators.required],
+    is_logia: [false, Validators.required],
     email: ['', [Validators.email, Validators.required]],
   });
 
@@ -123,7 +124,7 @@ export class DefaultOnboardingComponent implements OnInit {
       next: (resp: any) => {
         this.spinner = false;
         let data = resp;
-        let link_zoom='https://us02web.zoom.us/j/88333152240?pwd=GQb1jlnaLcapeIh1eGMJKVmhPrpPMA.1';
+        let link_zoom='https://us02web.zoom.us/j/83639666299';
         if (typeof resp === 'string') {
           data = JSON.parse(resp); // Por si viene como string
         }
