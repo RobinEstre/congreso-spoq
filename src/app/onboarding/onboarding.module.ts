@@ -9,6 +9,7 @@ import { AuthenticationModule } from '../shared/auth/authentication.module';
 import { SwiperModule } from 'swiper/angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from "../shared/shared.module";
+import { BrowserModule } from '@angular/platform-browser';
 
 
 @NgModule({

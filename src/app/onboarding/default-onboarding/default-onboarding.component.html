@@ -1,4 +1,719 @@
-<section>
+<section class="body">
+    <!-- TOP BAR (Navbar #1) -->
+    <div class="navbar-top d-none d-lg-block">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="small text-white-75">
+                📅 17–19 de septiembre · Evento virtual LATAM · Certificado digital
+            </div>
+            <div class="socials">
+                <a href="#" aria-label="Facebook" class="text-white-75">FB</a>
+                <a href="#" aria-label="Instagram" class="text-white-75">IG</a>
+                <a href="#" aria-label="LinkedIn" class="text-white-75">IN</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN NAV (Navbar #2) -->
+    <nav class="navbar navbar-expand-lg navbar-bottom sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold brand" (click)="scrollTo('hero')">SPOQ · Congreso Virtual</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+                    <li class="nav-item" *ngFor="let m of topMenu">
+                        <a class="nav-link" (click)="scrollTo(m.id)">{{ m.label }}</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-primary" (click)="scrollTo('contacto')">Inscribirme</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header id="hero" class="hero">
+        <picture>
+            <source [srcset]="heroMobile" media="(max-width: 576px)">
+            <img class="hero-bg" [src]="heroDesktop" alt="Congreso Internacional de Oncología Quirúrgica">
+        </picture>
+
+        <!-- Overlays -->
+        <div class="hero-layer hero-grad"></div>
+        <div class="hero-layer hero-vignette"></div>
+        <div class="hero-orb"></div>
+
+        <div class="container hero-content">
+            <span class="kicker">Cupos virtuales · Toda Latinoamérica</span>
+
+            <h1 class="hero-title">
+                Actualización oncológica <span class="accent">en vivo</span>
+                para médicos
+            </h1>
+
+            <p class="hero-sub">
+                <span class="loc">Cuzco, Perú</span><br class="d-sm-none">
+                Plenario y áreas quirúrgicas clave.
+                <br>Participa desde tu país y accede a las
+                grabaciones por 30 días.
+            </p>
+
+            <div class="cta-pack">
+                <a class="btn btn-lg btn-primary pill" (click)="scrollTo('contacto')">
+                    Precio único · USD 160
+                </a>
+                <a class="btn btn-lg btn-ghost pill" (click)="scrollTo('sobre')">
+                    Ver detalles
+                </a>
+            </div>
+
+            <div class="hero-meta">
+                🎥 En vivo · 🌎 LATAM · 📜 Certificado digital incluido
+            </div>
+
+            <div class="ribbon-date">Del 16 al 19 de Septiembre</div>
+        </div>
+
+        <!-- Curva inferior -->
+        <!-- <svg class="hero-curve" viewBox="0 0 1440 110" preserveAspectRatio="none" aria-hidden="true">
+        <path fill="#ffffff" d="M0,80 C260,120 540,120 720,95 C900,70 1180,70 1440,100 L1440,110 L0,110 Z"></path>
+    </svg> -->
+    </header>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="section pad about">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <!-- Columna texto -->
+                <div class="col-lg-6 reveal">
+                    <!-- <span class="about-kicker">¿De qué trata?</span> -->
+                    <h2 class="fw-bold about-title h-underline">Sobre el congreso</h2>
+
+                    <p class="about-lead">
+                        Expertos nacionales e internacionales comparten avances en diagnóstico, tratamiento y
+                        seguimiento
+                        del cáncer,
+                        con enfoque multidisciplinario y sesiones interactivas.
+                    </p>
+
+                    <ul class="about-bullets">
+                        <li><span class="dot"></span>Conferencias magistrales y debate</li>
+                        <li><span class="dot"></span>Técnicas quirúrgicas avanzadas y nuevas terapias</li>
+                        <li><span class="dot"></span>Colaboración e intercambio de experiencias</li>
+                    </ul>
+
+                    <div class="pills">
+                        <span class="pill">16–19 septiembre</span>
+                        <span class="pill">Virtual · LATAM</span>
+                        <span class="pill">Certificado digital</span>
+                        <span class="pill">Grabaciones 30 días</span>
+                    </div>
+                </div>
+
+                <!-- Columna tarjeta info -->
+                <div class="col-lg-6 reveal">
+                    <div class="about-card">
+                        <div class="about-card__inner">
+                            <h5 class="mb-3">Información general</h5>
+                            <ul class="checklist">
+                                <li><b>Idiomas:</b> Español (soporte de traducción inglés–español cuando aplique).</li>
+                                <li><b>Credencial:</b> Control de asistencia y acceso.</li>
+                                <li><b>Certificado:</b> Digital, enviado al correo registrado.</li>
+                            </ul>
+                            <div class="about-ribbon">Del 16 al 19 de Septiembre</div>
+                            <small class="text-muted d-block mt-3">* Más detalles en la sección de FAQ.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PATROCINADORES -->
+    <div class="s-strip s-top speed-34">
+        <div class="strip-rail">
+            <div class="strip-track" aria-label="Top sponsors">
+                <ng-container *ngFor="let _ of [0,1]">
+                    <!-- Platinum -->
+                    <div class="g">
+                        <span class="g-pill g-platinum">Platinum</span>
+                        <div class="g-logos">
+                            <div class="logo" *ngFor="let l of sponsors.platinum">
+                                <img [src]="l" [alt]="altFromUrl(l)" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <span class="g-sep"></span>
+
+                    <!-- Diamante -->
+                    <div class="g">
+                        <span class="g-pill g-diamond">Diamante</span>
+                        <div class="g-logos">
+                            <div class="logo" *ngFor="let l of sponsors.diamond">
+                                <img [src]="l" [alt]="altFromUrl(l)" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <span class="g-sep"></span>
+
+                    <!-- Oro -->
+                    <div class="g">
+                        <span class="g-pill g-gold">Oro</span>
+                        <div class="g-logos">
+                            <div class="logo" *ngFor="let l of sponsors.gold">
+                                <img [src]="l" [alt]="altFromUrl(l)" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <span class="g-gap"></span>
+                </ng-container>
+                <ng-container *ngFor="let _ of [0,1]">
+                    <!-- Platinum -->
+                    <div class="g">
+                        <span class="g-pill g-platinum">Platinum</span>
+                        <div class="g-logos">
+                            <div class="logo" *ngFor="let l of sponsors.platinum">
+                                <img [src]="l" [alt]="altFromUrl(l)" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <span class="g-sep"></span>
+
+                    <!-- Diamante -->
+                    <div class="g">
+                        <span class="g-pill g-diamond">Diamante</span>
+                        <div class="g-logos">
+                            <div class="logo" *ngFor="let l of sponsors.diamond">
+                                <img [src]="l" [alt]="altFromUrl(l)" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <span class="g-sep"></span>
+
+                    <!-- Oro -->
+                    <div class="g">
+                        <span class="g-pill g-gold">Oro</span>
+                        <div class="g-logos">
+                            <div class="logo" *ngFor="let l of sponsors.gold">
+                                <img [src]="l" [alt]="altFromUrl(l)" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <span class="g-gap"></span>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+
+    <!-- EJES -->
+    <section id="ejes" class="section pad ejes-timeline">
+        <div class="container">
+            <div class="text-center mb-5 reveal">
+                <h2 class="fw-bold h-underline">Ejes temáticos</h2>
+                <p class="text-muted">Plenario y áreas quirúrgicas clave.</p>
+            </div>
+
+            <div class="tl-grid" style="margin-left: -160px;">
+                <!-- Timeline (izquierda) -->
+                <div class="tl-col" style="width: 90%;">
+                    <ol class="tl">
+                        <li class="tl-item reveal" *ngFor="let e of ejes; let i = index">
+                            <span class="tl-dot">
+                                <i class="bi" [ngClass]="{
+                    'bi-heart-pulse': i===0,
+                    'bi-activity':   i===1,
+                    'bi-brain':      i===2,
+                    'bi-robot':      i===3
+                  }"></i>
+                            </span>
+                            <article class="tl-card">
+                                <h5 class="tl-title m-0">{{ e }}</h5>
+                                <p class="tl-text m-0">Casos, guías y discusión basada en evidencia.</p>
+                            </article>
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- Panel imagen (derecha) -->
+                <aside class="tl-aside reveal">
+                    <div class="tl-aside__frame">
+                        <img src="https://www.spoq.pe/wp-content/uploads/2025/05/Mas-de-10-ponentes-1.png"
+                            alt="Más de 10 ponentes internacionales" loading="lazy" decoding="async">
+                        <!-- <span class="tl-badge">Ponentes internacionales</span> -->
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- PONENTES (CARRUSEL) -->
+    <section id="ponentes" class="section pad">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-end mb-3 reveal">
+                <div>
+                    <h2 class="fw-bold h-underline">Ponentes</h2>
+                    <p class="text-muted">Expertos internacionales</p>
+                </div>
+                <div class="carousel-actions">
+                    <button class="btn btn-outline-secondary btn-sm"
+                        onclick="document.querySelector('.track')?.scrollBy({left:-320,behavior:'smooth'})">‹</button>
+                    <button class="btn btn-outline-secondary btn-sm"
+                        onclick="document.querySelector('.track')?.scrollBy({left:320,behavior:'smooth'})">›</button>
+                </div>
+            </div>
+
+            <div class="carousel-wrap reveal">
+                <div class="track" tabindex="0">
+                    <article class="speaker" *ngFor="let s of speakers">
+                        <img [src]="s.img" [alt]="s.name">
+                        <div class="p-3">
+                            <h6 class="mb-1">{{ s.name }}</h6>
+                            <small class="text-muted d-block">{{ s.spec }}</small>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TALLERES -->
+    <!-- <section id="talleres" class="section pad">
+        <div class="container">
+            <div class="text-center mb-5 reveal">
+                <h2 class="fw-bold">Talleres virtuales</h2>
+                <p class="text-muted">Ediciones adaptadas a formato online, con cupos limitados.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3 reveal" *ngFor="let t of talleres">
+                    <div class="card h-100 hover-card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ t }}</h5>
+                            <p class="card-text text-muted">Sesiones prácticas, guías y materiales descargables.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4 reveal">
+                <a class="btn btn-outline-primary" (click)="scrollTo('contacto')">Quiero más información</a>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- POSTERS -->
+    <!-- <section id="posters" class="section pad bg-fade-2">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-6 reveal">
+                    <h2 class="fw-bold">Presentación de pósteres científicos</h2>
+                    <p class="text-muted mb-1">Recepción de resúmenes · <b>Fecha límite sugerida: 01 sept.</b></p>
+                    <ul class="list-unstyled lh-lg">
+                        <li>✔️ Trabajos originales y reportes de caso</li>
+                        <li>✔️ Evaluación por comité científico</li>
+                        <li>✔️ Difusión digital post-evento</li>
+                    </ul>
+                    <a class="btn btn-primary" (click)="scrollTo('contacto')">Inscribirme / Consultas</a>
+                </div>
+                <div class="col-lg-6 reveal">
+                    <div class="poster-card p-4">
+                        <h6 class="mb-2">Lineamientos</h6>
+                        <p class="mb-0 text-muted">Formato digital, normas de envío y plantillas disponibles tras la
+                            inscripción.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- PRECIO -->
+    <section id="precio" class="section pad price-section">
+        <div class="container">
+            <div class="text-center mb-5 reveal">
+                <h2 class="fw-bold h-underline">Matrícula única</h2>
+                <p class="text-muted">Plan virtual para toda Latinoamérica.</p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6 reveal">
+                    <!-- decor blobs -->
+                    <span class="price-blob a"></span>
+                    <span class="price-blob b"></span>
+
+                    <div class="card price-card stitched shadow-none">
+                        <!-- barrita superior -->
+                        <div class="price-topbar"></div>
+
+                        <div class="card-body p-4 p-lg-5 text-center">
+                            <div class="price-badge">Virtual · LATAM</div>
+
+                            <div class="display-4 fw-bold my-2 price-value">
+                                USD {{priceUSD}}
+                            </div>
+
+                            <ul class="price-bullets list-inline mb-3">
+                                <li class="list-inline-item">🎥 En vivo</li>
+                                <li class="list-inline-item">🌎 Acceso LATAM</li>
+                                <li class="list-inline-item">📜 Certificado digital</li>
+                            </ul>
+
+                            <p class="text-muted mb-4">
+                                Incluye certificado digital, acceso en vivo + grabaciones 30 días y soporte durante el
+                                evento.
+                            </p>
+
+                            <div class="d-grid gap-2">
+                                <a class="btn btn-price btn-lg" (click)="scrollTo('contacto')">
+                                    Inscribirme ahora
+                                </a>
+                                <small class="text-muted">* Cupos limitados.</small>
+                            </div>
+
+                            <!-- separador suave -->
+                            <hr class="hr-gradient mt-4 mb-0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section pad faq-section">
+        <div class="container">
+            <div class="text-center mb-5 reveal">
+                <h2 class="fw-bold h-underline">Preguntas frecuentes</h2>
+                <p class="text-muted">Todo lo esencial en 1 minuto.</p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="accordion faq-accordion reveal" id="faqAcc">
+                        <div class="accordion-item faq-item" *ngFor="let f of faqs; let i = index">
+                            <h2 class="accordion-header" [id]="'h'+i">
+                                <button class="accordion-button faq-btn" type="button" data-bs-toggle="collapse"
+                                    [ngClass]="{'collapsed': i!==0}" [attr.data-bs-target]="'#c'+i"
+                                    [attr.aria-controls]="'c'+i">
+                                    <span class="faq-dot" aria-hidden="true"></span>
+                                    <span class="faq-q">{{ f.q }}</span>
+                                    <span class="faq-sign" aria-hidden="true"></span>
+                                </button>
+                            </h2>
+
+                            <div [id]="'c'+i" class="accordion-collapse collapse" [class.show]="i===0"
+                                [attr.aria-labelledby]="'h'+i" data-bs-parent="#faqAcc">
+                                <div class="accordion-body faq-body">
+                                    {{ f.a }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="section pad contact-section">
+        <div class="container">
+            <div class="text-center mb-5 reveal">
+                <h2 class="fw-bold h-underline">Inscripción y consultas</h2>
+                <p class="text-muted">Completa tus datos y te contactamos con el link de pago. <span
+                        class="text-body fw-bold">Toma ~1 minuto.</span></p>
+            </div>
+
+            <div class="row g-4 align-items-stretch">
+                <!-- LADO IZQUIERDO: confianza/beneficios -->
+                <aside class="col-lg-4 reveal">
+                    <div class="trust-card">
+                        <div class="trust-topbar"></div>
+                        <div class="trust-body">
+                            <h5 class="mb-2">¿Por qué inscribirte ahora?</h5>
+                            <ul class="trust-list">
+                                <li><i class="bi bi-patch-check-fill"></i> Certificado digital incluido</li>
+                                <li><i class="bi bi-broadcast-pin"></i> En vivo + acceso a grabaciones 30 días</li>
+                                <li><i class="bi bi-people-fill"></i> Cupos virtuales para toda LATAM</li>
+                                <li><i class="bi bi-headset"></i> Soporte antes y durante el evento</li>
+                            </ul>
+
+                            <div class="badge-row">
+                                <span class="soft-pill"><i class="bi bi-shield-lock"></i> Pago seguro</span>
+                                <span class="soft-pill"><i class="bi bi-translate"></i> Soporte ES/EN</span>
+                                <span class="soft-pill"><i class="bi bi-whatsapp"></i> WhatsApp disponible</span>
+                            </div>
+
+                            <div class="contact-short">
+                                <div><i class="bi bi-envelope-paper"></i> ¿Dudas? <a
+                                        href="mailto:info@spoq.pe">info@spoq.pe</a></div>
+                                <div><i class="bi bi-whatsapp"></i> Escríbenos: <a href="https://wa.me/##########"
+                                        target="_blank" rel="noopener">WhatsApp</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- FORMULARIO: lado derecho -->
+                <div class="col-lg-8 reveal">
+                    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate class="contact-card">
+                        <div class="glow-bg"></div>
+                        <div class="card-inner">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Nombre completo</label>
+                                    <div class="input-icon">
+                                        <i class="bi bi-person"></i>
+                                        <input type="text" formControlName="full_name" class="form-control"
+                                            placeholder="Dr./Dra. Nombre Apellido"
+                                            [class.is-invalid]="contactForm.get('full_name')?.invalid && contactForm.get('full_name')?.touched">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">Email</label>
+                                    <div class="input-icon">
+                                        <i class="bi bi-envelope"></i>
+                                        <input type="email" formControlName="email" class="form-control"
+                                            placeholder="tu@email.com"
+                                            [class.is-invalid]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">País</label>
+                                    <div class="input-icon">
+                                        <i class="bi bi-geo-alt"></i>
+                                        <select formControlName="country" class="form-select">
+                                            <option *ngFor="let c of countries" [value]="c">{{ c }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">Especialidad</label>
+                                    <div class="input-icon">
+                                        <i class="bi bi-briefcase-medical"></i>
+                                        <input type="text" formControlName="specialty" class="form-control"
+                                            placeholder="Oncología, Cirugía…">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">WhatsApp</label>
+                                    <div class="input-icon">
+                                        <i class="bi bi-telephone"></i>
+                                        <input type="tel" formControlName="whatsapp" class="form-control"
+                                            placeholder="+51 987 654 321">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">Mensaje (opcional)</label>
+                                    <div class="input-icon">
+                                        <i class="bi bi-chat-dots"></i>
+                                        <input type="text" formControlName="message" class="form-control"
+                                            placeholder="Quiero inscribirme al cupo virtual.">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-grid mt-4">
+                                <button class="btn btn-gradient btn-lg" type="submit" [disabled]="submitting">
+                                    <i class="bi" [ngClass]="submitting ? 'bi-hourglass-split' : 'bi-send-fill'"></i>
+                                    {{ submitting ? 'Enviando…' : 'Quiero inscribirme' }}
+                                </button>
+                                <small class="text-muted mt-2"><i class="bi bi-shield-check"></i> Nunca compartiremos tu
+                                    información.</small>
+                            </div>
+
+                            <div class="alert alert-success mt-3 mb-0" *ngIf="submitted">
+                                ¡Gracias! Te escribiremos pronto con los pasos para completar la inscripción.
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PATROCINADORES -->
+    <div class="s-strip s-top speed-34">
+        <div class="strip-rail">
+            <div class="strip-track" aria-label="Top sponsors">
+                <ng-container *ngFor="let _ of [0,1]">
+                    <!-- Platinum -->
+                    <div class="g">
+                        <span class="g-pill g-platinum">Platinum</span>
+                        <div class="g-logos">
+                            <div class="logo" *ngFor="let l of sponsors.platinum">
+                                <img [src]="l" [alt]="altFromUrl(l)" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <span class="g-sep"></span>
+
+                    <!-- Diamante -->
+                    <div class="g">
+                        <span class="g-pill g-diamond">Diamante</span>
+                        <div class="g-logos">
+                            <div class="logo" *ngFor="let l of sponsors.diamond">
+                                <img [src]="l" [alt]="altFromUrl(l)" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <span class="g-sep"></span>
+
+                    <!-- Oro -->
+                    <div class="g">
+                        <span class="g-pill g-gold">Oro</span>
+                        <div class="g-logos">
+                            <div class="logo" *ngFor="let l of sponsors.gold">
+                                <img [src]="l" [alt]="altFromUrl(l)" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <span class="g-gap"></span>
+                </ng-container>
+                <ng-container *ngFor="let _ of [0,1]">
+                    <!-- Platinum -->
+                    <div class="g">
+                        <span class="g-pill g-platinum">Platinum</span>
+                        <div class="g-logos">
+                            <div class="logo" *ngFor="let l of sponsors.platinum">
+                                <img [src]="l" [alt]="altFromUrl(l)" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <span class="g-sep"></span>
+
+                    <!-- Diamante -->
+                    <div class="g">
+                        <span class="g-pill g-diamond">Diamante</span>
+                        <div class="g-logos">
+                            <div class="logo" *ngFor="let l of sponsors.diamond">
+                                <img [src]="l" [alt]="altFromUrl(l)" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <span class="g-sep"></span>
+
+                    <!-- Oro -->
+                    <div class="g">
+                        <span class="g-pill g-gold">Oro</span>
+                        <div class="g-logos">
+                            <div class="logo" *ngFor="let l of sponsors.gold">
+                                <img [src]="l" [alt]="altFromUrl(l)" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <span class="g-gap"></span>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+    <div class="s-strip s-all speed-30 my-3 mb-5">
+        <div class="strip-rail">
+            <div class="strip-track" aria-label="Patrocinadores">
+                <ng-container *ngFor="let l of sponsors.partners.concat(sponsors.partners)">
+                    <div class="logo">
+                        <img [src]="l" [alt]="altFromUrl(l)" loading="lazy">
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+
+    <!-- STICKY CTA MOBILE -->
+    <div class="sticky-cta d-lg-none">
+        <div class="container d-flex justify-content-between align-items-center">
+            <strong>USD {{priceUSD}} · Certificado incluido</strong>
+            <button class="btn btn-primary btn-sm" (click)="scrollTo('contacto')">Inscribirme</button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row g-4 align-items-start">
+                <!-- Marca + redes -->
+                <div class="col-md-4">
+                    <img src="https://all-files-cepefodes.s3.us-east-1.amazonaws.com/SPOQ/logo-spoq.png" alt=""
+                        style="width: 20%; border-radius: 10px;">
+                    <div class="ft-brand mb-2" (click)="scrollTo('hero')" role="button" tabindex="0">
+                        SPOQ · Congreso Virtual
+                    </div>
+                    <p class="ft-text">
+                        Actualización oncológica para médicos de toda LATAM. En vivo + grabaciones y certificado
+                        digital.
+                    </p>
+                    <div class="ft-social">
+                        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <!-- Navegación -->
+                <div class="col-6 col-md-4">
+                    <h6 class="ft-title">Secciones</h6>
+                    <ul class="ft-links">
+                        <li><a href="javascript:void(0);" (click)="scrollTo('sobre')">Sobre el congreso</a></li>
+                        <li><a href="javascript:void(0);" (click)="scrollTo('ejes')">Ejes temáticos</a></li>
+                        <li><a href="javascript:void(0);" (click)="scrollTo('ponentes')">Ponentes</a></li>
+                        <li><a href="javascript:void(0);" (click)="scrollTo('precio')">Matrícula</a></li>
+                        <li><a href="javascript:void(0);" (click)="scrollTo('faq')">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contacto + CTA -->
+                <div class="col-6 col-md-4">
+                    <h6 class="ft-title">Contacto</h6>
+                    <ul class="ft-contact">
+                        <li><i class="bi bi-envelope"></i>
+                            <a href="mailto:info@spoq.pe" style="color: white;">info@spoq.pe</a>
+                        </li>
+                        <li><i class="bi bi-whatsapp"></i>
+                            <a href="https://wa.me/##########" target="_blank" rel="noopener"
+                                style="color: white;">WhatsApp</a>
+                        </li>
+                    </ul>
+                    <a class="btn ft-cta mt-2" (click)="scrollTo('contacto')"><i class="bi bi-send-fill"></i>
+                        Inscribirme</a>
+                </div>
+            </div>
+
+            <hr class="ft-sep">
+
+            <div class="d-flex justify-content-between align-items-center flex-column flex-md-row small">
+                <div class="ft-copy">© {{year}} SPOQ · Congreso Virtual</div>
+                <div class="ft-legal">
+                    <a href="javascript:void(0);" (click)="scrollTo('faq')">FAQ</a><span>·</span>
+                    <a href="#">Términos</a><span>·</span>
+                    <a href="#">Privacidad</a>
+                </div>
+            </div>
+        </div>
+
+        <button class="to-top" (click)="scrollTo('hero')" aria-label="Volver arriba">
+            <i class="bi bi-arrow-up"></i>
+        </button>
+    </footer>
+</section>
+<!-- <section>
     <div class="container">
         <div class="content">
             <div class="company">
@@ -107,262 +822,14 @@
                             </label>
                         </div>
                     </div>
-                    <!-- <p class="text-secondary text-uppercase text-end">
-                        <span class="badge badge-sm bg-yellow" style="font-size: 13px;">
-                            <i class="bi bi-info-circle"></i> No se puede repetir correo ni celular de otro alumno
-                        </span>
-                    </p> -->
                 </div>
             </form>
             <div class="button">
                 <button class="text-uppercase" type="button" (click)="sendData()">Registrarme al evento</button>
             </div>
-            <!-- <div class="icons">
-                <button><ion-icon name="logo-facebook"></ion-icon></button>
-                <button><ion-icon name="logo-instagram"></ion-icon></button>
-                <button><ion-icon name="logo-twitter"></ion-icon></button>
-            </div> -->
         </div>
     </div>
-</section>
+</section> -->
 
 <!-- SPINNER -->
 <app-spinner [spinner]="spinner"></app-spinner>
-<!-- JS for icons:Start -->
-<!-- JS for icons:End -->
-
-<!-- <div class="row justify-content-center">
-    <div class="col-12 col-md-11 col-lg-10 col-xl-7 col-xxl-6">
-        <div class="card bg-blur">
-            <div class="card-header">
-                <div class="row align-items-center">
-                    <div class="col-auto">
-                        <img src="assets/img/favicon32.png" alt="" />
-                    </div>
-                    <div class="col align-self-center text-center">
-                        <h5 class="fw-normal">User Onboarding</h5>
-                    </div>
-                    <div class="col-auto">
-                        <a routerLink="/pages/dashboard/home">Skip <i class="bi bi-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="card-body">
-                <swiper #swiper [slidesPerView]="1" [spaceBetween]="0" [pagination]="pagination" [navigation]="navigation" [autoplay]="false" (reachEnd)="reachEnd()" (slideChange)="slideChange()" class=" onboarding-swiper swiper-no-swiping h-100 w-100">
-                    <ng-template swiperSlide>
-                        <div class="row">
-                            <div class="col-12 col-md-6 text-center position-relative py-4">
-                                <img src="assets/img/onboarding1.png" alt="" class="mw-100 mb-4" />
-
-                                <div class="avatar avatar-120 coverimg rounded-circle ms-4 absoluteuploaduser-4">
-                                    <i class="bi bi-upload bg-theme avatar avatar-40 rounded-circle"></i>
-                                    <input type="file" accept="image/*" id="userphotoonboarding" (change)="handleFileInput($event)">
-                                    <img src="assets/img/user-1.jpg" alt="" id="userimage" name="userimage" />
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 align-self-center py-5">
-                                <p class="h4 fw-light mb-3">Who is going to use this app?</p>
-                                <p class="text-secondary small mb-4">
-                                    Please share your <b>Name</b> and <b>Photo</b> to display in application. This will be logged in user name wherever mentioned. This is just to make more intuitive communication with interface.
-                                </p>
-                                <form class="">
-                                    <div class="form-group mb-2 position-relative check-valid is-valid">
-                                        <div class="input-group input-group-lg">
-                                            <span class="input-group-text text-theme bg-white border-end-0"><i class="bi bi-person-circle"></i></span>
-                                            <div class="form-floating">
-                                                <input type="text" [(ngModel)]="userName" (change)="userNameUpdated()" placeholder="Username" value="Maxartkiller" required class="form-control border-start-0" autofocus id="usernamevalue" name="userName">
-                                                <label for="floatingInput">Your good name</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </ng-template>
-                    <ng-template swiperSlide>
-                        <div class="row">
-                            <div class="col-12 col-md-6 text-center position-relative py-2">
-                                <img src="assets/img/onboarding-2.png" alt="" class="mw-100" />
-                            </div>
-                            <div class="col-12 col-md-6 align-self-center">
-                                <p class="h4 fw-light mb-3">What's your<br>Industries or Business Domain?</p>
-                                <p class="text-secondary small mb-4">
-                                    Selection of Industry or Business domain helps us to choose demo layout or formatting you would like as most of the preferences and based on market standard practices.
-                                </p>
-                                <div class="row gx-3" id="domain-select">
-                                    <div class="col-auto">
-                                        <div class="select-box text-center mb-3" [ngClass]="{'active': domain === 'finance'}" data-title="finance" (click)="selectDomain('finance')">
-                                            <div class="avatar avatar-60">
-                                                <i class="bi bi-coin"></i>
-                                            </div>
-                                            <p class="small">Finance</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="select-box text-center mb-3" [ngClass]="{'active': domain === 'network'}" data-title="network" (click)="selectDomain('network')">
-                                            <div class="avatar avatar-60">
-                                                <i class="bi bi-wifi"></i>
-                                            </div>
-                                            <p class="small">Network</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="select-box text-center mb-3" [ngClass]="{'active': domain === 'social'}" data-title="social" (click)="selectDomain('social')">
-                                            <div class="avatar avatar-60">
-                                                <i class="bi bi-people"></i>
-                                            </div>
-                                            <p class="small">Social</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="select-box text-center mb-3" [ngClass]="{'active': domain === 'inventory'}" data-title="inventory" (click)="selectDomain('inventory')">
-                                            <div class="avatar avatar-60">
-                                                <i class="bi bi-basket"></i>
-                                            </div>
-                                            <p class="small">Inventory</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="select-box text-center mb-3" [ngClass]="{'active': domain === 'learning'}" data-title="learning" (click)="selectDomain('learning')">
-                                            <div class="avatar avatar-60">
-                                                <i class="bi bi-coin"></i>
-                                            </div>
-                                            <p class="small">Learing</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </ng-template>
-                    <ng-template swiperSlide>
-                        <div class="row h-100">
-                            <div class="col-12 col-md-6 text-center align-self-center position-relative py-3">
-                                <img src="assets/img/onboarding-3.png" alt="" class="mw-100" />
-                            </div>
-                            <div class="col-12 col-md-6 align-self-center pt-4">
-                                <p class="h4 fw-light mb-3">Best brand color<br>It create identity as well as trust.</p>
-                                <p class="text-secondary small mb-4">
-                                    Our template comes with Unlimited customized color scheme possibility. Here some color set are predefined to choose from.
-                                </p>
-                                <div class="row gx-3" id="theme-select">
-                                    <div class="col-auto">
-                                        <div class="select-box text-center mb-2" [ngClass]="{'selected': themeColor === 'theme-blue'}" data-title="theme-blue" (click)="selectThemeColor('theme-blue')">
-                                            <div class="avatar avatar-50">
-                                                <span class="avatar avatar-40 bg-blue"></span>
-                                            </div>
-                                            <p class="small">Blue</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="select-box text-center mb-2" [ngClass]="{'selected': themeColor === 'theme-indigo'}" data-title="theme-indigo" (click)="selectThemeColor('theme-indigo')">
-                                            <div class="avatar avatar-50">
-                                                <span class="avatar avatar-40 bg-indigo"></span>
-                                            </div>
-                                            <p class="small">Indigo</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="select-box text-center mb-2" [ngClass]="{'selected': themeColor === 'theme-purple'}" data-title="theme-purple" (click)="selectThemeColor('theme-purple')">
-                                            <div class="avatar avatar-50">
-                                                <span class="avatar avatar-40 bg-purple"></span>
-                                            </div>
-                                            <p class="small">Purple</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="select-box text-center mb-2" [ngClass]="{'selected': themeColor === 'theme-pink'}" data-title="theme-pink" (click)="selectThemeColor('theme-pink')">
-                                            <div class="avatar avatar-50">
-                                                <span class="avatar avatar-40 bg-pink"></span>
-                                            </div>
-                                            <p class="small">Pink</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="select-box text-center mb-2" [ngClass]="{'selected': themeColor === 'theme-red'}" data-title="theme-red" (click)="selectThemeColor('theme-red')">
-                                            <div class="avatar avatar-50">
-                                                <span class="avatar avatar-40 bg-red"></span>
-                                            </div>
-                                            <p class="small">Red</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="select-box text-center mb-2" [ngClass]="{'selected': themeColor === 'theme-orange'}" data-title="theme-orange" (click)="selectThemeColor('theme-orange')">
-                                            <div class="avatar avatar-50">
-                                                <span class="avatar avatar-40 bg-orange"></span>
-                                            </div>
-                                            <p class="small">Orange</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="select-box text-center mb-2" [ngClass]="{'selected': themeColor === 'theme-yellow'}" data-title="theme-yellow" (click)="selectThemeColor('theme-yellow')">
-                                            <div class="avatar avatar-50">
-                                                <span class="avatar avatar-40 bg-yellow"></span>
-                                            </div>
-                                            <p class="small">Yellow</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="select-box text-center mb-2" [ngClass]="{'selected': themeColor === 'theme-green'}" data-title="theme-green" (click)="selectThemeColor('theme-green')">
-                                            <div class="avatar avatar-50">
-                                                <span class="avatar avatar-40 bg-green"></span>
-                                            </div>
-                                            <p class="small">Green</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="select-box text-center mb-2" [ngClass]="{'selected': themeColor === 'theme-teal'}" data-title="theme-teal" (click)="selectThemeColor('theme-teal')">
-                                            <div class="avatar avatar-50">
-                                                <span class="avatar avatar-40 bg-teal"></span>
-                                            </div>
-                                            <p class="small">Teal</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="select-box text-center mb-2" [ngClass]="{'selected': themeColor === 'theme-cyan'}" data-title="theme-cyan" (click)="selectThemeColor('theme-cyan')">
-                                            <div class="avatar avatar-50">
-                                                <span class="avatar avatar-40 bg-cyan"></span>
-                                            </div>
-                                            <p class="small">Cyan</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row align-items-center mb-4">
-                                    <div class="col-auto">
-                                        <div class="avatar avatar-70 my-3 text-center rounded">
-                                            <img src="assets/img/logo.png" alt="" class="mw-100" id="companylogolight" />
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div>
-                                            <label for="companylogolightinput" class="form-label">Upload company logo </label><br>
-                                            <input class="form-control d-none" accept="image/*" type="file" id="companylogolightinput" (change)="handleFileInputLogo($event)">
-                                            <button class="btn btn-theme" onclick="$(this).prev().click()"><i class="bi bi-camera"></i> Upload</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </ng-template>
-                </swiper>
-            </div>
-            <div class="card-footer">
-                <div class="row">
-                    <div class="col-auto">
-                        <button class="btn btn-theme btn-square btn-prev"><i class="bi bi-arrow-left"></i></button>
-                    </div>
-                    <div class="col align-self-center">
-                        <div class="pagination-wrap swiper-pagination pagination-smallline position-relative bottom-0"></div>
-                    </div>
-                    <div class="col-auto">
-                        <button class="btn btn-theme btn-square btn-next"><i class="bi bi-arrow-right"></i></button>
-                        <button class="btn btn-theme btn-square ms-1 btn-summary d-none" (click)="summaryNavigate()">
-                            <i class="bi bi-arrow-right iconnext mx-0"></i>
-                            <span class="spinner-border text-white spinner-border-sm d-none iconloader" role="status"><span class="visually-hidden"> Loading...</span></span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div> -->
