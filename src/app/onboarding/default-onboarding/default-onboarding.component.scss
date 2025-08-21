@@ -338,6 +338,9 @@ body {
 /* ======= SOBRE EL CONGRESO (look moderno morado + dorado) ======= */
 .about {
     background: linear-gradient(180deg, #fbfbff 0%, #ffffff 55%);
+    font-size: 1.2rem;
+    // margin-top: 40px;
+    margin-bottom: 0px;
 }
 
 /* Kicker y título con subrayado degradé */
@@ -1089,12 +1092,13 @@ body {
     color: #0f1222;
     font-weight: 800;
     /* Reemplaza TODAS las variantes similares por esto */
-    font-size: clamp(1.05rem, calc(.35vw + 1rem), 1.25rem);
+    font-size: clamp(1.25rem, calc(.35vw + 1.2rem), 1.45rem);
 }
 
 .tl-text {
     color: #6b7280;
     margin-top: .25rem;
+    font-size: 1.2rem;
 }
 
 /* ===== Panel derecho (imagen grande, recorte y sticky) ===== */
@@ -1852,6 +1856,7 @@ body {
 
 .faq-q {
     flex: 1 1 auto;
+    font-size: 1.3rem;
 }
 
 /* Ícono + / – a la derecha */
@@ -1907,6 +1912,7 @@ body {
     border-bottom-right-radius: 16px;
     color: #31354a;
     padding: 16px 18px 18px;
+    font-size: 1.1rem;
 }
 
 /* Responsive */
@@ -2238,6 +2244,7 @@ body {
 
 .btn-gradient:hover {
     background: #4f2454;
+    color: white;
 }
 
 .btn-gradient:active {
@@ -2455,5 +2462,228 @@ body {
 
     .track {
         grid-auto-columns: 74%;
+    }
+}
+
+/* ===== FAQ en 2 columnas ===== */
+.faq-accordion {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    /* espacio entre tarjetas */
+}
+
+/* como ahora usamos grid, quitamos el margen inferior por item */
+.faq-item {
+    margin-bottom: 0;
+}
+
+/* en pantallas medianas/pequeñas vuelve a una columna */
+@media (max-width: 992px) {
+    .faq-accordion {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== Banda LATAM: bandera + nombres en marquesina ===== */
+.latam-band {
+    position: relative;
+    background:
+        radial-gradient(60vw 40vw at -10% -12%, #efe7f3 0%, rgba(239, 231, 243, 0) 60%),
+        linear-gradient(180deg, #fbfbff 0%, #ffffff 100%);
+}
+
+/* puntos compactos */
+.latam-points {
+    margin: 0;
+    padding-left: 1.15rem;
+    color: #4b4f5c;
+}
+
+.latam-points li {
+    margin: .25rem 0;
+}
+
+/* strip */
+.flag-strip {
+    height: 92px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(96, 47, 102, .14);
+    background: #fff;
+    box-shadow: 0 14px 34px rgba(15, 18, 34, .06);
+}
+
+.flag-strip::before,
+.flag-strip::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 72px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.flag-strip::before {
+    left: 0;
+    background: linear-gradient(90deg, #fff, rgba(255, 255, 255, 0));
+}
+
+.flag-strip::after {
+    right: 0;
+    background: linear-gradient(270deg, #fff, rgba(255, 255, 255, 0));
+}
+
+.flag-track {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    height: 100%;
+    animation: flag-marquee 32s linear infinite;
+    will-change: transform;
+}
+
+@keyframes flag-marquee {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.flag-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #ffffff;
+    border: 1px solid rgba(96, 47, 102, .16);
+    border-radius: 999px;
+    padding: .5rem .8rem;
+    box-shadow: 0 8px 20px rgba(15, 18, 34, .05);
+    white-space: nowrap;
+}
+
+.flag-pill .emoji {
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+.flag-pill .name {
+    font-weight: 800;
+    color: #0f1222;
+    letter-spacing: .2px;
+}
+
+/* badges de confianza */
+.latam-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.latam-badges .lb {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    padding: .28rem .6rem;
+    border-radius: 999px;
+    background: #fff4cc;
+    color: #5b2a60;
+    border: 1px solid rgba(96, 47, 102, .18);
+}
+
+.latam-badges .lb i {
+    color: #602f66;
+}
+
+/* responsive */
+@media (max-width:576px) {
+    .flag-strip {
+        height: 82px;
+    }
+
+    .flag-track {
+        gap: 12px;
+        animation-duration: 28s;
+    }
+
+    /* un pelín más rápido en móvil */
+    .flag-pill {
+        padding: .45rem .7rem;
+    }
+
+    .flag-pill .emoji {
+        font-size: 1.1rem;
+    }
+}
+
+/* ===== LATAM: fondo full-bleed + borde a todo el ancho ===== */
+.latam-band {
+    position: relative;
+    padding: 72px 0;
+    /* altura cómoda */
+    background: linear-gradient(180deg, #f6f0ff 0%, #fff7ea 100%);
+    /* lavanda→dorado suave */
+}
+
+/* barras superior e inferior que cruzan TODA la pantalla */
+.latam-band::before,
+.latam-band::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 6px;
+    pointer-events: none;
+}
+
+.latam-band::before {
+    top: 0;
+    background: linear-gradient(90deg, #602f66 0%, #f4c430 50%, #602f66 100%);
+}
+
+.latam-band::after {
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, #602f66 12%, #f4c430 50%, #602f66 88%, transparent);
+    height: 1px;
+    opacity: .35;
+    /* línea fina inferior */
+}
+
+/* marco opcional (si quieres un borde alrededor de TODO el bloque) */
+.latam-band.latam-frame::after {
+    /* quita el borde inferior fino y usa un marco */
+    bottom: auto;
+    top: 0;
+    height: auto;
+}
+
+.latam-band.latam-frame .latam-frame {
+    content: "";
+    position: absolute;
+    inset: 14px;
+    border-radius: 18px;
+    pointer-events: none;
+    background: linear-gradient(90deg, #602f66, #f4c430, #602f66);
+    padding: 1px;
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    /* truco para borde hueco */
+}
+
+/* por si quieres un fondo más sólido (alternativa rápida) */
+/* .latam-band{ background:#f7f2fb; } */
+
+/* responsive */
+@media (max-width:576px) {
+    .latam-band {
+        padding: 56px 0;
     }
 }

@@ -44,9 +44,9 @@ export class DefaultOnboardingComponent implements OnInit {
   topMenu = [
     { label: 'Inicio', id: 'hero' },
     { label: 'Sobre', id: 'sobre' },
-    { label: 'Ejes', id: 'ejes' },
-    { label: 'Talleres', id: 'talleres' },
-    { label: 'Pósteres', id: 'posters' },
+    { label: 'Plenaria', id: 'ejes' },
+    // { label: 'Talleres', id: 'talleres' },
+    // { label: 'Pósteres', id: 'posters' },
     { label: 'Ponentes', id: 'ponentes' },
     { label: 'Precio', id: 'precio' },
     { label: 'FAQ', id: 'faq' },
@@ -85,13 +85,43 @@ export class DefaultOnboardingComponent implements OnInit {
   ];
 
   faqs = [
+    { q: '¿Cómo me inscribo?', a: 'Completa el formulario de esta página y te enviaremos el link de pago y confirmación al correo registrado.' },
+    { q: '¿Cuál es el costo?', a: 'Matrícula única de USD 160 para toda Latinoamérica. Incluye acceso en vivo, grabaciones por 30 días y certificado digital.' },
+    { q: '¿Formas de pago?', a: 'Tarjeta de crédito/débito internacional. Si necesitas transferencia bancaria o pago corporativo, contáctanos.' },
+    { q: '¿A qué hora se realiza?', a: 'La agenda se publica en hora oficial de Perú (GMT-5). Recibirás la programación y recordatorios por correo.' },
+    { q: '¿Requisitos técnicos?', a: 'Conexión estable (recomendado ≥10 Mbps), navegador actualizado y dispositivo con audio. Para mejor experiencia, usa audífonos.' },
+    { q: '¿Incluye certificado?', a: 'Sí. Certificado digital nominal enviado al correo registrado tras el evento.' },
     { q: '¿A quiénes está dirigido?', a: 'Médicos especialistas, médicos generales, residentes e internos interesados en actualización clínica.' },
-    { q: '¿Idioma?', a: 'Español (con soporte de traducción inglés–español cuando aplique).' },
-    { q: '¿Incluye certificado?', a: 'Sí. Certificado digital incluido (USD 160), enviado al correo registrado.' },
-    { q: '¿Acceso desde otro país?', a: 'Recibirás un enlace seguro (Zoom/streaming) y soporte previo al inicio.' },
+    { q: '¿Idioma?', a: 'Español con soporte de traducción inglés–español.' },
+    { q: '¿Acceso desde otro país?', a: 'Sí. Es 100% virtual para toda LATAM. El sistema ajusta automáticamente la zona horaria en los recordatorios.' },
+    { q: '¿Soporte y ayuda rápida?', a: 'Soporte por correo y WhatsApp antes y durante el evento. Te asistimos con acceso, agenda y comprobantes.' }
   ];
 
   countries = ['Perú', 'México', 'Colombia', 'Chile', 'Argentina', 'Uruguay', 'Paraguay', 'Bolivia', 'Ecuador', 'Brasil', 'Venezuela', 'Costa Rica', 'Guatemala', 'Honduras', 'El Salvador', 'Nicaragua', 'Panamá', 'R. Dominicana', 'Puerto Rico'];
+
+  flagPaused = false;
+
+  latamCountries = [
+    { flag: '🇵🇪', name: 'Perú' },
+    { flag: '🇲🇽', name: 'México' },
+    { flag: '🇨🇴', name: 'Colombia' },
+    { flag: '🇨🇱', name: 'Chile' },
+    { flag: '🇦🇷', name: 'Argentina' },
+    { flag: '🇺🇾', name: 'Uruguay' },
+    { flag: '🇵🇾', name: 'Paraguay' },
+    { flag: '🇧🇴', name: 'Bolivia' },
+    { flag: '🇪🇨', name: 'Ecuador' },
+    { flag: '🇧🇷', name: 'Brasil' },
+    { flag: '🇻🇪', name: 'Venezuela' },
+    { flag: '🇨🇷', name: 'Costa Rica' },
+    { flag: '🇬🇹', name: 'Guatemala' },
+    { flag: '🇭🇳', name: 'Honduras' },
+    { flag: '🇸🇻', name: 'El Salvador' },
+    { flag: '🇳🇮', name: 'Nicaragua' },
+    { flag: '🇵🇦', name: 'Panamá' },
+    { flag: '🇩🇴', name: 'R. Dominicana' },
+    { flag: '🇵🇷', name: 'Puerto Rico' }
+  ];
 
   contactForm = this.fb.group({
     full_name: ['', [Validators.required, Validators.minLength(2)]],

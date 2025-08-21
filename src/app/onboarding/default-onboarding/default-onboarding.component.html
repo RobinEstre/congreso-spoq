@@ -29,7 +29,7 @@
                         <a class="nav-link" (click)="scrollTo(m.id)">{{ m.label }}</a>
                     </li>
                     <li class="nav-item ms-lg-3">
-                        <a class="btn btn-primary" (click)="scrollTo('contacto')">Inscribirme</a>
+                        <a class="btn btn-gradient" (click)="scrollTo('contacto')">Inscribirme</a>
                     </li>
                 </ul>
             </div>
@@ -59,8 +59,7 @@
             <p class="hero-sub">
                 <span class="loc">Cuzco, Perú</span><br class="d-sm-none">
                 Plenario y áreas quirúrgicas clave.
-                <br>Participa desde tu país y accede a las
-                grabaciones por 30 días.
+                <br>Participa desde tu país y accede al congreso de manera online.
             </p>
 
             <div class="cta-pack">
@@ -111,7 +110,6 @@
                         <span class="pill">16–19 septiembre</span>
                         <span class="pill">Virtual · LATAM</span>
                         <span class="pill">Certificado digital</span>
-                        <span class="pill">Grabaciones 30 días</span>
                     </div>
                 </div>
 
@@ -121,7 +119,7 @@
                         <div class="about-card__inner">
                             <h5 class="mb-3">Información general</h5>
                             <ul class="checklist">
-                                <li><b>Idiomas:</b> Español (soporte de traducción inglés–español cuando aplique).</li>
+                                <li><b>Idiomas:</b> Español (soporte de traducción inglés–español).</li>
                                 <li><b>Credencial:</b> Control de asistencia y acceso.</li>
                                 <li><b>Certificado:</b> Digital, enviado al correo registrado.</li>
                             </ul>
@@ -220,8 +218,8 @@
     <section id="ejes" class="section pad ejes-timeline">
         <div class="container">
             <div class="text-center mb-5 reveal">
-                <h2 class="fw-bold h-underline">Ejes temáticos</h2>
-                <p class="text-muted">Plenario y áreas quirúrgicas clave.</p>
+                <h2 class="fw-bold h-underline">Plenaria</h2>
+                <p class="text-muted">Temas y áreas quirúrgicas clave.</p>
             </div>
 
             <div class="tl-grid" style="margin-left: -160px;">
@@ -231,11 +229,11 @@
                         <li class="tl-item reveal" *ngFor="let e of ejes; let i = index">
                             <span class="tl-dot">
                                 <i class="bi" [ngClass]="{
-                    'bi-heart-pulse': i===0,
-                    'bi-activity':   i===1,
-                    'bi-brain':      i===2,
-                    'bi-robot':      i===3
-                  }"></i>
+                                    'bi-heart-pulse': i===0,
+                                    'bi-activity': i===1,
+                                    'bi-bezier': i===2,
+                                    'bi-robot': i===3
+                                }"></i>
                             </span>
                             <article class="tl-card">
                                 <h5 class="tl-title m-0">{{ e }}</h5>
@@ -287,54 +285,6 @@
         </div>
     </section>
 
-    <!-- TALLERES -->
-    <!-- <section id="talleres" class="section pad">
-        <div class="container">
-            <div class="text-center mb-5 reveal">
-                <h2 class="fw-bold">Talleres virtuales</h2>
-                <p class="text-muted">Ediciones adaptadas a formato online, con cupos limitados.</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3 reveal" *ngFor="let t of talleres">
-                    <div class="card h-100 hover-card">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ t }}</h5>
-                            <p class="card-text text-muted">Sesiones prácticas, guías y materiales descargables.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-4 reveal">
-                <a class="btn btn-outline-primary" (click)="scrollTo('contacto')">Quiero más información</a>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- POSTERS -->
-    <!-- <section id="posters" class="section pad bg-fade-2">
-        <div class="container">
-            <div class="row g-4 align-items-center">
-                <div class="col-lg-6 reveal">
-                    <h2 class="fw-bold">Presentación de pósteres científicos</h2>
-                    <p class="text-muted mb-1">Recepción de resúmenes · <b>Fecha límite sugerida: 01 sept.</b></p>
-                    <ul class="list-unstyled lh-lg">
-                        <li>✔️ Trabajos originales y reportes de caso</li>
-                        <li>✔️ Evaluación por comité científico</li>
-                        <li>✔️ Difusión digital post-evento</li>
-                    </ul>
-                    <a class="btn btn-primary" (click)="scrollTo('contacto')">Inscribirme / Consultas</a>
-                </div>
-                <div class="col-lg-6 reveal">
-                    <div class="poster-card p-4">
-                        <h6 class="mb-2">Lineamientos</h6>
-                        <p class="mb-0 text-muted">Formato digital, normas de envío y plantillas disponibles tras la
-                            inscripción.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
     <!-- PRECIO -->
     <section id="precio" class="section pad price-section">
         <div class="container">
@@ -367,7 +317,7 @@
                             </ul>
 
                             <p class="text-muted mb-4">
-                                Incluye certificado digital, acceso en vivo + grabaciones 30 días y soporte durante el
+                                Incluye certificado digital, acceso en vivo y soporte durante el
                                 evento.
                             </p>
 
@@ -381,6 +331,52 @@
                             <!-- separador suave -->
                             <hr class="hr-gradient mt-4 mb-0">
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BANDA -->
+    <section id="latam" class="section pad latam-band">
+        <!-- <section id="latam" class="section pad latam-band latam-frame">
+            <span class="latam-frame"></span>
+        </section> -->
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-5">
+                    <h3 class="fw-bold mb-2">Conectados en toda Latinoamérica</h3>
+                    <p class="text-muted mb-3">
+                        Participa desde tu país, en vivo y con acceso a grabaciones por 30 días. Certificado digital
+                        incluido.
+                    </p>
+                    <ul class="latam-points">
+                        <li>🎥 Streaming estable y soporte en tiempo real</li>
+                        <li>🌎 Agenda en horario oficial de Perú (GMT-5)</li>
+                        <li>📜 Certificación digital para todos los asistentes</li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-7">
+                    <!-- Tira de países -->
+                    <div class="flag-strip">
+                        <div class="flag-track" aria-label="Países participantes" (mouseenter)="flagPaused=true"
+                            (mouseleave)="flagPaused=false"
+                            [style.animationPlayState]="flagPaused ? 'paused' : 'running'">
+                            <ng-container *ngFor="let c of latamCountries.concat(latamCountries)">
+                                <div class="flag-pill">
+                                    <span class="emoji">{{ c.flag }}</span>
+                                    <span class="name">{{ c.name }}</span>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+
+                    <!-- Mini badges opcionales -->
+                    <div class="latam-badges">
+                        <span class="lb"><i class="bi bi-shield-lock"></i> Acceso seguro</span>
+                        <span class="lb"><i class="bi bi-headset"></i> Soporte ES/EN</span>
+                        <span class="lb"><i class="bi bi-calendar2-check"></i> 17–19 septiembre</span>
                     </div>
                 </div>
             </div>
@@ -423,7 +419,7 @@
     </section>
 
     <!-- CONTACTO -->
-    <section id="contacto" class="section pad contact-section">
+    <section id="contacto" class="section pad contact-section latam-band">
         <div class="container">
             <div class="text-center mb-5 reveal">
                 <h2 class="fw-bold h-underline">Inscripción y consultas</h2>
@@ -440,7 +436,7 @@
                             <h5 class="mb-2">¿Por qué inscribirte ahora?</h5>
                             <ul class="trust-list">
                                 <li><i class="bi bi-patch-check-fill"></i> Certificado digital incluido</li>
-                                <li><i class="bi bi-broadcast-pin"></i> En vivo + acceso a grabaciones 30 días</li>
+                                <li><i class="bi bi-broadcast-pin"></i> Congreso en vivo</li>
                                 <li><i class="bi bi-people-fill"></i> Cupos virtuales para toda LATAM</li>
                                 <li><i class="bi bi-headset"></i> Soporte antes y durante el evento</li>
                             </ul>
@@ -526,7 +522,7 @@
                             </div>
 
                             <div class="d-grid mt-4">
-                                <button class="btn btn-gradient btn-lg" type="submit" [disabled]="submitting">
+                                <button class="btn btn-price btn-lg" type="submit" [disabled]="submitting">
                                     <i class="bi" [ngClass]="submitting ? 'bi-hourglass-split' : 'bi-send-fill'"></i>
                                     {{ submitting ? 'Enviando…' : 'Quiero inscribirme' }}
                                 </button>
@@ -545,7 +541,7 @@
     </section>
 
     <!-- PATROCINADORES -->
-    <div class="s-strip s-top speed-34">
+    <div class="s-strip s-top speed-34 mt-5">
         <div class="strip-rail">
             <div class="strip-track" aria-label="Top sponsors">
                 <ng-container *ngFor="let _ of [0,1]">
@@ -625,7 +621,7 @@
             </div>
         </div>
     </div>
-    <div class="s-strip s-all speed-30 my-3 mb-5">
+    <div class="s-strip s-all speed-30 mb-5">
         <div class="strip-rail">
             <div class="strip-track" aria-label="Patrocinadores">
                 <ng-container *ngFor="let l of sponsors.partners.concat(sponsors.partners)">
@@ -672,7 +668,7 @@
                     <h6 class="ft-title">Secciones</h6>
                     <ul class="ft-links">
                         <li><a href="javascript:void(0);" (click)="scrollTo('sobre')">Sobre el congreso</a></li>
-                        <li><a href="javascript:void(0);" (click)="scrollTo('ejes')">Ejes temáticos</a></li>
+                        <li><a href="javascript:void(0);" (click)="scrollTo('ejes')">Plenaria</a></li>
                         <li><a href="javascript:void(0);" (click)="scrollTo('ponentes')">Ponentes</a></li>
                         <li><a href="javascript:void(0);" (click)="scrollTo('precio')">Matrícula</a></li>
                         <li><a href="javascript:void(0);" (click)="scrollTo('faq')">FAQ</a></li>
@@ -713,6 +709,7 @@
         </button>
     </footer>
 </section>
+
 <!-- <section>
     <div class="container">
         <div class="content">
@@ -833,3 +830,53 @@
 
 <!-- SPINNER -->
 <app-spinner [spinner]="spinner"></app-spinner>
+
+
+
+<!-- TALLERES -->
+<!-- <section id="talleres" class="section pad">
+    <div class="container">
+        <div class="text-center mb-5 reveal">
+            <h2 class="fw-bold">Talleres virtuales</h2>
+            <p class="text-muted">Ediciones adaptadas a formato online, con cupos limitados.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3 reveal" *ngFor="let t of talleres">
+                <div class="card h-100 hover-card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ t }}</h5>
+                        <p class="card-text text-muted">Sesiones prácticas, guías y materiales descargables.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4 reveal">
+            <a class="btn btn-outline-primary" (click)="scrollTo('contacto')">Quiero más información</a>
+        </div>
+    </div>
+</section> -->
+
+<!-- POSTERS -->
+<!-- <section id="posters" class="section pad bg-fade-2">
+    <div class="container">
+        <div class="row g-4 align-items-center">
+            <div class="col-lg-6 reveal">
+                <h2 class="fw-bold">Presentación de pósteres científicos</h2>
+                <p class="text-muted mb-1">Recepción de resúmenes · <b>Fecha límite sugerida: 01 sept.</b></p>
+                <ul class="list-unstyled lh-lg">
+                    <li>✔️ Trabajos originales y reportes de caso</li>
+                    <li>✔️ Evaluación por comité científico</li>
+                    <li>✔️ Difusión digital post-evento</li>
+                </ul>
+                <a class="btn btn-primary" (click)="scrollTo('contacto')">Inscribirme / Consultas</a>
+            </div>
+            <div class="col-lg-6 reveal">
+                <div class="poster-card p-4">
+                    <h6 class="mb-2">Lineamientos</h6>
+                    <p class="mb-0 text-muted">Formato digital, normas de envío y plantillas disponibles tras la
+                        inscripción.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
