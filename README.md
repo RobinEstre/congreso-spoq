@@ -29,13 +29,13 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## deploy to angular virtual s3
 
 <!-- Para configurar  -->
-aws configure --profile rlsigv
+aws configure --profile cepefodes
 <!-- Para ver carpetas  -->
-aws s3 ls --profile rlsigv
+aws s3 ls --profile cepefodes
 <!-- Ver credenciales profiles -->
 cat ~/.aws/credentials 
 <!-- Ejecutar -->
 ng build --configuration production
 rm -r dist/windoors/assets/
-aws s3 rm s3://web-rlsigv --recursive --profile rlsigv
-aws s3 sync dist/windoors s3://web-rlsigv --acl public-read --cache-control max-age=5 --profile rlsigv
+aws s3 rm s3://spoq-website --recursive --profile cepefodes
+aws s3 sync dist/windoors s3://spoq-website --acl public-read --cache-control max-age=5 --profile cepefodes
