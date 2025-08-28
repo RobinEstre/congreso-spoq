@@ -1,15 +1,26 @@
 <section class="body">
     <!-- TOP BAR (Navbar #1) -->
-    <div class="navbar-top d-none d-lg-block">
+    <div id="nav" class="navbar-top d-none d-lg-block">
         <div class="container d-flex justify-content-between align-items-center">
             <div class="small text-white-75">
                 📅 17–19 de septiembre · Evento virtual LATAM · Certificado digital
             </div>
-            <div class="socials">
+            <div class="ft-social">
+                <a href="https://www.facebook.com/SPOQ.PE" target="_blank" aria-label="Facebook">
+                    <i class="bi bi-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/spoq.pe/" target="_blank" aria-label="Instagram">
+                    <i class="bi bi-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/spoq-pe" target="_blank" aria-label="LinkedIn">
+                    <i class="bi bi-linkedin"></i>
+                </a>
+            </div>
+            <!-- <div class="socials">
                 <a href="#" aria-label="Facebook" class="text-white-75">FB</a>
                 <a href="#" aria-label="Instagram" class="text-white-75">IG</a>
                 <a href="#" aria-label="LinkedIn" class="text-white-75">IN</a>
-            </div>
+            </div> -->
         </div>
     </div>
 
@@ -75,7 +86,7 @@
                 🎥 En vivo · 🌎 LATAM · 📜 Certificado digital incluido
             </div>
 
-            <div class="ribbon-date">Del 16 al 19 de Septiembre</div>
+            <div class="ribbon-date">Del 17 al 19 de Septiembre</div>
         </div>
 
         <!-- Curva inferior -->
@@ -107,7 +118,7 @@
                     </ul>
 
                     <div class="pills">
-                        <span class="pill">16–19 septiembre</span>
+                        <span class="pill">17-19 septiembre</span>
                         <span class="pill">Virtual · LATAM</span>
                         <span class="pill">Certificado digital</span>
                     </div>
@@ -123,7 +134,7 @@
                                 <li><b>Credencial:</b> Control de asistencia y acceso.</li>
                                 <li><b>Certificado:</b> Digital, enviado al correo registrado.</li>
                             </ul>
-                            <div class="about-ribbon">Del 16 al 19 de Septiembre</div>
+                            <div class="about-ribbon">Del 17 al 19 de Septiembre</div>
                             <small class="text-muted d-block mt-3">* Más detalles en la sección de FAQ.</small>
                         </div>
                     </div>
@@ -289,18 +300,117 @@
     <section id="precio" class="section pad price-section">
         <div class="container">
             <div class="text-center mb-5 reveal">
-                <h2 class="fw-bold h-underline">Matrícula única</h2>
+                <h2 class="fw-bold h-underline">Pago único</h2>
                 <p class="text-muted">Plan virtual para toda Latinoamérica.</p>
             </div>
 
             <div class="row justify-content-center">
+                <div class="col-12 col-xl-11 reveal position-relative">
+                    <!-- blobs decor -->
+                    <span class="price-blob a"></span>
+                    <span class="price-blob b"></span>
+
+                    <div class="row g-4 price-rows justify-content-center">
+
+                        <!-- CARD: Estudiantes/Egresados -->
+                        <div class="col-12 col-md-6 col-lg-4 order-2 order-lg-1" *ngIf="tiers?.length">
+                            <div class="card price-card stitched shadow-none price-card--side">
+                                <div class="price-topbar is-soft"></div>
+
+                                <div class="card-body p-4 text-center">
+                                    <div class="price-badge">{{ tiers[0].badge }}</div>
+                                    <div class="tier-name">{{ tiers[0].name }}</div>
+
+                                    <div class="price-value my-2">
+                                        <small>USD</small> {{ tiers[0].price }}
+                                    </div>
+
+                                    <ul class="price-bullets list-inline mb-3">
+                                        <li class="list-inline-item" *ngFor="let b of tiers[0].bullets">{{ b }}</li><br>
+                                    </ul>
+
+                                    <p class="text-muted mb-4">{{ tiers[0].desc }}</p>
+
+                                    <div class="d-grid">
+                                        <a class="btn btn-price" (click)="scrollTo('contacto')">Elegir plan</a>
+                                        <small class="text-muted mt-2" *ngIf="tiers[0].note">{{ tiers[0].note }}</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CARD: Asistente virtual (DESTACADO) -->
+                        <div class="col-12 col-md-10 col-lg-4 order-1 order-lg-2">
+                            <div class="card price-card stitched shadow-none price-card--featured">
+                                <div class="price-topbar"></div>
+                                <span class="price-reco"><i class="bi bi-star-fill"></i> Recomendado</span>
+
+                                <div class="card-body p-4 p-lg-5 text-center">
+                                    <div class="price-badge">{{ tiers[1].badge }}</div>
+                                    <div class="tier-name">{{ tiers[1].name }}</div>
+
+                                    <div class="display-4 fw-bold my-2 price-value">
+                                        <small>USD</small> {{ tiers[1].price }}
+                                    </div>
+
+                                    <ul class="price-bullets list-inline mb-3">
+                                        <li class="list-inline-item" *ngFor="let b of tiers[1].bullets">{{ b }}</li>
+                                    </ul>
+
+                                    <p class="text-muted mb-4">{{ tiers[1].desc }}</p>
+
+                                    <div class="d-grid gap-2">
+                                        <a class="btn btn-price btn-lg" (click)="scrollTo('contacto')">{{ tiers[1].cta
+                                            || 'Inscribirme ahora' }}</a>
+                                        <small class="text-muted" *ngIf="tiers[1].note">{{ tiers[1].note }}</small>
+                                    </div>
+
+                                    <hr class="hr-gradient mt-4 mb-0">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CARD: Residentes/Fellows -->
+                        <div class="col-12 col-md-6 col-lg-4 order-3 order-lg-3">
+                            <div class="card price-card stitched shadow-none price-card--side">
+                                <div class="price-topbar is-soft"></div>
+
+                                <div class="card-body p-4 text-center">
+                                    <div class="price-badge">{{ tiers[2].badge }}</div>
+                                    <div class="tier-name">{{ tiers[2].name }}</div>
+
+                                    <div class="price-value my-2">
+                                        <small>USD</small> {{ tiers[2].price }}
+                                    </div>
+
+                                    <ul class="price-bullets list-inline mb-3">
+                                        <li class="list-inline-item" *ngFor="let b of tiers[2].bullets">{{ b }}</li>
+                                    </ul>
+
+                                    <p class="text-muted mb-4">{{ tiers[2].desc }}</p>
+
+                                    <div class="d-grid">
+                                        <a class="btn btn-price" (click)="scrollTo('contacto')">Elegir plan</a>
+                                        <small class="text-muted mt-2" *ngIf="tiers[2].note">{{ tiers[2].note }}</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <small class="d-block text-center text-muted mt-3">
+                        Tarifas en USD. Sujetas a cupo y a cambios sin previo aviso.
+                    </small>
+                </div>
+            </div>
+
+            <!-- <div class="row justify-content-center">
                 <div class="col-md-8 col-lg-6 reveal">
-                    <!-- decor blobs -->
                     <span class="price-blob a"></span>
                     <span class="price-blob b"></span>
 
                     <div class="card price-card stitched shadow-none">
-                        <!-- barrita superior -->
                         <div class="price-topbar"></div>
 
                         <div class="card-body p-4 p-lg-5 text-center">
@@ -328,12 +438,11 @@
                                 <small class="text-muted">* Cupos limitados.</small>
                             </div>
 
-                            <!-- separador suave -->
                             <hr class="hr-gradient mt-4 mb-0">
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
 
@@ -376,7 +485,7 @@
                     <div class="latam-badges">
                         <span class="lb"><i class="bi bi-shield-lock"></i> Acceso seguro</span>
                         <span class="lb"><i class="bi bi-headset"></i> Soporte ES/EN</span>
-                        <span class="lb"><i class="bi bi-calendar2-check"></i> 16–19 septiembre</span>
+                        <span class="lb"><i class="bi bi-calendar2-check"></i> 17-19 septiembre</span>
                     </div>
                 </div>
             </div>
@@ -419,7 +528,7 @@
     </section>
 
     <!-- CONTACTO -->
-    <section id="contacto" class="section pad contact-section latam-band">
+    <!-- <section id="contacto" class="section pad contact-section latam-band">
         <div class="container">
             <div class="text-center mb-5 reveal">
                 <h2 class="fw-bold h-underline">Inscripción y consultas</h2>
@@ -428,7 +537,6 @@
             </div>
 
             <div class="row g-4 align-items-stretch">
-                <!-- LADO IZQUIERDO: confianza/beneficios -->
                 <aside class="col-lg-4 reveal">
                     <div class="trust-card">
                         <div class="trust-topbar"></div>
@@ -444,32 +552,68 @@
                             <div class="badge-row">
                                 <span class="soft-pill"><i class="bi bi-shield-lock"></i> Pago seguro</span>
                                 <span class="soft-pill"><i class="bi bi-translate"></i> Soporte ES/EN</span>
-                                <span class="soft-pill"><i class="bi bi-whatsapp"></i> WhatsApp disponible</span>
                             </div>
 
                             <div class="contact-short">
-                                <div><i class="bi bi-envelope-paper"></i> ¿Dudas? <a
-                                        href="mailto:info@spoq.pe">info@spoq.pe</a></div>
-                                <div><i class="bi bi-whatsapp"></i> Escríbenos: <a href="https://wa.me/##########"
-                                        target="_blank" rel="noopener">WhatsApp</a></div>
+                                <div>
+                                    <i class="bi bi-envelope-paper"></i> ¿Dudas?
+                                    <a href="mailto:info@spoq.pe">info@spoq.pe</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </aside>
 
-                <!-- FORMULARIO: lado derecho -->
                 <div class="col-lg-8 reveal">
                     <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate class="contact-card">
                         <div class="glow-bg"></div>
                         <div class="card-inner">
+
+                            <div class="plan-select mb-3" role="radiogroup" aria-label="Selecciona tu plan">
+                                <label class="plan-pill" [class.active]="contactForm.value.plan==='estudiante'">
+                                    <input type="radio" formControlName="plan" value="estudiante"
+                                        (change)="onPlanChange()">
+                                    <span class="t">Estudiantes / Egresados</span>
+                                    <span class="p">USD 20</span>
+                                </label>
+
+                                <label class="plan-pill" [class.active]="contactForm.value.plan==='residente'">
+                                    <input type="radio" formControlName="plan" value="residente"
+                                        (change)="onPlanChange()">
+                                    <span class="t">Residentes / Fellows</span>
+                                    <span class="p">USD 50</span>
+                                </label>
+
+                                <label class="plan-pill pro" [class.active]="contactForm.value.plan==='asistente'">
+                                    <input type="radio" formControlName="plan" value="asistente"
+                                        (change)="onPlanChange()">
+                                    <span class="t">Asistente virtual</span>
+                                    <span class="p">USD 100</span>
+                                    <span class="reco"><i class="bi bi-star-fill"></i> Recomendado</span>
+                                </label>
+                            </div>
+
+                            <div class="plan-summary mb-3" aria-live="polite">
+                                <div><strong>Plan:</strong> {{ planLabel(contactForm.value.plan) }}</div>
+                                <div><strong>Precio:</strong> USD {{ planPrice(contactForm.value.plan) }}</div>
+                            </div>
+
                             <div class="row g-3">
                                 <div class="col-md-6">
-                                    <label class="form-label">Nombre completo</label>
+                                    <label class="form-label">Nombres</label>
                                     <div class="input-icon">
                                         <i class="bi bi-person"></i>
-                                        <input type="text" formControlName="full_name" class="form-control"
-                                            placeholder="Dr./Dra. Nombre Apellido"
-                                            [class.is-invalid]="contactForm.get('full_name')?.invalid && contactForm.get('full_name')?.touched">
+                                        <input type="text" formControlName="first_name" class="form-control"
+                                            placeholder="Nombre(s)" [class.is-invalid]="invalid('first_name')">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">Apellidos</label>
+                                    <div class="input-icon">
+                                        <i class="bi bi-person-vcard"></i>
+                                        <input type="text" formControlName="last_name" class="form-control"
+                                            placeholder="Apellido(s)" [class.is-invalid]="invalid('last_name')">
                                     </div>
                                 </div>
 
@@ -478,8 +622,16 @@
                                     <div class="input-icon">
                                         <i class="bi bi-envelope"></i>
                                         <input type="email" formControlName="email" class="form-control"
-                                            placeholder="tu@email.com"
-                                            [class.is-invalid]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
+                                            placeholder="tu@email.com" [class.is-invalid]="invalid('email')">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">WhatsApp</label>
+                                    <div class="input-icon">
+                                        <i class="bi bi-telephone"></i>
+                                        <input type="tel" formControlName="whatsapp" class="form-control"
+                                            placeholder="+51 987 654 321" [class.is-invalid]="invalid('whatsapp')">
                                     </div>
                                 </div>
 
@@ -487,7 +639,8 @@
                                     <label class="form-label">País</label>
                                     <div class="input-icon">
                                         <i class="bi bi-geo-alt"></i>
-                                        <select formControlName="country" class="form-select">
+                                        <select formControlName="country" class="form-select"
+                                            [class.is-invalid]="invalid('country')">
                                             <option *ngFor="let c of countries" [value]="c">{{ c }}</option>
                                         </select>
                                     </div>
@@ -498,26 +651,59 @@
                                     <div class="input-icon">
                                         <i class="bi bi-briefcase-medical"></i>
                                         <input type="text" formControlName="specialty" class="form-control"
-                                            placeholder="Oncología, Cirugía…">
+                                            placeholder="Oncología, Cirugía…" [class.is-invalid]="invalid('specialty')">
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
-                                    <label class="form-label">WhatsApp</label>
+                                <div class="col-md-4">
+                                    <label class="form-label">Tipo de documento</label>
                                     <div class="input-icon">
-                                        <i class="bi bi-telephone"></i>
-                                        <input type="tel" formControlName="whatsapp" class="form-control"
-                                            placeholder="+51 987 654 321">
+                                        <i class="bi bi-card-text"></i>
+                                        <select formControlName="doc_type" class="form-select"
+                                            [class.is-invalid]="invalid('doc_type')">
+                                            <option value="DNI">DNI</option>
+                                            <option value="CE">Carné de Extranjería</option>
+                                            <option value="PAS">Pasaporte</option>
+                                        </select>
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
-                                    <label class="form-label">Mensaje (opcional)</label>
+                                <div class="col-md-4">
+                                    <label class="form-label">N° de documento</label>
                                     <div class="input-icon">
-                                        <i class="bi bi-chat-dots"></i>
-                                        <input type="text" formControlName="message" class="form-control"
-                                            placeholder="Quiero inscribirme al cupo virtual.">
+                                        <i class="bi bi-123"></i>
+                                        <input type="text" formControlName="doc_number" class="form-control"
+                                            placeholder="Ej. 12345678" [class.is-invalid]="invalid('doc_number')">
                                     </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <label class="form-label">CMP</label>
+                                    <div class="input-icon">
+                                        <i class="bi bi-award"></i>
+                                        <input type="text" formControlName="cmp" class="form-control"
+                                            placeholder="Opcional">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <label class="form-label">RNE</label>
+                                    <div class="input-icon">
+                                        <i class="bi bi-patch-plus"></i>
+                                        <input type="text" formControlName="rne" class="form-control"
+                                            placeholder="Opcional">
+                                    </div>
+                                </div>
+
+                                <div class="col-12" *ngIf="contactForm.value.plan==='estudiante'">
+                                    <label class="form-label">Constancia / Carné de estudiante (imagen o PDF)</label>
+                                    <div class="input-file" [class.is-invalid]="invalid('student_proof')">
+                                        <input type="file" (change)="onFile($event)" accept=".pdf,image/*">
+                                        <span class="hint"><i class="bi bi-paperclip"></i> Adjuntar archivo…</span>
+                                        <span class="filename" *ngIf="studentFileName">{{ studentFileName }}</span>
+                                    </div>
+                                    <small class="text-muted d-block mt-1">Requisito para validar la tarifa de
+                                        Estudiante/Egresado.</small>
                                 </div>
                             </div>
 
@@ -537,6 +723,209 @@
                     </form>
                 </div>
             </div>
+        </div>
+    </section> -->
+
+    <section id="contacto" class="section pad contact-section latam-band">
+        <div class="container">
+            <div class="text-center mb-5 reveal">
+                <h2 class="fw-bold h-underline">Inscripción y consultas</h2>
+                <p class="text-muted">Completa tus datos y te contactamos con el link de pago. <span
+                        class="text-body fw-bold">Toma ~1 minuto.</span></p>
+            </div>
+
+            <form class="row g-4 align-items-start" [formGroup]="contactForm" validate>
+                <!-- LATERAL: Selector de plan + beneficios -->
+                <aside class="col-lg-4 reveal">
+                    <div class="plan-sidebar sticky">
+                        <h6 class="plan-title">Elige tu plan</h6>
+
+                        <div class="plan-list">
+                            <!-- Estudiantes -->
+                            <label class="plan-tile" [class.active]="contactForm.value.plan==='estudiante'">
+                                <input type="radio" [formControl]="contactForm.controls['plan']" value="estudiante">
+                                <div class="p-lines">
+                                    <span class="p-name">Estudiantes / Egresados</span>
+                                    <span class="p-price">USD 20</span>
+                                </div>
+                            </label>
+
+                            <!-- Residentes/Fellows -->
+                            <label class="plan-tile" [class.active]="contactForm.value.plan==='residente'">
+                                <input type="radio" [formControl]="contactForm.controls['plan']" value="residente">
+                                <div class="p-lines">
+                                    <span class="p-name">Residentes / Fellows</span>
+                                    <span class="p-price">USD 50</span>
+                                </div>
+                            </label>
+
+                            <!-- Asistente virtual (recomendado) -->
+                            <label class="plan-tile recommended" [class.active]="contactForm.value.plan==='asistente'">
+                                <span class="rec">★ Recomendado</span>
+                                <input type="radio" [formControl]="contactForm.controls['plan']" value="asistente">
+                                <div class="p-lines">
+                                    <span class="p-name">Asistente virtual</span>
+                                    <span class="p-price">USD 100</span>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="plan-summary">
+                            <div class="sum-row"><span>Plan:</span><strong>{{ planLabel(contactForm.value?.plan)
+                                    }}</strong></div>
+                            <div class="sum-row"><span>Precio:</span><strong>{{ planPrice(contactForm.value?.plan) |
+                                    currency:'USD':'symbol-narrow' }}</strong></div>
+                        </div>
+
+                        <!-- Beneficios compactos -->
+                        <div class="trust-card-mini mt-3">
+                            <ul class="trust-list">
+                                <li><i class="bi bi-patch-check-fill"></i> Certificado digital incluido</li>
+                                <li><i class="bi bi-broadcast-pin"></i> Congreso en vivo + grabaciones</li>
+                                <li><i class="bi bi-people-fill"></i> Cupos para toda LATAM</li>
+                                <!-- <li><i class="bi bi-headset"></i> Soporte antes y durante el evento</li> -->
+                            </ul>
+
+                            <div class="badge-row">
+                                <span class="soft-pill"><i class="bi bi-shield-lock"></i> Pago seguro</span>
+                                <span class="soft-pill"><i class="bi bi-translate"></i> Soporte ES/EN</span>
+                            </div>
+
+                            <div class="mini-contact">
+                                <i class="bi bi-envelope-paper"></i>
+                                <a href="mailto:info@spoq.pe">info@spoq.pe</a>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- FORMULARIO (más compacto) -->
+                <div class="col-lg-8 reveal">
+                    <div class="contact-card slim">
+                        <div class="card-inner">
+                            <!-- Resumen arriba (línea) -->
+                            <div class="inline-summary">
+                                <span class="pill">{{ planLabel(contactForm.value?.plan) }}</span>
+                                <span class="dash">•</span>
+                                <span class="price">{{ planPrice(contactForm.value?.plan) |
+                                    currency:'USD':'symbol-narrow' }}</span>
+                            </div>
+                            <div class="row g-3 g-md-2">
+                                <div class="col-md-6">
+                                    <label class="form-label">País</label>
+                                    <div class="input-icon">
+                                        <i class="bi bi-geo-alt"></i>
+                                        <select formControlName="country" class="form-select" (change)="selectTipo($event)">
+                                            <option *ngFor="let c of countries" [value]="c">{{ c }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Nº de documento</label>
+                                    <div class="input-icon">
+                                        <i class="bi bi-123"></i>
+                                        <input type="text" formControlName="doc_number" class="form-control"
+                                            placeholder="Ej. 12345678" (keyup)="getInfoByDni($event)">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Nombres</label>
+                                    <div class="input-icon">
+                                        <i class="bi bi-person"></i>
+                                        <input type="text" formControlName="first_name" class="form-control"
+                                            placeholder="Nombre(s)">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Apellidos</label>
+                                    <div class="input-icon">
+                                        <i class="bi bi-person"></i>
+                                        <input type="text" formControlName="last_name" class="form-control"
+                                            placeholder="Apellido(s)">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Email</label>
+                                    <div class="input-icon">
+                                        <i class="bi bi-envelope"></i>
+                                        <input type="email" formControlName="email" class="form-control"
+                                            placeholder="tu@email.com">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Celular</label>
+                                    <div class="input-icon">
+                                        <i class="bi bi-telephone"></i>
+                                        <input type="tel" formControlName="celular" class="form-control"
+                                            placeholder="+51 987 654 321">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" *ngIf="contactForm.value.plan!='estudiante'">Especialidad / Cargo</label>
+                                    <label class="form-label" *ngIf="contactForm.value.plan==='estudiante'">Carrera</label>
+                                    <div class="input-icon">
+                                        <i class="bi bi-briefcase"></i>
+                                        <input type="text" formControlName="specialty" class="form-control"
+                                            placeholder="Oncología, Medicina…">
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-6">
+                                    <label class="form-label">Tipo de documento</label>
+                                    <div class="input-icon">
+                                        <i class="bi bi-card-text"></i>
+                                        <select formControlName="doc_type" class="form-select">
+                                            <option value="DNI">DNI</option>
+                                            <option value="CE">Carné de Extranjería</option>
+                                            <option value="PAS">Pasaporte</option>
+                                        </select>
+                                    </div>
+                                </div> -->
+                                <!-- Opcionales compactos -->
+                                <div class="col-md-6" *ngIf="contactForm.value.plan!='estudiante'">
+                                    <label class="form-label">CMP <small class="text-muted">(opcional)</small></label>
+                                    <div class="input-icon">
+                                        <i class="bi bi-award"></i>
+                                        <input type="text" formControlName="cmp" class="form-control" placeholder="CMP">
+                                    </div>
+                                </div>
+                                <div class="col-md-6" *ngIf="contactForm.value.plan!='estudiante'">
+                                    <label class="form-label">RNE <small class="text-muted">(opcional)</small></label>
+                                    <div class="input-icon">
+                                        <i class="bi bi-award-fill"></i>
+                                        <input type="text" formControlName="rne" class="form-control" placeholder="RNE">
+                                    </div>
+                                </div>
+
+                                <!-- Constancia para estudiantes SOLO si plan=estudiante -->
+                                <div class="col-12" *ngIf="contactForm.value?.plan === 'estudiante'">
+                                    <label class="form-label">Constancia / Carné de estudiante (imagen o PDF)</label>
+                                    <div class="dropzone" (click)="fileInput?.click()">
+                                        <i class="bi bi-paperclip"></i>
+                                        <span>Adjuntar archivo…</span>
+                                        <input #fileInput hidden type="file" accept=".pdf,.png,.jpg,.jpeg"
+                                            (change)="onStudentProof($event)">
+                                    </div>
+                                    <small class="text-muted d-block mt-1">Requisito para validar la tarifa de
+                                        Estudiante/Egresado.</small>
+                                </div>
+                            </div>
+
+                            <div class="d-grid mt-3">
+                                <button class="btn btn-gradient btn-lg" (click)="onSubmit()" [disabled]="submitting">
+                                    <i class="bi" [ngClass]="submitting ? 'bi-hourglass-split' : 'bi-send-fill'"></i>
+                                    {{ submitting ? 'Enviando…' : 'Quiero inscribirme' }}
+                                </button>
+                                <small class="text-muted mt-2"><i class="bi bi-shield-check"></i> Nunca compartiremos tu
+                                    información.</small>
+                            </div>
+
+                            <div class="alert alert-success mt-3 mb-0" *ngIf="submitted">
+                                ¡Gracias! Te escribiremos pronto con los pasos para completar la inscripción.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </section>
 
@@ -657,9 +1046,15 @@
                         digital.
                     </p>
                     <div class="ft-social">
-                        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="https://www.facebook.com/SPOQ.PE" target="_blank" aria-label="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/spoq.pe/" target="_blank" aria-label="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/spoq-pe" target="_blank" aria-label="LinkedIn">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
                     </div>
                 </div>
 
@@ -672,6 +1067,8 @@
                         <li><a href="javascript:void(0);" (click)="scrollTo('ponentes')">Ponentes</a></li>
                         <li><a href="javascript:void(0);" (click)="scrollTo('precio')">Matrícula</a></li>
                         <li><a href="javascript:void(0);" (click)="scrollTo('faq')">FAQ</a></li>
+                        <li><a href="https://www.spoq.pe/libro-de-reclamaciones/" target="_blank">Libro de
+                                reclamaciones</a></li>
                     </ul>
                 </div>
 
@@ -697,9 +1094,9 @@
             <div class="d-flex justify-content-between align-items-center flex-column flex-md-row small">
                 <div class="ft-copy">© {{year}} SPOQ · Congreso Virtual</div>
                 <div class="ft-legal">
-                    <a href="javascript:void(0);" (click)="scrollTo('faq')">FAQ</a><span>·</span>
-                    <a href="#">Términos</a><span>·</span>
-                    <a href="#">Privacidad</a>
+                    <a routerLink="/terminos-condiciones" (click)="scrollTo('nav')">Términos</a><span>·</span>
+                    <a routerLink="politica-privacidad" (click)="scrollTo('nav')">Privacidad</a><span>·</span>
+                    <a routerLink="/politica-cambios" (click)="scrollTo('nav')">Cambios y Devoluciones</a>
                 </div>
             </div>
         </div>
@@ -712,127 +1109,6 @@
 
 <!-- SPINNER -->
 <app-spinner [spinner]="spinner"></app-spinner>
-
-<!-- <section>
-    <div class="container">
-        <div class="content">
-            <div class="company">
-                <img src="https://all-files-rlsigv.s3.us-east-1.amazonaws.com/logo+igv-sin-fondo.png" alt=""
-                    style="width: 15%;">
-                <h5>Respetable Logia Simbólica</h5>
-                <p>Inca Garcilaso de la Vega Nro. 177</p>
-            </div>
-
-            <h1 class="title2">RESPUESTA DEL CORONEL FRANCISCO BOLOGNESI Y EL HONOR NACIONAL</h1>
-
-            <div class="discription">
-                <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-12 text-center">
-                        <i class="bi bi-camera-video-fill"></i> Conferencia Virtual
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-12 text-center">
-                        <i class="bi bi-person-circle"></i> Iván Torres La Torre
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-12 text-center">
-                        <i class="bi bi-calendar"></i> 05-06-2025 | 08:00 p.m.
-                    </div>
-                </div>
-            </div>
-
-            <form [formGroup]="formRegistro" style="margin: 2% 2% 2% 2%;">
-                <div class="row was-validated mb-3">
-                    <div class="col-lg-5 col-md-5 col-sm-12 mx-1">
-                        <div class="form-group mb-2 position-relative">
-                            <div class="input-group input-group-lg">
-                                <div class="form-floating">
-                                    <select class="form-control border-start-0" formControlName="tipo_doc" required (change)="selectTipoDoc($event)"
-                                        style="padding-top: 0.9rem !important;">
-                                        <option value="" disabled selected>Seleccionar Nacionalidad</option>
-                                        <option *ngFor="let tipoMat of tipo_doc" value="{{tipoMat.name}}">
-                                            {{tipoMat.name}}
-                                        </option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5 col-md-5 col-sm-12 mx-1">
-                        <div class="form-group mb-2 position-relative">
-                            <div class="input-group input-group-lg">
-                                <div class="form-floating">
-                                    <input placeholder="" formControlName="num_doc" class="form-control border-start-0"
-                                        (keyup)="getInfoByDni($event)"
-                                        onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')"
-                                        maxlength="8" required>
-                                    <label for="floatingInput">Nro. Documento</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5 col-md-5 col-sm-12 mx-1">
-                        <div class="form-group mb-2 position-relative">
-                            <div class="input-group input-group-lg">
-                                <div class="form-floating">
-                                    <input placeholder="Nombres" formControlName="nombres"
-                                        class="form-control border-start-0" autocomplete="off" required>
-                                    <label for="floatingInput">Nombres</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5 col-md-5 col-sm-12 mx-1">
-                        <div class="form-group mb-2 position-relative">
-                            <div class="input-group input-group-lg">
-                                <div class="form-floating">
-                                    <input placeholder="Apellidos" formControlName="apellidos"
-                                        class="form-control border-start-0" autocomplete="off" required>
-                                    <label for="floatingInput">Apellidos</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5 col-md-5 col-sm-12 mx-1">
-                        <div class="form-group mb-2 position-relative">
-                            <div class="input-group input-group-lg">
-                                <div class="form-floating">
-                                    <input placeholder="Correo electrónico" formControlName="email" type="email"
-                                        class="form-control border-start-0" autocomplete="off" required>
-                                    <label for="floatingInput">Correo electrónico</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5 col-md-5 col-sm-12 mx-1">
-                        <div class="form-group mb-2 position-relative">
-                            <div class="input-group input-group-lg">
-                                <div class="form-floating">
-                                    <input placeholder="Celular" formControlName="telefono"
-                                        onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')"
-                                        maxlength="9" class="form-control border-start-0" autocomplete="off" required>
-                                    <label for="floatingInput">Celular</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5 col-md-5 col-sm-12 mx-1">
-                        <div class="form-check d-flex align-items-center" style="font-size: 18px; margin-left: 30px; color: black;">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" formControlName="is_logia">
-                            <label class="form-check-label mx-2" for="flexCheckChecked">
-                                Pertenece a una logia
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </form>
-            <div class="button">
-                <button class="text-uppercase" type="button" (click)="sendData()">Registrarme al evento</button>
-            </div>
-        </div>
-    </div>
-</section> -->
-
-
-
 
 <!-- TALLERES -->
 <!-- <section id="talleres" class="section pad">

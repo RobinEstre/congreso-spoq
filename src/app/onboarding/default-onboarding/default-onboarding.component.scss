@@ -1754,6 +1754,78 @@ body {
     /* limpia en móvil */
 }
 
+/* ==== grilla para 3 precios, manteniendo tu look ==== */
+.price-rows .price-card {
+    height: 100%;
+}
+
+/* “Recomendado” */
+.price-reco {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    z-index: 2;
+    background: #fff7df;
+    color: #4b204f;
+    border: 1px solid rgba(96, 47, 102, .22);
+    padding: .25rem .55rem;
+    border-radius: 999px;
+    font-weight: 900;
+    font-size: .78rem;
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+}
+
+/* Featured: más presencia, misma estética */
+.price-card--featured {
+    border: 1px solid rgba(96, 47, 102, .28);
+    box-shadow: 0 22px 70px rgba(96, 47, 102, .22);
+    transform: translateY(-4px);
+}
+
+.price-card--featured .tier-name {
+    font-weight: 900;
+    letter-spacing: .2px;
+    margin-top: .3rem;
+}
+
+.price-card--featured .price-value small {
+    font-size: .9rem;
+    opacity: .85;
+    margin-right: 4px;
+}
+
+/* Side cards: un poco más compactas */
+.price-card--side .price-value {
+    font-size: 2rem;
+}
+
+.price-card--side .price-value small {
+    font-size: .8rem;
+    opacity: .8;
+    margin-right: 4px;
+}
+
+/* topbar suave para laterales */
+.price-topbar.is-soft {
+    background: linear-gradient(90deg, rgba(96, 47, 102, .28), rgba(244, 196, 48, .35));
+}
+
+/* nombre del plan */
+.tier-name {
+    font-size: .95rem;
+    color: #2b2f3a;
+    opacity: .95;
+}
+
+/* responsivo */
+@media (max-width:992px) {
+    .price-card--featured {
+        transform: none;
+    }
+}
+
 /* =================== STICKY CTA MOBILE =================== */
 .sticky-cta {
     position: sticky;
@@ -2150,7 +2222,7 @@ body {
     }
 }
 
-/* ===== PATCH: Formulario limpio (sin degradado huachafo) ===== */
+/* ===== CONTACTO ===== */
 
 /* Fondo de la sección se queda; bajamos el ruido del form */
 .contact-card {
@@ -2269,7 +2341,370 @@ body {
     }
 }
 
-/* =================== FOOTER =================== */
+/* === Selector de Plan (píldoras) === */
+.plan-select {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.plan-pill {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: .65rem .8rem;
+    border-radius: 14px;
+    cursor: pointer;
+    user-select: none;
+    background: #ffffff;
+    border: 1px solid rgba(15, 18, 34, .12);
+    box-shadow: 0 8px 22px rgba(15, 18, 34, .06);
+    transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+
+.plan-pill:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 30px rgba(15, 18, 34, .10);
+}
+
+.plan-pill input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.plan-pill .t {
+    font-weight: 900;
+    color: #2b2f3a;
+}
+
+.plan-pill .p {
+    font-weight: 900;
+    color: #602f66;
+}
+
+.plan-pill.active {
+    border-color: #602f66;
+    box-shadow: 0 16px 40px rgba(96, 47, 102, .18);
+    outline: 2px solid rgba(96, 47, 102, .10);
+}
+
+.plan-pill.pro {
+    background: linear-gradient(180deg, #ffffff, #fffdf7);
+    border: 1px solid rgba(96, 47, 102, .18);
+}
+
+.plan-pill .reco {
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    font-size: .72rem;
+    font-weight: 900;
+    color: #4b204f;
+    background: #fff7df;
+    border: 1px solid rgba(96, 47, 102, .22);
+    border-radius: 999px;
+    padding: .2rem .5rem;
+}
+
+/* Resumen */
+.plan-summary {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: .6rem .8rem;
+    border: 1px dashed rgba(96, 47, 102, .25);
+    border-radius: 12px;
+    background: linear-gradient(180deg, #fff, #fdfcff);
+}
+
+/* Input file */
+.input-file {
+    position: relative;
+    border: 1px dashed rgba(15, 18, 34, .18);
+    border-radius: 12px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+}
+
+.input-file input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.input-file .hint {
+    color: #602f66;
+    font-weight: 800;
+}
+
+.input-file .filename {
+    color: #4b4f5c;
+}
+
+.input-file.is-invalid {
+    border-color: #dc3545;
+}
+
+/* Invalid helper */
+.is-invalid {
+    border-color: #dc3545 !important;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .plan-select {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Sidebar de planes (izquierda) */
+.plan-sidebar {
+    border: 1px solid rgba(15, 18, 34, .08);
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 18px 46px rgba(15, 18, 34, .06);
+    padding: 16px;
+}
+
+.sticky {
+    position: sticky;
+    top: 90px;
+}
+
+.plan-title {
+    font-weight: 900;
+    margin-bottom: .5rem;
+    color: #602f66;
+}
+
+.plan-list {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.plan-tile {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: .65rem .75rem;
+    border-radius: 12px;
+    border: 1px solid rgba(15, 18, 34, .10);
+    background: #fff;
+    cursor: pointer;
+    transition: box-shadow .18s ease, transform .18s ease, border-color .18s ease;
+
+    input {
+        display: none;
+    }
+
+    .p-lines {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .p-name {
+        font-weight: 700;
+    }
+
+    .p-price {
+        font-weight: 900;
+        color: #602f66;
+    }
+
+    &.active {
+        border-color: rgba(96, 47, 102, .35);
+        box-shadow: 0 10px 26px rgba(96, 47, 102, .12);
+    }
+
+    &.recommended::after {
+        content: "★";
+        position: absolute;
+        right: 8px;
+        top: 6px;
+        font-size: .85rem;
+        color: #f4c430;
+    }
+}
+
+/* Resumen de plan */
+.plan-summary {
+    display: grid;
+    gap: 6px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: linear-gradient(180deg, #fbfbff, #ffffff);
+    border: 1px solid rgba(96, 47, 102, .14);
+}
+
+.plan-summary .sum-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Beneficios mini */
+.trust-card-mini {
+    margin-top: 8px;
+    border: 1px solid rgba(96, 47, 102, .14);
+    border-radius: 12px;
+    padding: 12px;
+    background: #fff;
+    box-shadow: 0 10px 28px rgba(15, 18, 34, .05);
+}
+
+.trust-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 8px 0;
+    display: grid;
+    gap: 6px;
+}
+
+.trust-list li {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.trust-list i {
+    color: #602f66;
+}
+
+.badge-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.soft-pill {
+    background: #faf6ff;
+    border: 1px solid rgba(96, 47, 102, .14);
+    border-radius: 999px;
+    padding: .2rem .6rem;
+    font-weight: 800;
+}
+
+.mini-contact {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-size: .95rem;
+}
+
+/* Form compacto */
+.contact-card.slim {
+    border: 1px solid rgba(15, 18, 34, .08);
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 18px 46px rgba(15, 18, 34, .06);
+}
+
+.card-inner {
+    padding: 18px;
+    position: relative;
+}
+
+.inline-summary {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.inline-summary .pill {
+    background: #faf6ff;
+    border: 1px solid rgba(96, 47, 102, .14);
+    padding: .2rem .6rem;
+    border-radius: 999px;
+    font-weight: 800;
+}
+
+.inline-summary .dash {
+    opacity: .5;
+}
+
+.inline-summary .price {
+    color: #602f66;
+    font-weight: 900;
+}
+
+.input-icon {
+    position: relative;
+}
+
+.input-icon>i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #602f66;
+}
+
+.input-icon .form-control,
+.input-icon .form-select {
+    padding-left: 40px;
+    height: 44px;
+    font-size: .95rem;
+    border: 1px solid rgba(15, 18, 34, .12);
+    border-radius: 12px;
+    background: #fff;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #602f66;
+    box-shadow: 0 0 0 4px rgba(96, 47, 102, .12);
+}
+
+/* Dropzone archivo */
+.dropzone {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    min-height: 54px;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px dashed rgba(96, 47, 102, .25);
+    background: #faf6ff;
+    cursor: pointer;
+}
+
+.dropzone i {
+    color: #602f66;
+}
+
+/* Botón */
+.btn-gradient {
+    border: none;
+    background: linear-gradient(90deg, #602f66, #f4c430);
+    color: #fff;
+    font-weight: 800;
+    box-shadow: 0 14px 34px rgba(96, 47, 102, .25);
+}
+
+.btn-gradient:hover {
+    filter: brightness(.96);
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+    .sticky {
+        position: static;
+    }
+}
+
 /* =================== FOOTER (SPOQ) =================== */
 .site-footer {
     position: relative;

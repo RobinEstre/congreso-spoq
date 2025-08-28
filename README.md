@@ -33,7 +33,7 @@ aws configure --profile cepefodes
 <!-- Para ver carpetas  -->
 aws s3 ls --profile cepefodes
 <!-- Ver credenciales profiles -->
-cat ~/.aws/credentials 
+cat ~/.aws/credentials  
 <!-- Ejecutar -->
 ng build --configuration production
 rm -r dist/windoors/assets/

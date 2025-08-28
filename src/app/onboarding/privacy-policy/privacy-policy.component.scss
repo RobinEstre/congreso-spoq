@@ -1,0 +1,646 @@
+/* ===== Wrapper para aislar estilos ===== */
+.pol {
+    --brand: #602f66;
+    --gold: #f4c430;
+    --ink: #0f1222;
+    --muted: #6b7280;
+}
+
+/* ===== HERO ===== */
+.pol .hero {
+    position: relative;
+    padding: 72px 0 52px;
+    color: #fff;
+    background: radial-gradient(80vw 60vw at -10% -20%, rgba(96, 47, 102, .55), transparent 55%),
+        radial-gradient(60vw 40vw at 110% -10%, rgba(244, 196, 48, .40), transparent 55%),
+        linear-gradient(180deg, #3a1a3f, #602f66);
+}
+
+.pol .hero-grad {
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(0.6px);
+}
+
+.pol .hero .brand-pill {
+    display: inline-block;
+    padding: .35rem .6rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .16);
+    border: 1px solid rgba(255, 255, 255, .3);
+    font-weight: 800;
+}
+
+.pol .hero .title {
+    margin: .6rem 0 .35rem;
+    font-weight: 900;
+    letter-spacing: .2px;
+}
+
+.pol .hero .subtitle {
+    opacity: .9;
+    margin-bottom: 1rem;
+}
+
+.pol .hero .chips {
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+}
+
+.pol .hero .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .45rem .7rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, .14);
+    border: 1px solid rgba(255, 255, 255, .28);
+}
+
+.pol .hero .chip.soft {
+    background: rgba(255, 255, 255, .10);
+}
+
+/* ===== LAYOUT ===== */
+.pol .content {
+    padding: 40px 0 72px;
+    color: var(--ink);
+}
+
+.pol .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: all .55s cubic-bezier(.2, .65, .2, 1);
+}
+
+.pol .reveal.in {
+    opacity: 1;
+    transform: none;
+}
+
+/* TOC */
+.pol .toc {
+    position: sticky;
+    top: 92px;
+    border: 1px solid rgba(96, 47, 102, .18);
+    border-radius: 14px;
+    padding: 16px 16px 10px;
+    background: #fff;
+    box-shadow: 0 10px 28px rgba(15, 18, 34, .06);
+}
+
+.pol .toc-title {
+    font-weight: 900;
+    margin-bottom: .5rem;
+    color: var(--brand);
+}
+
+.pol .toc a {
+    display: block;
+    padding: .45rem .5rem;
+    text-decoration: none;
+    color: var(--ink);
+    border-radius: 8px;
+}
+
+.pol .toc a:hover {
+    background: #faf5ff;
+    color: var(--brand);
+}
+
+.pol .toc a.active {
+    background: linear-gradient(90deg, #faf5ff, #fff8df);
+    border: 1px solid rgba(96, 47, 102, .18);
+}
+
+/* Cards generales */
+.pol .pol-card {
+    border: 1px solid rgba(96, 47, 102, .16);
+    border-radius: 14px;
+    padding: 22px 18px;
+    background: #fff;
+    box-shadow: 0 14px 34px rgba(15, 18, 34, .06);
+    margin-bottom: 16px;
+}
+
+.pol .pol-card h2 {
+    font-size: 1.3rem;
+    font-weight: 900;
+    margin-bottom: .5rem;
+}
+
+.pol .pol-card h3 {
+    font-size: 1.05rem;
+    font-weight: 800;
+    margin: .6rem 0 .35rem;
+    color: #2b2f3a;
+}
+
+/* Subcards */
+.pol .subcard {
+    border: 1px dashed rgba(96, 47, 102, .22);
+    border-radius: 12px;
+    padding: 14px;
+    background: linear-gradient(180deg, #fff, #fdfcff);
+    margin-top: .5rem;
+}
+
+/* Listas */
+.pol .list-dot li {
+    margin: .25rem 0;
+}
+
+.pol .list-arrow {
+    padding-left: 1rem;
+}
+
+.pol .list-arrow li {
+    margin: .25rem 0;
+    position: relative;
+}
+
+.pol .list-arrow li::marker {
+    content: "⟶  ";
+    color: var(--brand);
+}
+
+/* Tabla simple */
+.pol .table-like>div {
+    padding: .35rem 0;
+}
+
+.pol .badge.phase {
+    display: inline-block;
+    background: #fff7df;
+    color: #5b2a60;
+    border: 1px solid rgba(96, 47, 102, .18);
+    border-radius: 999px;
+    padding: .25rem .55rem;
+    font-weight: 800;
+    margin-right: .35rem;
+}
+
+.pol .table-like .muted {
+    color: var(--muted);
+    font-size: .92rem;
+}
+
+/* Stepper */
+.pol .stepper {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: step;
+}
+
+.pol .stepper li {
+    display: grid;
+    grid-template-columns: 34px 1fr;
+    gap: 10px;
+    align-items: flex-start;
+    margin: .5rem 0;
+}
+
+.pol .stepper .n {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: radial-gradient(120% 120% at 20% 20%, #fff, #fff 40%, #fff0 41%), linear-gradient(180deg, #fff5d7, #faf0ff);
+    border: 1px solid rgba(96, 47, 102, .25);
+    color: #4b204f;
+    font-weight: 900;
+}
+
+/* Nota final */
+.pol .last-note {
+    margin-top: .5rem;
+    color: #4b4f5c;
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+}
+
+/* Support card */
+.pol .support-card {
+    margin-top: 22px;
+    border-radius: 14px;
+    padding: 16px;
+    background: linear-gradient(180deg, #fbfbff, #ffffff);
+    border: 1px solid rgba(96, 47, 102, .16);
+    box-shadow: 0 12px 28px rgba(15, 18, 34, .06);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.pol .support-card .icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: #fdf3c8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4b204f;
+    border: 1px solid rgba(96, 47, 102, .18);
+}
+
+.pol .support-card .text {
+    flex: 1;
+    min-width: 220px;
+}
+
+.pol .support-card .actions {
+    display: flex;
+    gap: 10px;
+}
+
+.pol .support-card .btn {
+    padding: .48rem .8rem;
+    border-radius: 10px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.pol .support-card .btn-primary {
+    background: var(--brand);
+    color: #fff;
+    border: 1px solid rgba(96, 47, 102, .3);
+}
+
+.pol .support-card .btn-primary:hover {
+    filter: brightness(.96);
+}
+
+.pol .support-card .btn-outline {
+    background: #fff;
+    color: #4b204f;
+    border: 1px solid rgba(96, 47, 102, .28);
+}
+
+.pol .support-card .btn-outline:hover {
+    background: #fff7df;
+}
+
+/* Responsive */
+@media (max-width:992px) {
+    .pol .toc {
+        position: static;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pol .reveal {
+        transition: none !important;
+    }
+}
+
+/* --- FIX: capas del hero y sin blur --- */
+.pol .hero {
+    position: relative;
+    isolation: isolate;
+    /* crea contexto de apilado propio */
+}
+
+.pol .hero .container,
+.pol .hero .hero-inner,
+.pol .hero .topbar {
+    position: relative;
+    z-index: 2;
+    /* contenido POR ENCIMA */
+}
+
+.pol .hero-grad {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    /* fondo POR DEBAJO */
+    /* antes: backdrop-filter: blur(0.6px);  ==> quítalo */
+    backdrop-filter: none;
+    filter: none;
+    opacity: 1;
+}
+
+/* Topbar glassy en el hero */
+.pol .topbar {
+    position: absolute;
+    top: 12px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    z-index: 3;
+}
+
+.pol .topbar .brand {
+    font-weight: 900;
+    letter-spacing: .4px;
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255, 255, 255, .18);
+    border: 1px solid rgba(255, 255, 255, .35);
+    padding: .35rem .6rem;
+    border-radius: 999px;
+}
+
+.pol .topbar .back {
+    text-decoration: none;
+    font-weight: 800;
+    color: #fff;
+    background: rgba(255, 255, 255, .12);
+    border: 1px solid rgba(255, 255, 255, .28);
+    padding: .35rem .6rem;
+    border-radius: 10px;
+}
+
+.pol .topbar .back:hover {
+    background: rgba(255, 255, 255, .18);
+}
+
+/* Botón flotante “Home” */
+.pol .to-home {
+    position: fixed;
+    right: 18px;
+    bottom: 22px;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #602f66;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, .18);
+    z-index: 1000;
+    border: 1px solid rgba(96, 47, 102, .35);
+}
+
+.pol .to-home:hover {
+    filter: brightness(.95);
+}
+
+/* ===== HERO (suave, foto + duotono morado/dorado) ===== */
+.pol.hero {
+    position: relative;
+    isolation: isolate;
+    /* que las capas no afecten al texto */
+    min-height: 340px;
+    padding: 72px 0 56px;
+    color: #fff;
+    overflow: hidden;
+}
+
+/* Foto de fondo */
+.pol.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image: url("https://www.spoq.pe/wp-content/uploads/2024/04/MIEMBRO-JUNIOR-SPOQ-1.png");
+    background-size: cover;
+    background-position: center 30%;
+    /* foto ligeramente más neutra */
+    filter: saturate(.95) contrast(1.03) brightness(.92);
+    transform: scale(1.01);
+}
+
+/* Capa de color: duotono muy sutil + scrim para legibilidad */
+.pol.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+        /* scrim oscuro sutil para que el texto siempre se lea */
+        linear-gradient(180deg, rgba(36, 27, 62, 0.55), rgba(15, 13, 21, 0.35) 60%, rgba(16, 14, 22, .18)),
+        /* morado a la izquierda MUY suave */
+        radial-gradient(90vw 65vw at -15% 0%, rgba(96, 47, 102, .22), transparent 60%),
+        /* dorado a la derecha MUY suave */
+        radial-gradient(90vw 65vw at 115% 0%, rgba(244, 196, 48, .15), transparent 55%);
+    mix-blend-mode: multiply;
+}
+
+/* Contenido por encima de las capas */
+.pol.hero .hero-inner {
+    position: relative;
+    z-index: 2;
+}
+
+/* Título con subrayado simple (brand) */
+.pol.hero .title {
+    text-shadow: 0 2px 14px rgba(0, 0, 0, .28);
+}
+
+.pol.hero .title::after {
+    content: "";
+    display: block;
+    height: 4px;
+    width: min(220px, 52%);
+    margin-top: .5rem;
+    background: linear-gradient(90deg, #f4c430, #602f66);
+    border-radius: 999px;
+    opacity: .9;
+}
+
+/* Intensidad alternativa (por si lo quieres aún más calmado) */
+.pol.hero.hero--extra-subtle::after {
+    background:
+        linear-gradient(180deg, rgba(16, 14, 22, .48), rgba(16, 14, 22, .32) 60%, rgba(16, 14, 22, .16)),
+        radial-gradient(90vw 65vw at -15% 0%, rgba(96, 47, 102, .16), transparent 60%),
+        radial-gradient(90vw 65vw at 115% 0%, rgba(244, 196, 48, .10), transparent 55%);
+}
+
+/* Móvil */
+@media (max-width: 576px) {
+    .pol.hero {
+        min-height: 300px;
+        padding: 64px 0 44px;
+    }
+
+    .pol.hero::before {
+        background-position: center 35%;
+    }
+}
+
+/* ====== HERO base (con foto) ====== */
+.pol.hero {
+    position: relative;
+    isolation: isolate;
+    /* evita que filtros afecten al texto */
+    min-height: 340px;
+    padding: 72px 0 56px;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+/* Foto de fondo */
+.pol.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image: url("https://www.spoq.pe/wp-content/uploads/2024/04/MIEMBRO-JUNIOR-SPOQ-1.png");
+    background-size: cover;
+    background-position: center 30%;
+    filter: saturate(.95) contrast(1.03) brightness(.92);
+    transform: scale(1.01);
+}
+
+/* ====== LAVADO MORADO + MATIZ DORADO ====== */
+.pol.hero.hero--wash::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    /* capa morada (suave) + toque dorado y scrim de legibilidad */
+    background:
+        linear-gradient(180deg, rgba(96, 47, 102, .52), rgba(96, 47, 102, .46) 46%, rgba(96, 47, 102, .36)),
+        radial-gradient(85vw 65vw at -12% -8%, rgba(244, 196, 48, .14), transparent 60%),
+        linear-gradient(180deg, rgba(12, 12, 18, .36), rgba(12, 12, 18, .22) 60%, rgba(12, 12, 18, .12));
+    mix-blend-mode: multiply;
+    /* tiñe sin perder detalle */
+}
+
+/* Contenido arriba de todas las capas */
+.pol.hero .hero-inner {
+    position: relative;
+    z-index: 3;
+}
+
+.pol.hero .title {
+    text-shadow: 0 2px 14px rgba(0, 0, 0, .30);
+}
+
+/* ====== BRILLOS ====== */
+.pol.hero .spark {
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+    border-radius: 50%;
+    opacity: .35;
+    filter: blur(18px) saturate(110%);
+    mix-blend-mode: screen;
+    /* efecto luz real */
+    background:
+        radial-gradient(circle at 35% 35%,
+            rgba(255, 255, 255, .80) 0%,
+            rgba(244, 196, 48, .55) 18%,
+            rgba(255, 255, 255, .18) 42%,
+            rgba(255, 255, 255, 0) 68%);
+    animation: drift 12s ease-in-out infinite;
+}
+
+.pol.hero .spark.s1 {
+    width: 240px;
+    height: 240px;
+    top: 18%;
+    left: -50px;
+    animation-delay: .2s;
+}
+
+.pol.hero .spark.s2 {
+    width: 200px;
+    height: 200px;
+    top: 26%;
+    right: 8%;
+    animation-delay: .9s;
+}
+
+.pol.hero .spark.s3 {
+    width: 160px;
+    height: 160px;
+    bottom: 8%;
+    left: 20%;
+    animation-delay: 1.6s;
+}
+
+@keyframes drift {
+
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0)
+    }
+
+    50% {
+        transform: translate3d(8px, -10px, 0)
+    }
+}
+
+/* Barrido de luz diagonal muy sutil */
+.pol.hero .sheen {
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+    top: -30%;
+    left: -50%;
+    width: 58%;
+    height: 220%;
+    transform: rotate(10deg);
+    background: linear-gradient(120deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, .14) 36%,
+            rgba(255, 255, 255, 0) 72%);
+    mix-blend-mode: screen;
+    animation: sweep 8.5s ease-in-out infinite;
+}
+
+@keyframes sweep {
+    0% {
+        transform: translateX(-60%) rotate(10deg);
+        opacity: .25;
+    }
+
+    50% {
+        opacity: .40;
+    }
+
+    100% {
+        transform: translateX(165%) rotate(10deg);
+        opacity: .25;
+    }
+}
+
+/* Preferencia de reducir movimiento */
+@media (prefers-reduced-motion: reduce) {
+
+    .pol.hero .spark,
+    .pol.hero .sheen {
+        animation: none !important;
+    }
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+    .pol.hero {
+        min-height: 300px;
+        padding: 64px 0 44px;
+    }
+
+    .pol.hero::before {
+        background-position: center 36%;
+    }
+
+    .pol.hero .spark.s1 {
+        width: 160px;
+        height: 160px;
+        left: -40px;
+    }
+
+    .pol.hero .spark.s2 {
+        width: 140px;
+        height: 140px;
+        right: 0;
+    }
+
+    .pol.hero .spark.s3 {
+        display: none;
+    }
+}

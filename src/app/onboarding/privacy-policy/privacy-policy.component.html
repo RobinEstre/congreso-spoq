@@ -1,0 +1,258 @@
+<section class="pol">
+    <!-- HERO -->
+    <header class="hero pol hero--wash">
+        <div class="container hero-inner">
+            <div class="hero-inner">
+                <a href="/" class="text-light brand-pill">SPOQ</a>
+                <h1 class="title">Política de Privacidad</h1>
+                <p class="subtitle">
+                    Aplicable a la recopilación y tratamiento de datos a través de <b>www.spoq.pe</b>, formularios de
+                    inscripción y demás canales oficiales.
+                </p>
+                <div class="chips">
+                    <span class="chip"><i class="bi bi-building"></i> <b>Razón Social:</b> Sociedad Peruana de Oncología
+                        Quirúrgica</span>
+                    <span class="chip"><i class="bi bi-upc-scan"></i> <b>RUC:</b> 20511894345</span>
+                    <span class="chip soft"><i class="bi bi-calendar-check"></i> Última actualización: {{ lastUpdated
+                        }}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Brillos / luces (no interactúan) -->
+        <span class="spark s1" aria-hidden="true"></span>
+        <span class="spark s2" aria-hidden="true"></span>
+        <span class="spark s3" aria-hidden="true"></span>
+        <span class="sheen" aria-hidden="true"></span>
+    </header>
+
+    <!-- CONTENIDO -->
+    <div class="container content">
+        <div class="row g-4">
+            <!-- TOC -->
+            <aside class="col-lg-4">
+                <nav class="toc reveal">
+                    <div class="toc-title"><i class="bi bi-list-check"></i> Índice</div>
+                    <ul class="list-unstyled">
+                        <li *ngFor="let t of toc">
+                            <a [attr.href]="'#'+t.id" (click)="$event.preventDefault(); scrollTo(t.id)">{{ t.label
+                                }}</a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- MAIN · PRIVACIDAD (IDs s1..s14) -->
+            <div class="col-lg-8">
+
+                <!-- s1 -->
+                <section id="s1" class="card pol-card reveal">
+                    <h2>1) ¿Quién trata tus datos?</h2>
+                    <p>
+                        La Sociedad Peruana de Oncología Quirúrgica (<b>SPOQ</b>) es responsable del tratamiento de los
+                        datos personales recabados a través de <b>www.spoq.pe</b>, formularios de inscripción,
+                        comunicaciones
+                        y demás canales oficiales, conforme a la <b>Ley N.º 29733</b> y su Reglamento.
+                    </p>
+                    <div class="subcard">
+                        <div class="table-like">
+                            <div><span class="badge phase">Razón Social</span> SOCIEDAD PERUANA DE ONCOLOGIA QUIRURGICA
+                            </div>
+                            <div><span class="badge phase">RUC</span> 20511894345</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- s2 -->
+                <section id="s2" class="card pol-card reveal">
+                    <h2>2) ¿Qué datos recopilamos?</h2>
+                    <ul class="list-dot">
+                        <li><b>Identificación y contacto:</b> nombres y apellidos, documento, correo, teléfono,
+                            institución, cargo.</li>
+                        <li><b>Transaccionales/Académicos:</b> inscripciones, asistencia, evaluaciones,
+                            constancias/certificados.</li>
+                        <li><b>Facturación:</b> RUC/Razón social, domicilio fiscal, comprobantes.</li>
+                        <li><b>Navegación y cookies:</b> IP, identificadores de dispositivo, páginas visitadas, tiempos,
+                            referencias.</li>
+                        <li><b>Soporte y comunicaciones:</b> mensajes, solicitudes, reclamos, grabaciones incidentales
+                            con fines académicos/institucionales.</li>
+                    </ul>
+                    <div class="subcard">
+                        No solicitamos <b>datos sensibles</b> salvo necesidad estricta y con
+                        salvaguardas/consentimientos correspondientes.
+                    </div>
+                </section>
+
+                <!-- s3 -->
+                <section id="s3" class="card pol-card reveal">
+                    <h2>3) ¿Para qué usamos tus datos? (Finalidades)</h2>
+                    <ul class="list-arrow">
+                        <li><b>Gestión de servicios:</b> inscripciones, organización de eventos, emisión de
+                            constancias/certificados.</li>
+                        <li><b>Atención al usuario:</b> consultas, reclamos (Libro de Reclamaciones), soporte.</li>
+                        <li><b>Comunicaciones:</b> información sobre tu inscripción, recordatorios, cambios y encuestas.
+                        </li>
+                        <li><b>Obligaciones legales y tributarias:</b> emisión de comprobantes y atención de
+                            requerimientos.</li>
+                        <li><b>Seguridad y prevención de fraude:</b> controles de acceso y monitoreo.</li>
+                        <li><b>Marketing institucional (opcional):</b> novedades e invitaciones, con tu consentimiento.
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- s4 -->
+                <section id="s4" class="card pol-card reveal">
+                    <h2>4) ¿Cuál es la base legal?</h2>
+                    <ul class="list-dot">
+                        <li><b>Ejecución contractual o precontractual</b> (gestionar tu participación).</li>
+                        <li><b>Cumplimiento de obligaciones legales</b> (tributarias, de protección al consumidor,
+                            etc.).</li>
+                        <li><b>Consentimiento</b> (p. ej., marketing, uso de imagen, datos no indispensables).</li>
+                        <li><b>Interés legítimo</b> (seguridad del sitio, mejora del servicio, estadísticas agregadas
+                            sin identificación).</li>
+                    </ul>
+                    <div class="subcard">Puedes <b>revocar tu consentimiento</b> en cualquier momento, sin efectos
+                        retroactivos.</div>
+                </section>
+
+                <!-- s5 -->
+                <section id="s5" class="card pol-card reveal">
+                    <h2>5) ¿Con quién los compartimos?</h2>
+                    <div class="table-like">
+                        <div><span class="badge phase">Encargados</span> hosting, mailing, videoconferencia, emisión de
+                            certificados, mesa de ayuda, analítica.</div>
+                        <div><span class="badge phase">Certificadores/colegios</span> cuando aplique por requisitos del
+                            evento.</div>
+                        <div><span class="badge phase">Autoridades</span> entidades públicas que lo requieran conforme a
+                            ley.</div>
+                        <div class="muted">Exigimos obligaciones de confidencialidad y seguridad equivalentes.</div>
+                    </div>
+                </section>
+
+                <!-- s6 -->
+                <section id="s6" class="card pol-card reveal">
+                    <h2>6) Transferencias internacionales</h2>
+                    <p>
+                        Algunos proveedores tecnológicos pueden alojar o procesar datos fuera del Perú.
+                        SPOQ adopta <b>garantías contractuales</b> y medidas razonables de protección (p. ej., cláusulas
+                        contractuales y controles de seguridad).
+                    </p>
+                </section>
+
+                <!-- s7 -->
+                <section id="s7" class="card pol-card reveal">
+                    <h2>7) Plazos de conservación</h2>
+                    <ul class="list-dot">
+                        <li><b>Eventos/Inscripciones:</b> durante la relación y un período adicional razonable.</li>
+                        <li><b>Tributario:</b> por los <b>plazos legales</b> aplicables.</li>
+                        <li><b>Marketing:</b> hasta oposición o retiro del consentimiento.</li>
+                        <li><b>Seguridad/Navegación:</b> periodos breves necesarios para seguridad y analítica.</li>
+                    </ul>
+                    <div class="subcard">Cuando ya no sean necesarios, se <b>eliminan</b> o <b>anonimizan</b> de forma
+                        segura.</div>
+                </section>
+
+                <!-- s8 -->
+                <section id="s8" class="card pol-card reveal">
+                    <h2>8) Derechos ARCO y canales</h2>
+                    <ol class="stepper">
+                        <li><span class="n">1</span>
+                            <div>Derechos <b>ARCO</b>: información, acceso, actualización, inclusión, rectificación,
+                                cancelación y oposición.</div>
+                        </li>
+                        <li><span class="n">2</span>
+                            <div><b>Revocar</b> consentimiento en cualquier momento (sin efecto retroactivo).</div>
+                        </li>
+                        <li><span class="n">3</span>
+                            <div><b>Oposición</b> a marketing y tratamientos no indispensables.</div>
+                        </li>
+                        <li><span class="n">4</span>
+                            <div>Reclamo ante la <b>ANPD</b> (Ministerio de Justicia y Derechos Humanos), si
+                                corresponde.</div>
+                        </li>
+                    </ol>
+
+                    <div class="support-card mt-3">
+                        <div class="icon"><i class="bi bi-shield-check"></i></div>
+                        <div class="text"><b>Canales:</b> admin@spoq.pe</div>
+                        <div class="actions">
+                            <a class="btn btn-primary" href="mailto:admin@spoq.pe"><i class="bi bi-envelope-fill"></i>
+                                Escribir</a>
+                            <!-- <a class="btn btn-outline" target="_blank" rel="noopener"
+                                href="https://wa.me/51913274116"><i class="bi bi-whatsapp"></i> WhatsApp</a> -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- s9 -->
+                <section id="s9" class="card pol-card reveal">
+                    <h2>9) Seguridad de la información</h2>
+                    <p>
+                        Medidas técnicas, organizativas y legales (cifrado en tránsito, controles de acceso, copias de
+                        seguridad,
+                        políticas internas y acuerdos de confidencialidad). Ningún sistema es 100% infalible; trabajamos
+                        para
+                        <b>minimizar riesgos</b> y atender incidentes conforme a protocolos.
+                    </p>
+                </section>
+
+                <!-- s10 -->
+                <section id="s10" class="card pol-card reveal">
+                    <h2>10) Menores de edad</h2>
+                    <p>
+                        Servicios orientados principalmente a mayores de 18 años. Para menores, se solicitará el
+                        <b>consentimiento</b> del padre, madre o tutor legal.
+                    </p>
+                </section>
+
+                <!-- s11 -->
+                <section id="s11" class="card pol-card reveal">
+                    <h2>11) Cookies y tecnologías</h2>
+                    <p>
+                        Usamos cookies y tecnologías análogas para mejorar tu experiencia y medición de audiencias.
+                        Puedes gestionarlas desde tu navegador. Revisa nuestra Política de Cookies para más detalles.
+                    </p>
+                </section>
+
+                <!-- s12 -->
+                <section id="s12" class="card pol-card reveal">
+                    <h2>12) Libro de Reclamaciones</h2>
+                    <p>
+                        Si registras un reclamo en el Libro de Reclamaciones, trataremos tus datos para gestionar y
+                        responder
+                        dentro de los plazos de ley; se conservarán el tiempo necesario para acreditar la atención y
+                        cumplir
+                        obligaciones legales.
+                    </p>
+                </section>
+
+                <!-- s13 -->
+                <section id="s13" class="card pol-card reveal">
+                    <h2>13) Enlaces a terceros</h2>
+                    <p>
+                        El sitio puede contener enlaces a webs de terceros. SPOQ no controla sus prácticas de
+                        privacidad.
+                        Te recomendamos revisar las políticas de cada sitio que visites.
+                    </p>
+                </section>
+
+                <!-- s14 -->
+                <section id="s14" class="card pol-card reveal">
+                    <h2>14) Cambios a esta política</h2>
+                    <p>
+                        Podemos actualizar esta Política de Privacidad para reflejar cambios normativos u operativos.
+                        Publicaremos la fecha de última actualización y, cuando corresponda, informaremos por medios
+                        razonables.
+                        El uso del sitio tras dichos cambios implica su aceptación.
+                    </p>
+                    <div class="last-note">
+                        <i class="bi bi-info-circle"></i> Última actualización: {{ lastUpdated }}
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <a class="to-home" routerLink="/" aria-label="Volver al inicio">
+        <i class="bi bi-house-door-fill"></i>
+    </a>
+</section>

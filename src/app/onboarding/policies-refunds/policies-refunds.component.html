@@ -1,0 +1,265 @@
+<section class="pol">
+    <!-- HERO -->
+    <header class="hero pol hero--wash">
+        <div class="container hero-inner">
+            <div class="hero-inner">
+                <a href="/" class="text-light brand-pill">SPOQ</a>
+                <h1 class="title">Política de Cambios y Devoluciones</h1>
+                <p class="subtitle">Aplicable a inscripciones y pagos de congresos, cursos, talleres, seminarios y
+                    actividades académicas.</p>
+
+                <div class="chips">
+                    <span class="chip"><i class="bi bi-building"></i> <b>Razón Social:</b> Sociedad Peruana de Oncología
+                        Quirúrgica</span>
+                    <span class="chip"><i class="bi bi-upc-scan"></i> <b>RUC:</b> 20511894345</span>
+                    <span class="chip soft"><i class="bi bi-calendar-check"></i> Última actualización: {{ lastUpdated
+                        }}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Brillos / luces (no interactúan) -->
+        <span class="spark s1" aria-hidden="true"></span>
+        <span class="spark s2" aria-hidden="true"></span>
+        <span class="spark s3" aria-hidden="true"></span>
+        <span class="sheen" aria-hidden="true"></span>
+    </header>
+
+    <!-- CONTENIDO -->
+    <div class="container content">
+        <div class="row g-4">
+            <!-- TOC -->
+            <aside class="col-lg-4">
+                <nav class="toc reveal">
+                    <div class="toc-title"><i class="bi bi-list-check"></i> Índice</div>
+                    <ul class="list-unstyled">
+                        <li *ngFor="let t of toc">
+                            <a [attr.href]="'#'+t.id" (click)="$event.preventDefault(); scrollTo(t.id)">{{ t.label
+                                }}</a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- MAIN -->
+            <div class="col-lg-8">
+                <!-- 1 Alcance -->
+                <section id="alcance" class="card pol-card reveal">
+                    <h2>1) Alcance</h2>
+                    <p>Esta política aplica a inscripciones y pagos de congresos, cursos, talleres, seminarios y
+                        actividades académicas organizadas por la Sociedad Peruana de Oncología Quirúrgica (SPOQ), tanto
+                        en modalidad presencial como virtual. No aplica a servicios de terceros como transporte,
+                        hospedaje o turismo.</p>
+                </section>
+
+                <!-- 2 Definiciones -->
+                <section id="definiciones" class="card pol-card reveal">
+                    <h2>2) Definiciones</h2>
+                    <ul class="list-arrow">
+                        <li><b>Cambio:</b> modificación del titular de la inscripción, fecha/sede (si hubiera opciones),
+                            o modalidad (presencial ↔ virtual), sin devolución de dinero.</li>
+                        <li><b>Devolución (reembolso):</b> retorno del dinero abonado, sujeto a esta política.</li>
+                        <li><b>No show:</b> inasistencia del participante al evento, sin comunicación previa en los
+                            plazos establecidos.</li>
+                    </ul>
+                </section>
+
+                <!-- 3 Cambios -->
+                <section id="cambios" class="card pol-card reveal">
+                    <h2>3) Cambios (transferencia de cupo / modalidad)</h2>
+
+                    <div class="subcard">
+                        <h3>3.1 Cambio de titular (cesión de inscripción)</h3>
+                        <ul class="list-dot">
+                            <li>Se permite <b>1 cambio gratuito</b> hasta <b>72 horas hábiles</b> antes del inicio del
+                                evento.</li>
+                            <li>Cambios posteriores: sujetos a evaluación y <b>cargo administrativo de S/ 30</b>.</li>
+                            <li>Requiere correo a <a href="mailto:admin@spoq.pe">admin@spoq.pe</a> indicando: evento,
+                                código de inscripción, DNI del titular saliente y del entrante, correo y teléfono del
+                                nuevo participante.</li>
+                        </ul>
+                    </div>
+
+                    <div class="subcard">
+                        <h3>3.2 Cambio de modalidad (presencial ↔ virtual)</h3>
+                        <ul class="list-dot">
+                            <li>Posible hasta <b>5 días hábiles</b> antes del inicio, sin costo.</li>
+                            <li>Si la modalidad solicitada tiene diferencia de tarifa, se abonará el excedente;
+                                <b>no</b> se devuelven diferencias a favor por cambio a modalidad de menor costo.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="subcard">
+                        <h3>3.3 Reprogramación del cupo a otra edición/fecha</h3>
+                        <p>Sujeto a disponibilidad y condiciones académicas. Puede aplicarse <b>nota de crédito</b>
+                            válida por <b>6 meses</b>.</p>
+                    </div>
+                </section>
+
+                <!-- 4 Devoluciones -->
+                <section id="devoluciones" class="card pol-card reveal">
+                    <h2>4) Devoluciones (reembolsos)</h2>
+
+                    <div class="subcard">
+                        <h3>4.1 Plazos y porcentajes</h3>
+                        <div class="table-like">
+                            <div><span class="badge phase">Hasta 10 días hábiles antes</span> <b>90%</b> (retención 10%
+                                por costos administrativos y financieros)</div>
+                            <div><span class="badge phase">Entre 9 y 5 días hábiles</span> <b>70%</b></div>
+                            <div><span class="badge phase">Desde 4 días y no show</span> <b>No hay devolución</b></div>
+                            <div class="muted">* Las comisiones de pasarela/banco son no reembolsables en todos los
+                                casos.</div>
+                        </div>
+                    </div>
+
+                    <div class="subcard">
+                        <h3>4.2 Causas de fuerza mayor</h3>
+                        <p>Con sustento (salud grave, duelo, desastres), SPOQ podrá ofrecer <b>nota de crédito por el
+                                100%</b> para uso en otro evento dentro de <b>6 meses</b>, o aplicar los porcentajes del
+                            punto 4.1.</p>
+                    </div>
+
+                    <div class="subcard">
+                        <h3>4.3 Eventos virtuales / contenidos on-demand</h3>
+                        <ul class="list-dot">
+                            <li>Si el participante <b>accede al contenido</b> (plataforma, grabaciones, materiales),
+                                <b>no procede devolución</b>.
+                            </li>
+                            <li>Si no accedió y está dentro de los plazos del 4.1, se aplica la devolución indicada.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="subcard">
+                        <h3>4.4 Errores de pago y cobros duplicados</h3>
+                        <p>Con sustento, se devuelve el <b>100%</b> del monto indebido.</p>
+                    </div>
+                </section>
+
+                <!-- 5 Procedimiento (Stepper) -->
+                <section id="procedimiento" class="card pol-card reveal">
+                    <h2>5) Procedimiento para solicitar cambios o devoluciones</h2>
+                    <ol class="stepper">
+                        <li>
+                            <span class="n">1</span>
+                            <div>
+                                <b>Envía un correo</b> a <a href="mailto:admin@spoq.pe">admin@spoq.pe</a> con
+                                asunto:<br>
+                                “Cambio/Devolución – [Nombre del evento] – [Tu DNI]”.
+                            </div>
+                        </li>
+                        <li>
+                            <span class="n">2</span>
+                            <div>
+                                <b>Incluye</b>: nombres y apellidos, DNI/RUC, teléfono, correo, código de inscripción,
+                                comprobante de pago y motivo.
+                            </div>
+                        </li>
+                        <li>
+                            <span class="n">3</span>
+                            <div>
+                                <b>Respuesta inicial</b>: dentro de 48–72 horas hábiles.
+                            </div>
+                        </li>
+                        <li>
+                            <span class="n">4</span>
+                            <div>
+                                <b>Ejecución del reembolso</b>: hasta 15 días hábiles luego de aprobado, por el mismo
+                                medio de pago. Transferencias internacionales pueden requerir plazos y cargos
+                                adicionales.
+                            </div>
+                        </li>
+                    </ol>
+                </section>
+
+                <!-- 6 Certificados -->
+                <section id="certificados" class="card pol-card reveal">
+                    <h2>6) Certificados, constancias y correcciones</h2>
+                    <ul class="list-dot">
+                        <li>Emisión sujeta a criterios académicos (asistencia mínima, evaluaciones, etc.).</li>
+                        <li>Rectificación de nombres/datos: sin costo si se solicita dentro de <b>7 días</b> tras su
+                            emisión; luego, <b>S/ 20</b> por reemisión.</li>
+                    </ul>
+                </section>
+
+                <!-- 7 Descuentos -->
+                <section id="descuentos" class="card pol-card reveal">
+                    <h2>7) Descuentos y promociones</h2>
+                    <ul class="list-dot">
+                        <li>No son acumulables salvo que se indique lo contrario.</li>
+                        <li>Tarifa preferencial (estudiante, residente, miembro) puede requerir <b>acreditación</b>. De
+                            no presentarse, se cobrará la diferencia a tarifa regular.</li>
+                    </ul>
+                </section>
+
+                <!-- 8 Cancelación -->
+                <section id="cancelacion" class="card pol-card reveal">
+                    <h2>8) Cancelación o reprogramación por parte de SPOQ</h2>
+                    <ul class="list-dot">
+                        <li>Si SPOQ reprograma por motivos académicos/logísticos/fuerza mayor, tu inscripción se
+                            mantiene sin costo para la nueva fecha o podrás solicitar <b>nota de crédito</b>.</li>
+                        <li>Si SPOQ cancela definitivamente el evento, podrás optar por la <b>devolución total</b> del
+                            pago o nota de crédito por el 100%.</li>
+                    </ul>
+                </section>
+
+                <!-- 9 Operaciones -->
+                <section id="operaciones" class="card pol-card reveal">
+                    <h2>9) Operaciones y comprobantes</h2>
+                    <ul class="list-dot">
+                        <li>Los precios se expresan en <b>Soles (S/)</b> salvo indicación contraria.</li>
+                        <li>SPOQ emite comprobantes conforme a la normativa peruana.</li>
+                        <li>Las comisiones financieras y costos de transferencia internacional (si las hubiera) corren
+                            por cuenta del participante.</li>
+                    </ul>
+                </section>
+
+                <!-- 10 Viaje -->
+                <section id="viaje" class="card pol-card reveal">
+                    <h2>10) Responsabilidad sobre gastos de viaje</h2>
+                    <p>SPOQ no asume costos por pasajes, hospedaje u otros servicios de terceros. Se sugiere realizar
+                        <b>reservas flexibles</b> ante posibles reprogramaciones.
+                    </p>
+                </section>
+
+                <!-- 11 Libro -->
+                <section id="libro" class="card pol-card reveal">
+                    <h2>11) Libro de Reclamaciones</h2>
+                    <p>Puedes registrar quejas o reclamos en nuestro <b>Libro de Reclamaciones</b>. El uso de este
+                        mecanismo no limita tus derechos ante INDECOPI u otras vías legales.</p>
+                </section>
+
+                <!-- 12 Actualizaciones -->
+                <section id="actualizaciones" class="card pol-card reveal">
+                    <h2>12) Actualizaciones de esta política</h2>
+                    <p>SPOQ puede actualizar esta política. Mantendremos la <b>fecha de última actualización</b>
+                        visible. Los cambios serán aplicables desde su publicación.</p>
+                    <div class="last-note">
+                        <i class="bi bi-info-circle"></i> Última actualización: {{ lastUpdated }}
+                    </div>
+                </section>
+
+                <!-- CONTACT CARD -->
+                <div class="support-card reveal">
+                    <div class="icon"><i class="bi bi-life-preserver"></i></div>
+                    <div class="text">
+                        <h5>¿Necesitas ayuda con tu solicitud?</h5>
+                        <p>Escríbenos y te respondemos en 48–72 h hábiles.</p>
+                    </div>
+                    <div class="actions">
+                        <a class="btn btn-primary" href="mailto:admin@spoq.pe"><i class="bi bi-envelope"></i>
+                            admin@spoq.pe</a>
+                        <!-- <a class="btn btn-outline" href="https://wa.me/##########" target="_blank" rel="noopener">
+                            <i class="bi bi-whatsapp"></i> WhatsApp
+                        </a> -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <a class="to-home" routerLink="/" aria-label="Volver al inicio">
+        <i class="bi bi-house-door-fill"></i>
+    </a>
+</section>

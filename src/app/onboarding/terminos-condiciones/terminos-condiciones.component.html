@@ -1,0 +1,348 @@
+<section class="pol">
+    <!-- HERO -->
+    <header class="hero pol hero--wash">
+        <div class="container hero-inner">
+            <div class="hero-inner">
+                <a href="/" class="text-light brand-pill">SPOQ</a>
+                <h1 class="title">Términos y Condiciones de Uso</h1>
+                <p class="subtitle">
+                    Aplicable a la recopilación y tratamiento de datos a través de <b>www.spoq.pe</b>, formularios de
+                    inscripción y demás canales oficiales.
+                </p>
+                <div class="chips">
+                    <span class="chip"><i class="bi bi-building"></i> <b>Razón Social:</b> Sociedad Peruana de Oncología
+                        Quirúrgica</span>
+                    <span class="chip"><i class="bi bi-upc-scan"></i> <b>RUC:</b> 20511894345</span>
+                    <span class="chip soft"><i class="bi bi-calendar-check"></i> Última actualización: {{ lastUpdated
+                        }}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Brillos / luces (no interactúan) -->
+        <span class="spark s1" aria-hidden="true"></span>
+        <span class="spark s2" aria-hidden="true"></span>
+        <span class="spark s3" aria-hidden="true"></span>
+        <span class="sheen" aria-hidden="true"></span>
+    </header>
+
+    <!-- CONTENIDO -->
+    <div class="container content">
+        <div class="row g-4">
+            <!-- TOC -->
+            <aside class="col-lg-4">
+                <nav class="toc reveal">
+                    <div class="toc-title"><i class="bi bi-list-check"></i> Índice</div>
+                    <ul class="list-unstyled">
+                        <li *ngFor="let t of toc">
+                            <a [attr.href]="'#'+t.id" (click)="$event.preventDefault(); scrollTo(t.id)">{{ t.label
+                                }}</a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- MAIN · TÉRMINOS Y CONDICIONES (IDs s1..s21) -->
+            <div class="col-lg-8">
+
+                <!-- s1 -->
+                <section id="s1" class="card pol-card reveal">
+                    <h2>1) Aceptación de los Términos</h2>
+                    <p>
+                        Al acceder y utilizar <b>www.spoq.pe</b> (el “Sitio”), así como al inscribirte o participar en
+                        eventos, cursos,
+                        talleres y congresos organizados por la Sociedad Peruana de Oncología Quirúrgica (<b>SPOQ</b>),
+                        aceptas íntegramente estos Términos y Condiciones (“Términos”). Si no estás de acuerdo, debes
+                        abstenerte
+                        de usar el Sitio y/o los servicios.
+                    </p>
+                </section>
+
+                <!-- s2 -->
+                <section id="s2" class="card pol-card reveal">
+                    <h2>2) Naturaleza del Contenido (Descargo Médico)</h2>
+                    <p>
+                        La información publicada en el Sitio tiene fines informativos, educativos y académicos.
+                        <b>No sustituye</b> la consulta, diagnóstico ni tratamiento médico profesional.
+                    </p>
+                    <div class="subcard">
+                        Ante cualquier decisión relacionada con tu salud, consulta a un médico calificado.
+                    </div>
+                </section>
+
+                <!-- s3 -->
+                <section id="s3" class="card pol-card reveal">
+                    <h2>3) Definiciones</h2>
+                    <ul class="list-dot">
+                        <li><b>Usuario:</b> quien navega por el Sitio y/o utiliza los servicios.</li>
+                        <li><b>Participante:</b> usuario que se inscribe y/o asiste a eventos organizados por SPOQ.</li>
+                        <li><b>Servicios:</b> actividades brindadas por SPOQ (congresos, cursos, talleres,
+                            certificaciones).</li>
+                        <li><b>Contenido:</b> textos, imágenes, videos, documentos, logos y materiales disponibles en el
+                            Sitio.</li>
+                    </ul>
+                </section>
+
+                <!-- s4 -->
+                <section id="s4" class="card pol-card reveal">
+                    <h2>4) Elegibilidad y Uso del Sitio</h2>
+                    <p>El Sitio está dirigido a mayores de 18 años. Te comprometes a:</p>
+                    <ul class="list-arrow">
+                        <li>Usarlo de forma lícita, responsable y conforme a la normativa peruana vigente.</li>
+                        <li>Evitar actividades que afecten su funcionamiento o vulneren derechos de terceros.</li>
+                    </ul>
+                </section>
+
+                <!-- s5 -->
+                <section id="s5" class="card pol-card reveal">
+                    <h2>5) Registro, Cuenta y Seguridad</h2>
+                    <ul class="list-dot">
+                        <li>Proporcionar datos veraces, completos y actualizados.</li>
+                        <li>Proteger tus credenciales de acceso y asumir responsabilidad por el uso de tu cuenta.</li>
+                        <li>SPOQ puede suspender o cancelar cuentas ante uso indebido, fraude o incumplimiento de estos
+                            Términos.</li>
+                    </ul>
+                </section>
+
+                <!-- s6 -->
+                <section id="s6" class="card pol-card reveal">
+                    <h2>6) Inscripciones, Pagos y Comprobantes</h2>
+
+                    <div class="subcard">
+                        <h3>6.1 Inscripciones</h3>
+                        <p>Las plazas pueden ser limitadas. El cupo se confirma tras la verificación de pago por parte
+                            de SPOQ.</p>
+                    </div>
+
+                    <div class="subcard">
+                        <h3>6.2 Medios de pago</h3>
+                        <p>Se informan en el flujo de inscripción. Los precios se expresan en <b>Soles (S/)</b> salvo
+                            indicación expresa.</p>
+                    </div>
+
+                    <div class="subcard">
+                        <h3>6.3 Comprobantes</h3>
+                        <p>SPOQ emite comprobantes según normativa tributaria aplicable en el Perú.</p>
+                    </div>
+
+                    <div class="subcard">
+                        <h3>6.4 Errores de precio</h3>
+                        <p>Si se detecta un error evidente en la tarifa, SPOQ podrá anular o ajustar la operación,
+                            informándote y
+                            ofreciendo alternativas o reembolso si corresponde.</p>
+                    </div>
+
+                    <div class="subcard">
+                        Para reprogramaciones, cambios o reembolsos, rige la <b>Política de Cambios y Devoluciones</b>
+                        publicada en el Sitio.
+                    </div>
+                </section>
+
+                <!-- s7 -->
+                <section id="s7" class="card pol-card reveal">
+                    <h2>7) Modificaciones, Reprogramaciones y Cancelaciones de Eventos</h2>
+                    <p>
+                        SPOQ podrá modificar temario, ponentes, fechas, modalidad (presencial/virtual) o sede por
+                        motivos académicos,
+                        logísticos o de fuerza mayor, garantizando alternativas razonables (p. ej., reprogramación,
+                        acceso virtual,
+                        nota de crédito o devolución según la política vigente). Si un evento se cancela sin
+                        reprogramación, se
+                        ofrecerá <b>devolución total</b> de la inscripción.
+                    </p>
+                </section>
+
+                <!-- s8 -->
+                <section id="s8" class="card pol-card reveal">
+                    <h2>8) Certificaciones, Créditos y Constancias</h2>
+                    <p>
+                        Se emitirán según criterios académicos del evento (asistencia mínima, evaluaciones, etc.).
+                        Cuando un programa sea válido para recertificación del CMP u otra entidad, se precisará de forma
+                        expresa
+                        en la página del evento. SPOQ no garantiza reconocimientos adicionales distintos a los
+                        anunciados.
+                    </p>
+                </section>
+
+                <!-- s9 -->
+                <section id="s9" class="card pol-card reveal">
+                    <h2>9) Conducta del Usuario (Prohibiciones)</h2>
+                    <ul class="list-dot">
+                        <li>Suplantar identidades o falsear información.</li>
+                        <li>Interferir con el funcionamiento del Sitio (malware, scraping no autorizado, ataques).</li>
+                        <li>Reproducir, distribuir o explotar contenidos sin autorización.</li>
+                        <li>Usar marcas y signos distintivos de SPOQ sin permiso.</li>
+                    </ul>
+                </section>
+
+                <!-- s10 -->
+                <section id="s10" class="card pol-card reveal">
+                    <h2>10) Propiedad Intelectual</h2>
+                    <p>
+                        El Contenido del Sitio pertenece a SPOQ o sus legítimos titulares y está protegido por la
+                        legislación
+                        de derecho de autor y propiedad industrial aplicable en el Perú. Solo se permite un uso personal
+                        y
+                        no comercial.
+                    </p>
+                    <div class="subcard">Cualquier uso distinto requiere autorización previa y por escrito.</div>
+                </section>
+
+                <!-- s11 -->
+                <section id="s11" class="card pol-card reveal">
+                    <h2>11) Contenido de Terceros y Enlaces Externos</h2>
+                    <p>
+                        El Sitio puede enlazar a páginas de terceros. SPOQ no controla ni respalda su contenido,
+                        políticas o prácticas,
+                        ni se responsabiliza por daños derivados de su uso. Revisa siempre los términos y políticas de
+                        dichos terceros.
+                    </p>
+                </section>
+
+                <!-- s12 -->
+                <section id="s12" class="card pol-card reveal">
+                    <h2>12) Datos Personales y Privacidad</h2>
+                    <p>
+                        El tratamiento de datos personales se rige por la <b>Política de Privacidad</b> de SPOQ y la
+                        normativa aplicable
+                        (Ley N.° 29733 y su Reglamento). Al usar el Sitio o inscribirte en un evento, declaras haber
+                        leído y aceptado dicha política.
+                    </p>
+                </section>
+
+                <!-- s13 -->
+                <section id="s13" class="card pol-card reveal">
+                    <h2>13) Comunicaciones y Consentimientos</h2>
+                    <ul class="list-dot">
+                        <li>Aceptas recibir comunicaciones relacionadas con tus transacciones, inscripciones,
+                            recordatorios y aspectos académicos/administrativos.</li>
+                        <li>Puedes gestionar preferencias o darte de baja de comunicaciones promocionales, sin afectar
+                            mensajes transaccionales esenciales.</li>
+                    </ul>
+                </section>
+
+                <!-- s14 -->
+                <section id="s14" class="card pol-card reveal">
+                    <h2>14) Cookies y Tecnologías Similares</h2>
+                    <p>
+                        SPOQ puede utilizar cookies para mejorar tu experiencia, analizar el tráfico y personalizar
+                        contenidos.
+                        Encontrarás el detalle en la <b>Política de Cookies</b> (o en la Política de Privacidad si se
+                        integra allí).
+                    </p>
+                </section>
+
+                <!-- s15 -->
+                <section id="s15" class="card pol-card reveal">
+                    <h2>15) Responsabilidad y Garantías (Limitación)</h2>
+                    <p>
+                        El Sitio y los Servicios se brindan “tal cual”. En la medida permitida por ley, SPOQ no
+                        garantiza disponibilidad
+                        ininterrumpida ni ausencia de errores y no será responsable por daños indirectos, incidentales,
+                        consecuenciales
+                        o pérdida de datos/beneficios derivados del uso o imposibilidad de uso del Sitio o Servicios.
+                    </p>
+                    <div class="subcard">
+                        Nada de lo anterior limita la responsabilidad que no pueda excluirse conforme a la legislación
+                        peruana aplicable a consumidores.
+                    </div>
+                </section>
+
+                <!-- s16 -->
+                <section id="s16" class="card pol-card reveal">
+                    <h2>16) Fuerza Mayor</h2>
+                    <p>
+                        SPOQ no será responsable por incumplimientos causados por fuerza mayor o caso fortuito
+                        (p. ej., desastres naturales, conflictos sociales, actos de autoridad, fallas masivas de
+                        servicios, pandemias
+                        u otras circunstancias fuera de su control razonable).
+                    </p>
+                </section>
+
+                <!-- s17 -->
+                <section id="s17" class="card pol-card reveal">
+                    <h2>17) Libro de Reclamaciones</h2>
+                    <p>
+                        SPOQ pone a disposición el Libro de Reclamaciones (virtual) conforme a la Ley N.° 29571.
+                        Puedes registrar quejas o reclamos a través del formulario publicado en el Sitio. Su uso no
+                        limita tu derecho a acudir a INDECOPI u otras vías legales.
+                    </p>
+                </section>
+
+                <!-- s18 -->
+                <section id="s18" class="card pol-card reveal">
+                    <h2>18) Denuncias de Infracción de Derechos</h2>
+                    <p>Si consideras que algún contenido vulnera derechos de autor, marca u otros, escríbenos a <a
+                            href="mailto:admin@spoq.pe">admin@spoq.pe</a> con:</p>
+                    <ol class="stepper">
+                        <li><span class="n">1</span>
+                            <div>Identificación del titular del derecho.</div>
+                        </li>
+                        <li><span class="n">2</span>
+                            <div>Descripción del contenido presuntamente infractor y su URL.</div>
+                        </li>
+                        <li><span class="n">3</span>
+                            <div>Sustento de titularidad o representación.</div>
+                        </li>
+                    </ol>
+                    <div class="subcard">SPOQ evaluará la solicitud y actuará conforme a la normativa vigente.</div>
+                </section>
+
+                <!-- s19 -->
+                <section id="s19" class="card pol-card reveal">
+                    <h2>19) Cambios en los Términos</h2>
+                    <p>
+                        SPOQ podrá actualizar estos Términos en cualquier momento. Publicaremos la fecha de última
+                        actualización y, cuando corresponda,
+                        te notificaremos por canales razonables. El uso continuado del Sitio tras los cambios implica su
+                        aceptación.
+                    </p>
+                    <div class="last-note">
+                        <i class="bi bi-info-circle"></i> Última actualización: {{ lastUpdated }}
+                    </div>
+                </section>
+
+                <!-- s20 -->
+                <section id="s20" class="card pol-card reveal">
+                    <h2>20) Ley Aplicable y Jurisdicción</h2>
+                    <p>
+                        Estos Términos se rigen por las leyes de la República del Perú. Cualquier controversia será
+                        resuelta por los juzgados y tribunales de Lima,
+                        sin perjuicio de los mecanismos de protección al consumidor ante INDECOPI cuando corresponda.
+                    </p>
+                </section>
+
+                <!-- s21 -->
+                <section id="s21" class="card pol-card reveal">
+                    <h2>21) Integración Contractual</h2>
+                    <p>
+                        Estos Términos, junto con la <b>Política de Privacidad</b>, la <b>Política de Cambios y
+                            Devoluciones</b>
+                        y demás políticas publicadas en el Sitio, constituyen el acuerdo íntegro entre SPOQ y el Usuario
+                        respecto del uso del Sitio y los Servicios.
+                    </p>
+                </section>
+
+                <!-- CTA / soporte -->
+                <div class="support-card reveal">
+                    <div class="icon"><i class="bi bi-life-preserver"></i></div>
+                    <div class="text">
+                        <h5>¿Dudas sobre estos Términos?</h5>
+                        <p>Escríbenos y te respondemos en 48–72 h hábiles.</p>
+                    </div>
+                    <div class="actions">
+                        <a class="btn btn-primary" href="mailto:admin@spoq.pe"><i class="bi bi-envelope"></i>
+                            admin@spoq.pe</a>
+                        <!-- <a class="btn btn-outline" href="https://wa.me/51913274116" target="_blank" rel="noopener">
+                            <i class="bi bi-whatsapp"></i> WhatsApp
+                        </a> -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <a class="to-home" routerLink="/" aria-label="Volver al inicio">
+        <i class="bi bi-house-door-fill"></i>
+    </a>
+</section>

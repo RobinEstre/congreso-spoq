@@ -84,6 +84,35 @@ export class DefaultOnboardingComponent implements OnInit {
     { name: 'Rafael Jaller', spec: 'Medicina Nuclear, Hospital de la Santa Creu, España', img: 'https://www.spoq.pe/wp-content/uploads/2025/06/Rafael-Jaller.png' },
   ];
 
+  tiers = [
+    {
+      name: 'Estudiantes / Egresados',
+      price: 20,
+      badge: 'Virtual · LATAM',
+      bullets: ['🎥 En vivo', '🌎 Acceso LATAM', '📜 Certificado digital'],
+      desc: 'Ideal para estudiantes y egresados.',
+      note: '* Cupos limitados.'
+    },
+    {
+      name: 'Asistente virtual',
+      price: 100,
+      badge: 'Virtual · LATAM',
+      bullets: ['🎥 Acceso completo en vivo', '🌎 Soporte antes y durante', '📜 Material digital'],
+      desc: 'Plan completo y recomendado.',
+      cta: 'Inscribirme ahora',
+      note: '* Cupos limitados.',
+      featured: true
+    },
+    {
+      name: 'Residentes y Fellows',
+      price: 50,
+      badge: 'Virtual · LATAM',
+      bullets: ['🎥 En vivo', '🌎 Acceso LATAM', '📜 Material digital'],
+      desc: 'Tarifa preferente para residentes y fellows.',
+      note: '* Cupos limitados.'
+    }
+  ];
+
   faqs = [
     { q: '¿Cómo me inscribo?', a: 'Completa el formulario de esta página y te enviaremos el link de pago y confirmación al correo registrado.' },
     { q: '¿Cuál es el costo?', a: 'Matrícula única de USD 160 para toda Latinoamérica. Incluye acceso en vivo, grabaciones por 30 días y certificado digital.' },
@@ -123,13 +152,31 @@ export class DefaultOnboardingComponent implements OnInit {
     { flag: '🇵🇷', name: 'Puerto Rico' }
   ];
 
+  priceMap: Record<string, number> = { estudiante: 20, residente: 50, asistente: 100 };
+  studentFileName: string | null = null;
   contactForm = this.fb.group({
-    full_name: ['', [Validators.required, Validators.minLength(2)]],
+    // plan y precio
+    plan: ['asistente', Validators.required],
+
+    // identidad
+    first_name: ['', [Validators.required, Validators.minLength(2)]],
+    last_name: ['', [Validators.required, Validators.minLength(2)]],
+
+    // contacto
     email: ['', [Validators.required, Validators.email]],
+    celular: ['', [Validators.required, Validators.minLength(8)]],
     country: ['Perú', Validators.required],
     specialty: ['', Validators.required],
-    whatsapp: ['', [Validators.required, Validators.minLength(8)]],
-    message: ['Quiero inscribirme al cupo virtual.'],
+
+    // documento
+    doc_number: ['', [Validators.required, Validators.minLength(6)]],
+
+    // colegiaturas (opcionales)
+    cmp: [''],
+    rne: [''],
+
+    // adjunto (requerido si plan === estudiante)
+    student_proof: [null as File | null]
   });
 
   // En tu DefaultOnboardingComponent
@@ -160,13 +207,105 @@ export class DefaultOnboardingComponent implements OnInit {
     ]
   };
 
+  // Llama esto en ngOnInit para fijar validadores según plan por defecto
+  ngOnInit(): void {
+    this.onPlanChange();
+  }
+
+  planLabel(plan: 'estudiante' | 'residente' | 'asistente' | null | any): string {
+    const p = plan ?? 'asistente';
+    return p === 'estudiante' ? 'Estudiantes/Egresados'
+      : p === 'residente' ? 'Residentes/Fellows'
+        : 'Asistente virtual';
+  }
+
+  planPrice(plan: 'estudiante' | 'residente' | 'asistente' | null | any): number {
+    const p = plan ?? 'asistente';
+    return p === 'estudiante' ? 20 : p === 'residente' ? 50 : 100;
+  }
+
+  onStudentProof(evt: Event) {
+    const input = evt.target as HTMLInputElement;
+    const file = input?.files?.[0] ?? null;
+    this.contactForm.patchValue({ student_proof: file });
+  }
+
+  onPlanChange() {
+    const proof = this.contactForm.get('student_proof');
+    if (!proof) return;
+    if (this.contactForm.value.plan === 'estudiante') {
+      proof.setValidators([Validators.required]);
+    } else {
+      proof.clearValidators();
+      proof.setValue(null);
+      this.studentFileName = null;
+    }
+    proof.updateValueAndValidity();
+  }
+
+  onFile(ev: Event) {
+    const input = ev.target as HTMLInputElement;
+    const file = input.files && input.files[0];
+    if (file) {
+      this.contactForm.patchValue({ student_proof: file });
+      this.studentFileName = file.name;
+    }
+  }
+
+  invalid(ctrl: string) {
+    const c = this.contactForm.get(ctrl);
+    return c?.invalid && (c?.touched || this.submitted);
+  }
+
+  onSubmit() {
+    this.submitting = true;
+    if (this.contactForm.invalid) {
+      this.contactForm.markAllAsTouched();
+      this.submitting = false;
+      return;
+    }
+
+    // Construye payload limpio (incluye plan y precio)
+    const val = this.contactForm.value;
+    const payload = {
+      plan: val.plan,
+      price_usd: this.planPrice(val.plan as any),
+      first_name: val.first_name,
+      last_name: val.last_name,
+      email: val.email,
+      celular: val.celular,
+      country: val.country,
+      specialty: val.specialty,
+      // doc_type: val.doc_type,
+      doc_number: val.doc_number,
+      cmp: val.cmp || null,
+      rne: val.rne || null
+    };
+
+    // Si necesitas multipart (por el archivo):
+    const formData = new FormData();
+    Object.entries(payload).forEach(([k, v]) => formData.append(k, String(v ?? '')));
+    if (val.plan === 'estudiante' && val.student_proof) {
+      formData.append('student_proof', val.student_proof);
+    }
+
+    // TODO: enviar formData a tu backend
+    // this.service.postRegistro(formData).subscribe(...)
+
+    setTimeout(() => {
+      this.submitting = false;
+      this.submitted = true;
+      this.contactForm.reset({ plan: 'asistente', country: 'Perú' });
+      this.studentFileName = null;
+    }, 700);
+  }
+
   altFromUrl(u: string): string {
     try {
       const n = u.split('/').pop() || 'patrocinador';
       return 'Logo ' + n.replace(/\.(png|jpe?g|svg|webp)$/i, '').replace(/[-_]/g, ' ');
     } catch { return 'Logo de patrocinador'; }
   }
-
 
   ngAfterViewInit(): void {
     // Reveal on scroll
@@ -201,30 +340,13 @@ export class DefaultOnboardingComponent implements OnInit {
     else nav.classList.remove('nav-scrolled');
   }
 
-  onSubmit() {
-    this.submitting = true;
-    if (this.contactForm.invalid) {
-      this.contactForm.markAllAsTouched();
-      this.submitting = false;
-      return;
-    }
-    // TODO: integra tu backend Django / WhatsApp
-    setTimeout(() => {
-      this.submitting = false;
-      this.submitted = true;
-    }, 700);
-  }
-
-  ngOnInit(): void {
-    // this.spinner=true
-    this.formRegistro.controls.num_doc.disable();
-  }
-
-  selectTipoDoc(event: any) {
-    this.formRegistro.controls.num_doc.enable();
-    this.formRegistro.controls.num_doc.setValue('');
-    this.formRegistro.controls.nombres.setValue('');
-    this.formRegistro.controls.apellidos.setValue('');
+  selectTipo(event: any) {
+    this.contactForm.controls.doc_number.setValue('');
+    this.contactForm.controls.first_name.setValue('');
+    this.contactForm.controls.last_name.setValue('');
+    this.contactForm.controls.doc_number.enable();
+    this.contactForm.controls.first_name.enable();
+    this.contactForm.controls.last_name.enable();
   }
 
   getInfoByDni(event: any) {
@@ -232,16 +354,16 @@ export class DefaultOnboardingComponent implements OnInit {
       "tipo": "dni",
       "documento": event.target.value
     };
-    this.formRegistro.controls.nombres.setValue('');
-    this.formRegistro.controls.apellidos.setValue('');
-    if (event.target.value.length === 8 && this.formRegistro.controls.tipo_doc.value == 'Peruano') {
+    this.contactForm.controls.first_name.setValue('');
+    this.contactForm.controls.last_name.setValue('');
+    if (event.target.value.length === 8 && this.contactForm.controls.country.value == 'Perú') {
       this.spinner = true
-      this.formRegistro.controls.num_doc.disable();
+      this.contactForm.controls.doc_number.disable();
       this.service.getInfoDNI(dni_consulta.tipo, dni_consulta.documento).subscribe(dni_val => {
         this.spinner = false;
-        this.formRegistro.controls.num_doc.enable();
+        this.contactForm.controls.doc_number.enable();
         if (dni_val.data.estado === false) {
-          this.formRegistro.controls.num_doc.setValue('');
+          this.contactForm.controls.doc_number.setValue('');
           Swal.fire({
             position: "center",
             icon: "warning",
@@ -255,25 +377,14 @@ export class DefaultOnboardingComponent implements OnInit {
             "apellidoPaterno": dni_val.data.resultado['apellido_paterno'],
             "apellidoMaterno": dni_val.data.resultado['apellido_materno'],
           }
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "¡Consulta exitosa!",
-            showConfirmButton: false,
-            timer: 1000
-          });
-          this.formRegistro.controls.nombres.setValue(dni['nombres']);
-          this.formRegistro.controls.apellidos.setValue(dni['apellidoPaterno'] + ' ' + dni['apellidoMaterno']);
-          this.formRegistro.controls.nombres.disable();
-          this.formRegistro.controls.apellidos.disable();
-          this.formRegistro.controls['telefono'].enable();
-          this.formRegistro.controls['email'].enable();
-          this.formRegistro.controls['telefono'].setValue('');
-          this.formRegistro.controls['email'].setValue('');
+          this.contactForm.controls.first_name.setValue(dni['nombres']);
+          this.contactForm.controls.last_name.setValue(dni['apellidoPaterno'] + ' ' + dni['apellidoMaterno']);
+          this.contactForm.controls.first_name.disable();
+          this.contactForm.controls.last_name.disable();
         }
       }, error => {
-        this.formRegistro.controls.num_doc.setValue('');
-        this.formRegistro.controls.num_doc.enable();
+        this.contactForm.controls.doc_number.setValue('');
+        this.contactForm.controls.doc_number.enable();
         this.spinner = false;
         Swal.fire({
           position: "center",
@@ -285,13 +396,9 @@ export class DefaultOnboardingComponent implements OnInit {
       });
     }
     else {
-      this.formRegistro.controls.num_doc.enable();
-      this.formRegistro.controls.nombres.enable();
-      this.formRegistro.controls.apellidos.enable();
-      this.formRegistro.controls['telefono'].enable();
-      this.formRegistro.controls['email'].enable();
-      this.formRegistro.controls['email'].setValue('');
-      this.formRegistro.controls['telefono'].setValue('');
+      this.contactForm.controls.doc_number.enable();
+      this.contactForm.controls.first_name.enable();
+      this.contactForm.controls.last_name.enable();
     }
   }
 
