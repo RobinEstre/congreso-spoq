@@ -1828,16 +1828,85 @@ body {
 
 /* =================== STICKY CTA MOBILE =================== */
 .sticky-cta {
-    position: sticky;
+    position: fixed;
+    /* SIEMPRE visible */
     bottom: 0;
     left: 0;
     right: 0;
-    background: #ffffff;
+    z-index: 1040;
+    padding: .55rem 0 calc(.55rem + env(safe-area-inset-bottom));
+    background: rgba(255, 255, 255, .92);
+    backdrop-filter: saturate(160%) blur(10px);
     border-top: 1px solid rgba(0, 0, 0, .08);
-    padding: .55rem 0;
-    z-index: 1030;
     box-shadow: 0 -10px 24px rgba(0, 0, 0, .06);
+    transform: translateY(110%);
+    transition: transform .25s ease;
 }
+
+.sticky-cta.show {
+    transform: translateY(0);
+}
+
+.cta-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.cta-left {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: .95rem;
+}
+
+.cta-plan {
+    font-weight: 800;
+}
+
+.cta-dot {
+    opacity: .6;
+}
+
+.cta-price {
+    font-weight: 900;
+    color: #602f66;
+}
+
+.cta-note {
+    opacity: .7;
+}
+
+/* Botón con look SPOQ */
+.btn-cta {
+    border: none;
+    border-radius: 999px;
+    padding: .55rem 1rem;
+    font-weight: 800;
+    color: #fff;
+    background: linear-gradient(90deg, #602f66, #f4c430);
+    box-shadow: 0 10px 22px rgba(96, 47, 102, .25);
+}
+
+.btn-cta:active {
+    transform: translateY(1px);
+}
+
+/* Cuando el CTA existe, empujamos el contenido para que no lo tape */
+.has-mobile-cta {
+    padding-bottom: 72px;
+    /* ajusta si cambias alto del CTA */
+}
+
+/* En desktop no aplica; ya tienes d-lg-none en el HTML */
+@media (min-width: 992px) {
+    .sticky-cta {
+        display: none !important;
+    }
+}
+
 
 /* ===== FAQ estilizado (SPOQ) ===== */
 .faq-section {

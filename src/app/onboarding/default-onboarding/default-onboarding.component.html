@@ -815,7 +815,8 @@
                                     <label class="form-label">País</label>
                                     <div class="input-icon">
                                         <i class="bi bi-geo-alt"></i>
-                                        <select formControlName="country" class="form-select" (change)="selectTipo($event)">
+                                        <select formControlName="country" class="form-select"
+                                            (change)="selectTipo($event)">
                                             <option *ngFor="let c of countries" [value]="c">{{ c }}</option>
                                         </select>
                                     </div>
@@ -861,8 +862,10 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label" *ngIf="contactForm.value.plan!='estudiante'">Especialidad / Cargo</label>
-                                    <label class="form-label" *ngIf="contactForm.value.plan==='estudiante'">Carrera</label>
+                                    <label class="form-label" *ngIf="contactForm.value.plan!='estudiante'">Especialidad
+                                        / Cargo</label>
+                                    <label class="form-label"
+                                        *ngIf="contactForm.value.plan==='estudiante'">Carrera</label>
                                     <div class="input-icon">
                                         <i class="bi bi-briefcase"></i>
                                         <input type="text" formControlName="specialty" class="form-control"
@@ -1023,10 +1026,20 @@
     </div>
 
     <!-- STICKY CTA MOBILE -->
-    <div class="sticky-cta d-lg-none">
-        <div class="container d-flex justify-content-between align-items-center">
-            <strong>USD {{priceUSD}} · Certificado incluido</strong>
-            <button class="btn btn-primary btn-sm" (click)="scrollTo('contacto')">Inscribirme</button>
+    <div class="sticky-cta d-lg-none" [class.show]="scrolled">
+        <div class="container cta-row">
+            <div class="cta-left">
+                <strong class="cta-plan">{{ planLabel(contactForm?.value?.plan) }}</strong>
+                <span class="cta-dot">·</span>
+                <span class="cta-price">
+                    {{ planPrice(contactForm?.value?.plan) | currency:'USD':'symbol-narrow' }}
+                </span>
+                <small class="cta-note"> Certificado incluido</small>
+            </div>
+
+            <button class="btn btn-cta" (click)="scrollTo('contacto')" aria-label="Ir al formulario de inscripción">
+                Inscribirme
+            </button>
         </div>
     </div>
 

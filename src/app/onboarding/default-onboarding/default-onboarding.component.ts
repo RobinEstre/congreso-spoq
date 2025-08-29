@@ -155,31 +155,19 @@ export class DefaultOnboardingComponent implements OnInit {
   priceMap: Record<string, number> = { estudiante: 20, residente: 50, asistente: 100 };
   studentFileName: string | null = null;
   contactForm = this.fb.group({
-    // plan y precio
     plan: ['asistente', Validators.required],
-
-    // identidad
     first_name: ['', [Validators.required, Validators.minLength(2)]],
     last_name: ['', [Validators.required, Validators.minLength(2)]],
-
-    // contacto
     email: ['', [Validators.required, Validators.email]],
     celular: ['', [Validators.required, Validators.minLength(8)]],
     country: ['Perú', Validators.required],
     specialty: ['', Validators.required],
-
-    // documento
     doc_number: ['', [Validators.required, Validators.minLength(6)]],
-
-    // colegiaturas (opcionales)
     cmp: [''],
     rne: [''],
-
-    // adjunto (requerido si plan === estudiante)
     student_proof: [null as File | null]
   });
 
-  // En tu DefaultOnboardingComponent
   sponsors = {
     platinum: [
       'https://all-files-cepefodes.s3.us-east-1.amazonaws.com/SPOQ/medtronic.png'
@@ -206,10 +194,13 @@ export class DefaultOnboardingComponent implements OnInit {
       'https://all-files-cepefodes.s3.us-east-1.amazonaws.com/SPOQ/cayetano-heredia.png',
     ]
   };
+  scrolled = true;
 
-  // Llama esto en ngOnInit para fijar validadores según plan por defecto
   ngOnInit(): void {
     this.onPlanChange();
+    if (window.innerWidth < 992) {
+      document.body.classList.add('has-mobile-cta');
+    }
   }
 
   planLabel(plan: 'estudiante' | 'residente' | 'asistente' | null | any): string {
@@ -328,12 +319,17 @@ export class DefaultOnboardingComponent implements OnInit {
     }
   }
 
+  ngOnDestroy() {
+    document.body.classList.remove('has-mobile-cta');
+  }
+
   scrollTo(id: string) {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   @HostListener('window:scroll')
   onScroll() {
+    this.scrolled = window.scrollY > 200;
     const nav = document.querySelector('.navbar-bottom');
     if (!nav) return;
     if (window.scrollY > 60) nav.classList.add('nav-scrolled');
