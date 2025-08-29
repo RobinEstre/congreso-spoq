@@ -6,6 +6,11 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { GeneralService } from 'src/app/services/general.service';
 
 type Speaker = { name: string; spec: string; img: string };
+type ProgramDayId = 'd17' | 'd18' | 'd19';
+type ItemType = 'modulo' | 'live' | 'sponsor' | 'ceremony';
+interface ProgramItem { text: string; type: ItemType; }
+interface ProgramRoom { name: string; items: ProgramItem[]; }
+interface ProgramDay { id: ProgramDayId; date: string; rooms: ProgramRoom[]; }
 
 @Component({
   selector: 'app-default-onboarding',
@@ -30,15 +35,11 @@ export class DefaultOnboardingComponent implements OnInit {
     email: ['', [Validators.email, Validators.required]],
   });
 
-  tipo_doc: any = [{ name: 'Peruano' }, { name: 'Extranjero' }]; spinner: boolean = false
-  year = new Date().getFullYear();
-  priceUSD = 160;
-  submitting = false;
-  submitted = false;
+  tipo_doc: any = [{ name: 'Peruano' }, { name: 'Extranjero' }]; spinner: boolean = false; year = new Date().getFullYear();
+  priceUSD = 160; submitting = false; submitted = false;
 
-  // Hero images
   heroDesktop = 'https://images.alphacoders.com/131/thumb-1920-1311351.jpeg';
-  heroMobile = 'https://images.alphacoders.com/131/thumb-1920-1311351.jpeg'; // coloca aquí tu versión vertical
+  heroMobile = 'https://images.alphacoders.com/131/thumb-1920-1311351.jpeg';
 
   // Menú
   topMenu = [
@@ -52,22 +53,18 @@ export class DefaultOnboardingComponent implements OnInit {
     { label: 'FAQ', id: 'faq' },
     { label: 'Inscripción', id: 'contacto' },
   ];
-
-  // Contenido (tomado y adaptado a versión virtual LATAM)
   ejes = [
     'Conferencias magistrales (plenario)',
     'Cirugía de cabeza y cuello, abdomen, tórax y mamas',
     'Neurocirugía y uro-oncología',
     'Cirugía robótica y ginecología oncológica',
   ];
-
   talleres = [
     'Colocación de catéter port',
     'Intervencionismo mamario',
     'Avances en grapado y energía',
     'Curso intensivo para enfermería en oncología quirúrgica',
   ];
-
   speakers: Speaker[] = [
     { name: 'Alastair Thompson', spec: 'Mastología · Baylor St. Luke’s (EE. UU.)', img: 'https://www.spoq.pe/wp-content/uploads/2025/05/alastair-thompson.png' },
     { name: 'Rafael Arteta-Bulos', spec: 'Oncología urológica · Cleveland Clinic (EE. UU.)', img: 'https://www.spoq.pe/wp-content/uploads/2025/05/Rafael-Arteta-Bulos.png' },
@@ -83,7 +80,6 @@ export class DefaultOnboardingComponent implements OnInit {
     { name: 'Emmanuel González', spec: 'Patólogo en la Clínica Bíblica', img: 'https://www.spoq.pe/wp-content/uploads/2025/06/Emmanuel-Gonzalez.png' },
     { name: 'Rafael Jaller', spec: 'Medicina Nuclear, Hospital de la Santa Creu, España', img: 'https://www.spoq.pe/wp-content/uploads/2025/06/Rafael-Jaller.png' },
   ];
-
   tiers = [
     {
       name: 'Estudiantes / Egresados',
@@ -112,7 +108,6 @@ export class DefaultOnboardingComponent implements OnInit {
       note: '* Cupos limitados.'
     }
   ];
-
   faqs = [
     { q: '¿Cómo me inscribo?', a: 'Completa el formulario de esta página y te enviaremos el link de pago y confirmación al correo registrado.' },
     { q: '¿Cuál es el costo?', a: 'Matrícula única de USD 160 para toda Latinoamérica. Incluye acceso en vivo, grabaciones por 30 días y certificado digital.' },
@@ -196,10 +191,117 @@ export class DefaultOnboardingComponent implements OnInit {
   };
   scrolled = true;
 
+  programDays: ProgramDay[] = [
+    {
+      id: 'd17',
+      date: '17 de septiembre',
+      rooms: [
+        {
+          name: 'OLLANTAYTAMBO',
+          items: [
+            { text: 'Módulo: Cirugía plástica y reconstructiva', type: 'modulo' },
+            { text: 'Simposios patrocinados por la industria', type: 'sponsor' },
+            { text: 'Módulo: Cirugía de mamas', type: 'modulo' },
+            { text: 'Transmisión en vivo: Cirugía de mama', type: 'live' }
+          ]
+        },
+        {
+          name: 'PISAC',
+          items: [
+            { text: 'Módulo: Cirugía de tórax', type: 'modulo' },
+            { text: 'Módulo: Cirugía de abdomen', type: 'modulo' }
+          ]
+        }
+      ]
+    },
+    {
+      id: 'd18',
+      date: '18 de septiembre',
+      rooms: [
+        {
+          name: 'OLLANTAYTAMBO',
+          items: [
+            { text: 'Módulo: Neurocirugía', type: 'modulo' },
+            { text: 'Módulo: Cirugía robótica', type: 'modulo' },
+            { text: 'Módulo: Urología oncológica', type: 'modulo' }
+          ]
+        },
+        {
+          name: 'PISAC',
+          items: [
+            { text: 'Módulo: Cirugía de cabeza y cuello', type: 'modulo' },
+            { text: 'Módulo: Innovaciones regionales en tratamiento oncológico', type: 'modulo' },
+            { text: 'Módulo: Ginecología oncológica', type: 'modulo' }
+          ]
+        }
+      ]
+    },
+    {
+      id: 'd19',
+      date: '19 de septiembre',
+      rooms: [
+        {
+          name: 'OLLANTAYTAMBO',
+          items: [
+            { text: 'Módulo: Mesa Redonda – Redes de esperanza', type: 'modulo' },
+            { text: 'Módulo: Conferencias magistrales', type: 'modulo' },
+            { text: 'Ceremonia de clausura, premios y homenajes', type: 'ceremony' }
+          ]
+        },
+        {
+          name: 'PISAC',
+          items: [
+            { text: 'Módulo: Trabajos originales', type: 'modulo' },
+            { text: 'Módulo: Reporte de casos', type: 'modulo' },
+            { text: 'Módulo: Concurso de videos', type: 'modulo' }
+          ]
+        }
+      ]
+    }
+  ];
+  private dayById: Record<ProgramDayId, ProgramDay> = {} as any;
+
+  selectedDay: ProgramDayId = 'd17';
+  currentDay!: ProgramDay;
+
   ngOnInit(): void {
     this.onPlanChange();
     if (window.innerWidth < 992) {
       document.body.classList.add('has-mobile-cta');
+    }
+    this.programDays.forEach(d => this.dayById[d.id] = d);
+    this.currentDay = this.dayById[this.selectedDay];
+  }
+
+  ngAfterViewInit(): void {
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) (e.target as HTMLElement).classList.add('in');
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // Speakers autoplay
+    const track = document.querySelector('.track') as HTMLElement | null;
+    if (track) {
+      setInterval(() => {
+        track.scrollBy({ left: 320, behavior: 'smooth' });
+        if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 2) {
+          track.scrollTo({ left: 0, behavior: 'smooth' });
+        }
+      }, 4000);
+    }
+  }
+
+  ngOnDestroy() {
+    document.body.classList.remove('has-mobile-cta');
+  }
+
+  setDay(id: ProgramDayId) {
+    if (this.selectedDay !== id) {
+      this.selectedDay = id;
+      this.currentDay = this.dayById[id];
     }
   }
 
@@ -267,7 +369,6 @@ export class DefaultOnboardingComponent implements OnInit {
       celular: val.celular,
       country: val.country,
       specialty: val.specialty,
-      // doc_type: val.doc_type,
       doc_number: val.doc_number,
       cmp: val.cmp || null,
       rne: val.rne || null
@@ -296,31 +397,6 @@ export class DefaultOnboardingComponent implements OnInit {
       const n = u.split('/').pop() || 'patrocinador';
       return 'Logo ' + n.replace(/\.(png|jpe?g|svg|webp)$/i, '').replace(/[-_]/g, ' ');
     } catch { return 'Logo de patrocinador'; }
-  }
-
-  ngAfterViewInit(): void {
-    // Reveal on scroll
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) (e.target as HTMLElement).classList.add('in');
-      });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-    // Speakers autoplay
-    const track = document.querySelector('.track') as HTMLElement | null;
-    if (track) {
-      setInterval(() => {
-        track.scrollBy({ left: 320, behavior: 'smooth' });
-        if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 2) {
-          track.scrollTo({ left: 0, behavior: 'smooth' });
-        }
-      }, 4000);
-    }
-  }
-
-  ngOnDestroy() {
-    document.body.classList.remove('has-mobile-cta');
   }
 
   scrollTo(id: string) {
@@ -439,4 +515,8 @@ export class DefaultOnboardingComponent implements OnInit {
       }
     });
   }
+
+  // trackBy para evitar re-render innecesario
+  trackRoom = (_: number, r: ProgramRoom) => r.name;
+  trackItem = (_: number, i: ProgramItem) => i.text;
 }

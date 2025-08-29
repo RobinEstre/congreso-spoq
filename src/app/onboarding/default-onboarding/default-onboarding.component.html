@@ -266,6 +266,64 @@
         </div>
     </section>
 
+    <section id="programa" class="section pad program-summary">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row align-items-md-end justify-content-between mb-4 reveal">
+                <div>
+                    <h2 class="fw-bold h-underline">Programa en resumen</h2>
+                    <p class="text-muted m-0">Agenda compacta por día y salón.</p>
+                </div>
+                <a class="btn btn-outline-secondary mt-3 mt-md-0" href="/assets/programa.pdf" target="_blank"
+                    rel="noopener">
+                    <i class="bi bi-download"></i> Descargar programa (PDF)
+                </a>
+            </div>
+
+            <!-- Días -->
+            <div class="day-pills" role="tablist" aria-label="Seleccionar día">
+                <button *ngFor="let d of programDays" type="button" class="day-pill" role="tab"
+                    [class.active]="selectedDay === d.id" [attr.aria-selected]="selectedDay === d.id"
+                    (click)="setDay(d.id)">
+                    <span class="d-label">{{ d.date }}</span>
+                </button>
+            </div>
+
+            <!-- Contenido del día seleccionado -->
+            <ng-container *ngIf="currentDay as day">
+                <div class="row g-4 mt-2">
+                    <div class="col-lg-6" *ngFor="let room of day.rooms; trackBy: trackRoom">
+                        <article class="room-card">
+                            <header class="room-head">
+                                <span class="room-pill"><i class="bi bi-geo-alt"></i> Salón: {{ room.name }}</span>
+                            </header>
+                            <ul class="room-list">
+                                <li *ngFor="let it of room.items; trackBy: trackItem" [class.is-live]="it.type==='live'"
+                                    [class.is-sponsor]="it.type==='sponsor'">
+                                    <i class="bi" [ngClass]="{
+                   'bi-journal-text': it.type==='modulo',
+                   'bi-broadcast-pin': it.type==='live',
+                   'bi-stars': it.type==='sponsor',
+                   'bi-award': it.type==='ceremony'
+                 }"></i>
+                                    <div class="txt">
+                                        <div class="t-title">{{ it.text }}</div>
+                                        <div class="t-badges">
+                                            <span *ngIf="it.type==='live'" class="b b-live">En vivo</span>
+                                            <span *ngIf="it.type==='sponsor'" class="b b-sponsor">Patrocinado</span>
+                                            <span *ngIf="it.type==='modulo'" class="b b-mod">Módulo</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </article>
+                    </div>
+                </div>
+            </ng-container>
+
+            <p class="text-muted small mt-3 reveal">* Programa sujeto a ajustes académicos.</p>
+        </div>
+    </section>
+
     <!-- PONENTES (CARRUSEL) -->
     <section id="ponentes" class="section pad">
         <div class="container">
@@ -1092,10 +1150,10 @@
                         <li><i class="bi bi-envelope"></i>
                             <a href="mailto:info@spoq.pe" style="color: white;">info@spoq.pe</a>
                         </li>
-                        <li><i class="bi bi-whatsapp"></i>
+                        <!-- <li><i class="bi bi-whatsapp"></i>
                             <a href="https://wa.me/##########" target="_blank" rel="noopener"
                                 style="color: white;">WhatsApp</a>
-                        </li>
+                        </li> -->
                     </ul>
                     <a class="btn ft-cta mt-2" (click)="scrollTo('contacto')"><i class="bi bi-send-fill"></i>
                         Inscribirme</a>

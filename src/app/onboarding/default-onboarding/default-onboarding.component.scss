@@ -3191,3 +3191,137 @@ body {
         padding: 56px 0;
     }
 }
+
+/* ====== Programa en resumen ====== */
+.program-summary {
+    --brand: #602f66;
+    --gold: #f4c430;
+    background:
+        radial-gradient(60vw 40vw at -10% -10%, #efe7f3 0, rgba(239, 231, 243, 0) 60%),
+        linear-gradient(180deg, #fbfbff 0, #ffffff 100%);
+}
+
+/* Píldoras de día */
+.day-pills {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+}
+
+.day-pill {
+    border: 1px solid rgba(96, 47, 102, .16);
+    background: #fff;
+    border-radius: 999px;
+    padding: .5rem .9rem;
+    font-weight: 800;
+    white-space: nowrap;
+    transition: .2s ease;
+}
+
+.day-pill:hover {
+    border-color: rgba(96, 47, 102, .28);
+}
+
+.day-pill.active {
+    color: #fff;
+    background: linear-gradient(90deg, var(--brand), var(--gold));
+    border-color: transparent;
+    box-shadow: 0 6px 18px rgba(96, 47, 102, .20);
+}
+
+/* Card de salón */
+.room-card {
+    border: 1px solid rgba(96, 47, 102, .14);
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 14px 34px rgba(15, 18, 34, .06);
+    overflow: hidden;
+}
+
+.room-head {
+    padding: 12px 14px;
+    border-bottom: 1px solid rgba(96, 47, 102, .12);
+    background: linear-gradient(90deg, #faf5ff, #fff);
+}
+
+.room-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: .28rem .6rem;
+    border-radius: 999px;
+    font-weight: 800;
+    color: var(--brand);
+    background: rgba(96, 47, 102, .08);
+    border: 1px solid rgba(96, 47, 102, .20);
+}
+
+.room-list {
+    list-style: none;
+    margin: 0;
+    padding: 10px 12px 14px;
+}
+
+.room-list li {
+    display: grid;
+    grid-template-columns: 26px 1fr;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 6px;
+    border-radius: 10px;
+}
+
+.room-list li+li {
+    border-top: 1px dashed rgba(96, 47, 102, .14);
+}
+
+.room-list .bi {
+    color: var(--brand);
+    margin-top: 2px;
+}
+
+.room-list li.is-live .bi {
+    color: #c4372a;
+}
+
+.room-list li.is-sponsor .bi {
+    color: #b88900;
+}
+
+.t-title {
+    font-weight: 700;
+}
+
+.t-badges {
+    display: flex;
+    gap: 6px;
+    margin-top: 2px;
+}
+
+.b {
+    display: inline-block;
+    font-size: .75rem;
+    font-weight: 800;
+    padding: .16rem .45rem;
+    border-radius: 999px;
+    border: 1px solid transparent;
+}
+
+.b-live {
+    background: #ffe5e1;
+    color: #a42b1f;
+    border-color: #f7b5ad;
+}
+
+.b-sponsor {
+    background: #fff6d9;
+    color: #7a5700;
+    border-color: #f2d27a;
+}
+
+.b-mod {
+    background: #f6ecff;
+    color: #4f2454;
+    border-color: #dcc5e3;
+}
